@@ -16,32 +16,36 @@
   </head>
   <body>
     <div id="wrapper-checkout">
-        <div id="shopping-container">
-            <h1>I din varukorg</h1>
-        <ul>
-        
-        </ul>
-        </div>
+      <div id="shopping-container">
+        <h1>I din varukorg</h1>
+        <ul></ul>
+      </div>
       <div id="form-container">
-          <h1>Kassa</h1>
+        <h1>Kassa</h1>
+
         <form class="main-form needs-validation" novalidate action="#">
           <div class="row">
+           
             <div class="col-6">
               <label for="firstname" class="form-label"></label>
               <input
                 type="text"
                 class="form-control"
+                name="firstname"
                 id="firstname"
                 placeholder="Förnamn"
                 aria-label="First name" required
               />
             </div>
+            <div class="invalid-feedback">Vi saknar ditt efternamn!</div>
+  
             
             <div class="col-6">
               <label for="lastname" class="form-label"></label>
               <input
                 type="text"
                 class="form-control"
+                name="lastename"
                 id="lastname"
                 placeholder="Efternamn"
                 aria-label="Last name" required
@@ -52,7 +56,7 @@
               <label for="inputAddress" class="form-label"></label>
               <input
                 type="text"
-                class="form-control"
+                class="form-control" name="inputAddress"
                 id="inputAddress"
                 placeholder="Adress" required
               />
@@ -63,13 +67,13 @@
             </div>
             <div class="col-md-8">
               <label for="inputCity" class="form-label"></label>
-              <input type="text" class="form-control" id="inputCity" placeholder="Ort" required/>
+              <input type="text" name="inputZip"class="form-control" id="inputCity" placeholder="Ort" required/>
             </div>
         
             <div class="col-md-8">
-                <label for="inputEmail3" class="col-sm-2 col-form-label"></label>
+                <label for="inputEmail" class="col-sm-2 col-form-label"></label>
                 <div class="col-md-12">
-                  <input type="email" class="form-control" id="inputEmail3" placeholder="Mailadress" required>
+                  <input type="email" name="inpurEmail"class="form-control" id="inputEmail3" placeholder="Mailadress" required>
                 </div>
           </div>
           <div class="col-md-4">
@@ -78,7 +82,7 @@
             
           </div>
           <div class="col-auto">
-            <button type="submit" class="btn btn-primary" id="submit-button">Bekräfta</button>
+            <button type="submit"  class="btn btn-primary" id="submit-button">Bekräfta</button>
           </div>
         </form>
       </div>
@@ -88,5 +92,17 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+
+    <script>
+      var form = document.querySelector(".needs-validation");
+
+      form.addEventListener("submit", function (event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add("was-validated");
+      });
+    </script>
   </body>
 </html>
