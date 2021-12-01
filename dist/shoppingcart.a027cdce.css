@@ -1,0 +1,94 @@
+#wrapper {
+  margin: 0 auto;
+  width: 70%;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+#wrapper h1 {
+  text-align: center;
+}
+#wrapper ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+#wrapper #product {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 10%;
+  width: 90%;
+  box-shadow: 2px 2px 4px rgba(150, 147, 147, 0.541);
+  padding: 15px;
+}
+#wrapper #product #product-box-left {
+  width: 60%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+#wrapper #product #product-box-left #img {
+  width: 90px;
+  height: 90px;
+  background-color: goldenrod;
+}
+#wrapper #product #product-box-left #product-fact .product-name {
+  font-size: 15px;
+}
+#wrapper #product #product-box-left #product-fact .procuct-price {
+  font-size: 12px;
+}
+#wrapper #product #remove-box-right {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 30px;
+}
+#wrapper #product #remove-box-right span {
+  font-size: 13px;
+}
+#wrapper #product #remove-box-right input {
+  width: 10px;
+  font-size: 13px;
+}
+#wrapper #product #remove-box-right #remove {
+  font-size: 13px;
+  padding: 3px;
+}
+#wrapper #remove:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+#wrapper #total-container {
+  background-color: rgba(185, 183, 159, 0.178);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 10%;
+  padding: 15px;
+  width: 90%;
+  box-shadow: 2px 2px 4px rgba(150, 147, 147, 0.541);
+}
+#wrapper #total-box {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+#wrapper #total-box #total-price {
+  width: 90%;
+  padding: 15px;
+}
+#wrapper #button-box {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+/*# sourceMappingURL=shoppingcart.a027cdce.css.map */
