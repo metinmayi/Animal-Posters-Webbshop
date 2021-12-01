@@ -1,0 +1,30 @@
+@import "styles";
+
+@import "mixins";
+
+body {
+  margin: 0;
+  background-color: #e2e2e2;
+  font-size: 12pt;
+
+  @include menu;
+  @include footer;
+
+  //Mediaquery, min-width: 768px
+  @include pad;
+
+  //Mediaquery, min-width: 1024px
+  @include desktop;
+}
+#hero {
+  width: 100%;
+  height: 80vh;
+  background-image: url("../assets/hero-2.jpeg");
+  background-size: cover;
+  position: relative;
+  background-position: center;
+}
+
+#border {
+  margin-bottom: -10px;
+}

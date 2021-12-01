@@ -1,0 +1,260 @@
+@import "styles";
+
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&family=Monoton&display=swap");
+
+@mixin menu {
+  header {
+    width: 100%;
+    height: 8vh;
+    background-color: white;
+    position: absolute;
+
+    #desktop {
+      display: none;
+    }
+    #phone {
+      width: 95%;
+      height: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+
+      #hamburger-icon {
+        font-size: 1.7rem;
+        margin: 0;
+      }
+
+      h1 {
+        font-family: "Monoton", cursive;
+        font-size: 2.7rem;
+        display: inline;
+        margin: 0;
+        padding: 0;
+      }
+
+      #icons {
+        font-size: 1.7rem;
+        display: inline-flex;
+        flex-direction: row;
+        gap: 10px;
+      }
+
+      a {
+        color: #000;
+      }
+
+      #hamburger {
+        display: none;
+        width: 100vw;
+        height: 100vh;
+        background-color: $bgcolor;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 40;
+
+        #close {
+          font-size: 1.7rem;
+          right: 7px;
+          top: 7px;
+          position: absolute;
+        }
+
+        #nav-list {
+          padding: 0;
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          height: 60%;
+          justify-content: space-evenly;
+          align-items: center;
+
+          li {
+            list-style: none;
+            font-size: 3rem;
+            font-family: "Josefin Sans", sans-serif;
+
+            a {
+              text-decoration: none;
+            }
+          }
+          #heading {
+            font-family: "Monoton", cursive;
+          }
+        }
+
+        #border {
+          position: absolute;
+          bottom: 0;
+          margin-left: -1px;
+          #wave {
+            margin-bottom: -10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin footer {
+  footer {
+    width: 100%;
+    background-color: #945d5e;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    position: relative;
+    top: 0;
+
+    #footer-option {
+      width: 50%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+
+      #social-media {
+        display: inline-flex;
+        flex-direction: row;
+        gap: 10px;
+
+        .icon-wrapper {
+          width: 40px;
+          height: 40px;
+          display: inline-flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          background-color: #e2e2e2;
+          border-radius: 50%;
+
+          #icon {
+            font-size: 1.2rem;
+          }
+        }
+      }
+
+      ul {
+        padding: 0;
+        margin: 0 auto;
+        display: inline-flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 15px;
+
+        li {
+          display: inline;
+          font-size: 1.2rem;
+          font-family: "Josefin Sans", sans-serif;
+        }
+      }
+
+      p {
+        font-family: "Josefin Sans", sans-serif;
+      }
+    }
+  }
+}
+
+//Pad
+
+@mixin pad {
+  @media screen and (min-width: 768px) {
+    footer {
+      #footer-content {
+        flex-direction: row;
+      }
+
+      #footer-bottom {
+        width: 60%;
+
+        h1 {
+          font-size: 3rem;
+        }
+
+        #social-media {
+          gap: 30px;
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}
+
+//Desktop
+
+@mixin desktop {
+  @media screen and (min-width: 1024px) {
+    #hero {
+      height: 90vh;
+    }
+
+    header {
+      height: 12vh;
+      #phone {
+        display: none;
+      }
+      #desktop {
+        display: grid;
+        grid-template-rows: 1;
+        grid-template-columns: 4fr 1fr 4fr;
+        height: 100%;
+
+        ul {
+          margin: 0 auto;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly;
+          align-items: center;
+          width: 80%;
+
+          li {
+            list-style: none;
+            font-family: "Josefin Sans", sans-serif;
+
+            a {
+              text-decoration: none;
+              color: #000;
+              font-size: 1.2rem;
+            }
+          }
+        }
+
+        h1 {
+          font-family: "Monoton", cursive;
+          font-size: 3rem;
+          display: inline;
+          margin: 0;
+        }
+
+        #icons {
+          margin: 0 auto;
+          font-size: 1.4rem;
+          display: flex;
+          flex-direction: row;
+          gap: 60px;
+          align-items: center;
+        }
+
+        a {
+          color: #000;
+        }
+      }
+    }
+
+    footer {
+      #footer-option {
+        width: 30%;
+      }
+    }
+  }
+}
