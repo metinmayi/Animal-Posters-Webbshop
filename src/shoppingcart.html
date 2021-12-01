@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/src/scss/shoppingcart.scss" rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/3d16140dea.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Varukorg</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <h1>Varukorg</h1>
+      <ul>
+        <li>
+          <div id="product">
+            <div id="product-box-left">
+              <div id="img">
+                <img
+                  src="assets/pexels-anna-shvets-4587955.jpg"
+                  alt="katt med bröd i ansiktet"
+                />
+              </div>
+              <div id="product-fact">
+                <h4 class="product-name">New Poster hey hey</h4>
+                <p class="product-size">Storlek: 30 x 40cm</p>
+                <p class="product-price">139 sek</p>
+              </div>
+            </div>
+            <div id="remove-box-right">
+              <div id="quantity-box">
+                <span>Antal: </span><input id="quantity" value="1" />
+              </div>
+              <p id="remove"><i class="fas fa-trash-alt"></i> Ta bort</p>
+            </div>
+          </div>
+        </li>
+        <!-- Produt two -->
+        <li>
+          <div id="product">
+            <div id="product-box-left">
+              <div id="img">
+                <img
+                  src="assets/pexels-anna-shvets-4587955.jpg"
+                  alt="katt med bröd i ansiktet"
+                />
+              </div>
+              <div id="product-fact">
+                <h4 class="product-name">New Poster hey ho keep going</h4>
+                <p class="product-size">Storlek: 50 x 70cm</p>
+                <p class="product-price">139 sek</p>
+              </div>
+            </div>
+            <div id="remove-box-right">
+              <div id="quantity-box">
+                <span>Antal: </span><input id="quantity" value="1" />
+              </div>
+              <p id="remove"><i class="fas fa-trash-alt"></i> Ta bort</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <div id="total-container">
+        <div id="total-box">
+          <h3 id="total-price">Totalt 278 sek</h3>
+        </div>
+        <div id="button-box">
+          <button id="continue-shopping" type="button">Fortsätt handla</button>
+          <button id="to-checkout" type="button">Till kassan</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
