@@ -9,8 +9,12 @@ body {
 
   @include menu;
   @include footer;
-  @include desktop;
+
+  //Mediaquery, min-width: 768px
   @include pad;
+
+  //Mediaquery, min-width: 1024px
+  @include desktop;
 }
 #hero {
   width: 100%;
