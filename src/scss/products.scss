@@ -1,0 +1,134 @@
+@import "styles";
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	background-color: $bgcolor;
+	margin: 0;
+	padding: 0;
+	#mainProducts {
+		display: flex;
+		background-color: white;
+		flex-wrap: wrap;
+		width: 100%;
+		.product {
+			width: 48%;
+			height: 30vh;
+			margin: 0.5%; //remove later
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			box-shadow: $boxshadow;
+			position: relative;
+			.imgWrapper {
+				width: 80%;
+				height: 75%;
+				margin: 0;
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: contain;
+					object-position: top;
+				}
+			}
+			p {
+				margin-block-end: 0;
+				margin-block-start: 0;
+				font-family: $breadfont;
+			}
+			#productTitle {
+				font-family: $headfont;
+			}
+			.emptyheart {
+				position: absolute;
+				left: 2%;
+			}
+		}
+	}
+}
+
+//Ipad Media Query
+@media (min-width: 768px) {
+	body {
+		display: flex;
+		justify-content: center;
+		background-color: $bgcolor;
+		margin: 0;
+		padding: 0;
+		#mainProducts {
+			display: flex;
+			flex-wrap: wrap;
+			width: 95%;
+			.product {
+				width: 32%;
+				height: 50vh;
+				margin: 0.5%; //remove later
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				box-shadow: $boxshadow;
+				.imgWrapper {
+					width: 80%;
+					height: 75%;
+					margin: 0;
+				}
+				p {
+					margin-block-end: 0;
+					margin-block-start: 0;
+					font-family: $breadfont;
+				}
+				#productTitle {
+					font-family: $headfont;
+				}
+				.emptyheart {
+					left: 0;
+				}
+			}
+		}
+	}
+}
+
+//Desktop Media Query
+@media (min-width: 1024px) {
+	body {
+		display: flex;
+		justify-content: center;
+		background-color: $bgcolor;
+		margin: 0;
+		padding: 0;
+		#mainProducts {
+			display: flex;
+			flex-wrap: wrap;
+			width: 80%;
+			.product {
+				width: 24%;
+				height: 35vh;
+				margin: 0.5%; //remove later
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-direction: column;
+				box-shadow: $boxshadow;
+				.imgWrapper {
+					width: 80%;
+					height: 75%;
+					margin: 0;
+				}
+				p {
+					margin-block-end: 0;
+					margin-block-start: 0;
+					font-family: $breadfont;
+				}
+				#productTitle {
+					font-family: $headfont;
+				}
+			}
+		}
+	}
+}
