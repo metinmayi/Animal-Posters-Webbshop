@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "parcel": "parcel src/shoppingcart.html",
+	"parcelProducts": "parcel src/products.html",
     "cypress:open": "cypress open"
   },
   "keywords": [],
