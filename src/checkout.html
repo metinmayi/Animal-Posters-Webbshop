@@ -10,22 +10,55 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <script
+      src="https://kit.fontawesome.com/3d16140dea.js"
+      crossorigin="anonymous"
+    ></script>
     <link href="/src/scss/checkout.scss" rel="stylesheet" />
 
     <title>Kassa</title>
   </head>
   <body>
     <div id="wrapper-checkout">
+      <!-- HÄR BÖRJAR SHOPPING-CONTAINER -->
       <div id="shopping-container">
         <h1>I din varukorg</h1>
-        <ul></ul>
+        <ul>
+          <li>
+            <div id="product">
+              <div id="product-box-left">
+                <div id="img">
+                  <img
+                    src="assets/pexels-anna-shvets-4587955.jpg"
+                    alt="katt med bröd i ansiktet"
+                  />
+                </div>
+                <div id="product-fact">
+                  <h4 class="product-name">New Poster hey hey</h4>
+                  <p class="product-size">Storlek: 30 x 40cm</p>
+                  <p class="product-price">139 sek</p>
+                </div>
+              </div>
+              <div id="remove-box-right">
+                <div id="quantity-box">
+                  <span>Antal: </span><input id="quantity" value="1" />
+                </div>
+                <p id="remove"><i class="fas fa-trash-alt"></i> Ta bort</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+            <h3 id="total-price">Totalbelopp 278 sek</h3>       
       </div>
+
+      <!-- HÄR BÖRJAR FORM - CONTAINER -->
       <div id="form-container">
         <h1>Kassa</h1>
 
         <form class="main-form needs-validation" novalidate action="#">
           <div class="row">
-           
+
+           <!-- Förnamn -->
             <div class="col-6">
               <label for="firstname" class="form-label"></label>
               <input
@@ -36,10 +69,10 @@
                 placeholder="Förnamn"
                 aria-label="First name" required
               />
-            </div>
-            <div class="invalid-feedback">Vi saknar ditt efternamn!</div>
+              <div class="invalid-feedback">Skriv in ditt förnamn</div>
+            </div>    
   
-            
+            <!-- Efternamn -->
             <div class="col-6">
               <label for="lastname" class="form-label"></label>
               <input
@@ -50,8 +83,10 @@
                 placeholder="Efternamn"
                 aria-label="Last name" required
               />
+              <div class="invalid-feedback">Skriv in ditt efternamn</div>
             </div>
 
+            <!-- Adress -->
             <div class="col-12">
               <label for="inputAddress" class="form-label"></label>
               <input
@@ -60,30 +95,90 @@
                 id="inputAddress"
                 placeholder="Adress" required
               />
+              <div class="invalid-feedback">Skriv in din adress</div>
             </div>
+
+            <!-- Postnummer -->
             <div class="col-md-4">
               <label for="inputZip" class="form-label"></label>
               <input type="number" class="form-control" id="inputZip" placeholder="Postnummer" required/>
+              <div class="invalid-feedback">Skriv in ditt postnummer</div>
             </div>
+
+            <!-- Ort -->
             <div class="col-md-8">
               <label for="inputCity" class="form-label"></label>
               <input type="text" name="inputZip"class="form-control" id="inputCity" placeholder="Ort" required/>
+              <div class="invalid-feedback">Skriv in din bostadsort</div>
             </div>
         
+            <!-- Email -->
             <div class="col-md-8">
                 <label for="inputEmail" class="col-sm-2 col-form-label"></label>
                 <div class="col-md-12">
                   <input type="email" name="inpurEmail"class="form-control" id="inputEmail3" placeholder="Mailadress" required>
+                  <div class="invalid-feedback">Skriv in din mailadress</div>
                 </div>
-          </div>
+            </div>
+
+            <!-- Telefonnummer -->
           <div class="col-md-4">
             <label for="phonenumber"></label>
             <input type="number" name="phonenumber" id="phonenumber" class="form-control" placeholder="Telefonnummer" required>
-            
+            <div class="invalid-feedback">Skriv in ditt telefonnummer</div>       
           </div>
-          <div class="col-auto">
-            <button type="submit"  class="btn btn-primary" id="submit-button">Bekräfta</button>
-          </div>
+
+          <!-- HÄR BÖRJAR PAYMENT FORMULÄRET  -->
+          <div class="container py-5">
+            <div class="row mb-4">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-6">Kortbetalning</h1>
+                </div>
+            </div> 
+            <!-- End -->
+            <div class="row">
+                <div class="col-lg-6 mx-auto">
+                    <div class="card ">
+                        <div class="card-header">                       
+                            <!-- Credit card form content -->
+                            <div class="tab-content">
+                                <!-- credit card info-->
+                                <div id="credit-card" class="tab-pane fade show active pt-3">
+                                    
+                                        <div class="form-group"> <label for="username">
+                                                <h6>Kortinnehavare</h6>
+                                            </label> <input type="text" name="username" placeholder="Namn på kortinnehavare" required class="form-control "> </div>
+                                        <div class="form-group"> <label for="cardNumber">
+                                                <h6>Kortnummer</h6>
+                                            </label>
+                                            <div class="input-group"> <input type="text" name="cardNumber" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" placeholder="xxxx-xxxx-xxxx-xxxx" class="form-control " required>
+                                                <div class="input-group-append"> <span class="input-group-text text-muted"> <i class="fab fa-cc-visa mx-1"></i> <i class="fab fa-cc-mastercard mx-1"></i> <i class="fab fa-cc-amex mx-1"></i> </span> </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-8">
+                                                <div class="form-group"> <label><span class="hidden-xs">
+                                                            <h6>Giltlighetstid</h6>
+                                                        </span></label>
+                                                    <div class="input-group"> <input type="number" placeholder="MM" pattern="[0-9]{2}" name="" class="form-control" required> <input type="number" placeholder="YY" name="" pattern="[0-9]{2}" class="form-control" required> </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group mb-4"> <label data-toggle="tooltip" title="Three digit CV code on the back of your card">
+                                                        <h6>CVV <i class="fa fa-question-circle d-inline"></i></h6>
+                                                    </label> <input type="text" pattern="[0-9]{3}"  required class="form-control"> </div>
+                                            </div>
+                                        </div>
+                                </div>                           
+                            </div> <!-- End -->                                                                      
+                        </div>               
+                    </div>
+                </div>
+            </div>
+            <div class="col-auto">
+              <button  type="submit"   class="btn btn-primary"  id="submit-button">Bekräfta</button>
+            </div>  
+           <!-- HÄR SLUTAR PAYMENT FORMULÄRET  -->
         </form>
       </div>
     </div>
