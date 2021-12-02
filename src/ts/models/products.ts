@@ -1,4 +1,4 @@
-export let products = [
+export let products: Iproducts[] = [
 	{
 		name: "Cat Sandwich",
 		url: "https://i.ibb.co/1fKFDcB/image.jpg",
@@ -108,3 +108,15 @@ export let products = [
 		},
 	},
 ];
+
+interface Iprice {
+	s: number;
+	m: number;
+	l: number;
+}
+
+interface Iproducts {
+	name: string;
+	url: string;
+	price: Iprice;
+}
