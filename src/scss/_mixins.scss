@@ -2,6 +2,9 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&family=Monoton&display=swap");
 
+$headerfont: "Monoton", cursive;
+$firstpagefont: "Josefin Sans", sans-serif;
+
 @mixin menu {
   header {
     width: 100%;
@@ -28,7 +31,7 @@
       }
 
       h1 {
-        font-family: "Monoton", cursive;
+        font-family: $headerfont;
         font-size: 2.7rem;
         display: inline;
         margin: 0;
@@ -75,14 +78,14 @@
           li {
             list-style: none;
             font-size: 3rem;
-            font-family: "Josefin Sans", sans-serif;
+            font-family: $firstpagefont;
 
             a {
               text-decoration: none;
             }
           }
           #heading {
-            font-family: "Monoton", cursive;
+            font-family: $headerfont;
           }
         }
 
@@ -102,7 +105,7 @@
 @mixin footer {
   footer {
     width: 100%;
-    background-color: #945d5e;
+    background-color: $footercolor;
     display: flex;
     flex-direction: column;
     margin: 0;
@@ -154,12 +157,12 @@
         li {
           display: inline;
           font-size: 1.2rem;
-          font-family: "Josefin Sans", sans-serif;
+          font-family: $firstpagefont;
         }
       }
 
       p {
-        font-family: "Josefin Sans", sans-serif;
+        font-family: $firstpagefont;
       }
     }
   }
@@ -220,12 +223,15 @@
           li {
             list-style: none;
             font-family: "Josefin Sans", sans-serif;
-
             a {
               text-decoration: none;
               color: #000;
               font-size: 1.2rem;
             }
+          }
+
+          li:hover {
+            border-bottom: 1px solid black;
           }
         }
 
@@ -243,10 +249,15 @@
           flex-direction: row;
           gap: 60px;
           align-items: center;
+
+          a {
+            color: #000;
+            transition: transform 0.2s ease-out 100ms;
+          }
         }
 
-        a {
-          color: #000;
+        #icons a:hover {
+          transform: scale(1.2);
         }
       }
     }
@@ -254,6 +265,18 @@
     footer {
       #footer-option {
         width: 30%;
+
+        #social-media {
+          .icon-wrapper {
+            transition: transform 0.2s ease-out 100ms;
+          }
+        }
+        .icon-wrapper:hover {
+          transform: scale(1.2);
+        }
+        li:hover {
+          border-bottom: 1px solid black;
+        }
       }
     }
   }
