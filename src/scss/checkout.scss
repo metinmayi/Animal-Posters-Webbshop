@@ -8,7 +8,7 @@ body {
   margin: 0 auto;
   margin-top: 20px;
   width: 100%;
-  height: 600px;
+  height: 100%;
   background-color: $bgcolor;
   display: flex;
   flex-direction: column;
@@ -118,7 +118,7 @@ body {
 
   // FORM CONTAINER - TILL FORMULÄRET
   #form-container {
-    // margin: 0 auto;
+    margin-block-end: 30px;
     width: 90%;
     box-shadow: $boxshadow;
     padding: 15px;
@@ -141,6 +141,11 @@ body {
     padding: 20px;
     margin-bottom: 30px;
   }
+}
+
+.py-5 {
+  padding-top: 20px !important;
+  padding-bottom: 5px !important;
 }
 
 // Media - query pad 768 px
