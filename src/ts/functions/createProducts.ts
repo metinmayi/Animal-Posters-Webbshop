@@ -1,4 +1,5 @@
 import { products } from "../models/products";
+
 export function createProducts() {
 	products.forEach((e) => {
 		let newDiv: HTMLDivElement = document.createElement("div");
