@@ -1,7 +1,18 @@
 @import "styles";
+@import "mixins";
 
+@include menu;
+@include footer;
+
+//Mediaquery, min-width: 768px
+@include pad;
+
+//Mediaquery, min-width: 1024px
+@include desktop;
 body {
   background-color: $bgcolor;
+  margin: 0px;
+  padding: 0px;
 }
 
 #wrapper-checkout {

@@ -3,5 +3,5 @@ import { createProducts } from "./functions/createProducts";
 
 window.onload = function () {
   activateHamburgerMenu();
-  createProducts();
+  // createProducts();
 };
