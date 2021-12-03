@@ -1,13 +1,7 @@
+import { activateHamburgerMenu } from "./functions/activateHamburgerMenu";
+import { createProducts } from "./functions/createProducts";
+
 window.onload = function () {
   activateHamburgerMenu();
+  createProducts();
 };
-
-function activateHamburgerMenu() {
-  document.getElementById("hamburger-icon").addEventListener("click", () => {
-    document.getElementById("hamburger").style.display = "block";
-  });
-
-  document.getElementById("close").addEventListener("click", () => {
-    document.getElementById("hamburger").style.display = "none";
-  });
-}
