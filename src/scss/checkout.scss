@@ -16,6 +16,7 @@ body {
   gap: 20px;
   #shopping-container {
     width: 90%;
+    max-width: 1000px;
     height: 300px;
     box-shadow: $boxshadow;
     background-color: $bgbox;
