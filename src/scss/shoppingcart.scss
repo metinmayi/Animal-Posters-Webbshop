@@ -1,9 +1,24 @@
 @import "styles";
 
+@import "mixins";
 body {
   background-color: $bgcolor;
+  margin: 0;
+  padding: 0;
+  @include menu;
+  @include footer;
+
+  //Mediaquery, min-width: 768px
+  @include pad;
+
+  //Mediaquery, min-width: 1024px
+  @include desktop;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
 #wrapper {
   margin: 0 auto;
   width: 100%;
@@ -25,7 +40,7 @@ body {
     flex-direction: column;
   }
   #product {
-    background-color: $bgcolor;
+    background-color: $bgbox;
     margin: 0 auto;
     display: flex;
     align-items: center;
