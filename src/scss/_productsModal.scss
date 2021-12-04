@@ -1,0 +1,68 @@
+@import "styles";
+@mixin productModal {
+	#modalContainer {
+		height: 100vh;
+		width: 100vw;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: rgba(0, 0, 0, 0.8);
+		z-index: 10000;
+		position: fixed;
+		top: 0;
+		left: 0;
+		display: auto;
+
+		#modalBody {
+			height: 80%;
+			padding: 3%;
+			width: 90%;
+			background-color: white;
+			font-family: $breadfont;
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-start;
+			align-items: center;
+			border-radius: 1%;
+			border: 1px solid grey;
+
+			#closeProductsModal {
+				align-self: flex-start;
+				background: none;
+				font-family: $breadfont;
+				font-size: 1.6rem;
+				font-weight: bold;
+				color: black;
+				border: none;
+			}
+			#addProduct {
+				padding: 1% 5%;
+				background: rgb(241, 241, 241);
+				// color: white;
+				border: 1px solid;
+			}
+
+			#modalTitle {
+				font-family: $headfont;
+				font-size: 1.5rem;
+				margin-block-start: 0;
+			}
+			#amountLabel {
+				margin-top: 3%;
+			}
+
+			.modalWrapper {
+				//Only contains the IMG
+				width: 75%;
+				max-height: 75%;
+				// background: green;
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: contain;
+				}
+			}
+		}
+	}
+}
