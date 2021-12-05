@@ -12,6 +12,8 @@ $footercolor: #945d5e;
     height: 8vh;
     background-color: white;
     position: absolute;
+    top: 0;
+    z-index: 10;
 
     #desktop {
       display: none;
@@ -198,10 +200,6 @@ $footercolor: #945d5e;
 
 @mixin desktop {
   @media screen and (min-width: 1024px) {
-    #hero {
-      height: 90vh;
-    }
-
     header {
       height: 12vh;
       #phone {
