@@ -4,7 +4,7 @@ export function createProducts() {
 	const mainProducts: HTMLDivElement = document.getElementById(
 		"mainProducts"
 	) as HTMLDivElement;
-	products.forEach((e) => {
+	products.forEach((e, index) => {
 		let productsDiv: HTMLDivElement = document.createElement("div");
 		let imgWrapperDiv: HTMLDivElement = document.createElement("div");
 		let emptyHeartDiv: HTMLDivElement = document.createElement("div");
@@ -15,6 +15,7 @@ export function createProducts() {
 		productsDiv.className = "product";
 		imgWrapperDiv.className = "imgWrapper";
 		newImg.src = e.url;
+		newImg.id = `${index}`;
 		p1.innerHTML = e.name;
 		p1.id = "productTitle";
 		p2.innerHTML = `Fr. ${e.price.s}kr`;
@@ -25,5 +26,10 @@ export function createProducts() {
 		imgWrapperDiv.appendChild(newImg);
 		productsDiv.appendChild(p1);
 		productsDiv.appendChild(p2);
+
+		imgWrapperDiv.addEventListener("click", (e) => {
+			let newE: HTMLElement = e.target as HTMLElement;
+			console.log(newE.id);
+		});
 	});
 }
