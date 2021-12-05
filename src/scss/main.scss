@@ -23,7 +23,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 14vh;
+  padding-bottom: 15vh;
 }
 
 #border {
@@ -41,28 +41,28 @@ body {
   width: 100%;
 }
 
-#photo-container {
+#square-container {
   position: relative;
-  top: 14vh;
-  width: 60%;
+  top: 10vh;
+  width: 90%;
   margin: 0 auto;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap-reverse;
+  flex-direction: column;
+  flex-wrap: wrap;
   gap: 10px;
 
   .image-container {
     background-size: cover;
-    width: 48%;
+    width: 100%;
     position: relative;
     background-position: center;
     justify-content: space-evenly;
   }
 
   .quote {
-    width: 48%;
+    width: 100%;
     position: relative;
-    background-color: lightblue;
+    background-color: #b3dec1;
 
     .quote-text {
       position: absolute;
@@ -79,28 +79,17 @@ body {
         padding: 0;
         font-family: $breadfont;
         margin: 10px;
+        font-size: 1.4rem;
       }
     }
   }
 
   #one {
-    background-image: url(../assets/1.jpg);
+    background-image: url(../assets/7.jpg);
   }
 
   #two {
-    background-image: url(../assets/4.jpg);
-  }
-  #three {
     background-image: url(../assets/10.jpg);
-  }
-  #four {
-    background-image: url(../assets/3.jpg);
-  }
-  #five {
-    background-image: url(../assets/9.jpg);
-  }
-  #six {
-    background-image: url(../assets/5.jpg);
   }
 }
 
@@ -114,4 +103,38 @@ body {
   content: "";
   display: block;
   padding-bottom: 100%;
+}
+
+//Pad
+@media screen and (min-width: 768px) {
+  #square-container {
+    top: 10vh;
+    width: 90%;
+    flex-direction: row;
+
+    .image-container {
+      width: 48%;
+    }
+
+    .quote {
+      width: 48%;
+    }
+  }
+}
+
+//Desktop
+@media screen and (min-width: 1024px) {
+  #square-container {
+    top: 14vh;
+    width: 70%;
+    flex-direction: row;
+
+    .image-container {
+      width: 48%;
+    }
+
+    .quote {
+      width: 48%;
+    }
+  }
 }

@@ -1,3 +1,4 @@
+import { List } from "cypress/types/lodash";
 import { quotes } from "../models/quotes";
 
 export function randomQuotes() {
@@ -5,28 +6,29 @@ export function randomQuotes() {
     "Bought the Depressed Dog for Michelle and she loved it!",
     "Barack Obama"
   );
-  let q2 = new quotes("", "");
+  let q2 = new quotes("I'm loving it (these posters)", "Ronald McDonald");
   let q3 = new quotes(
-    "Herrrrrrrrrrrrrrrreguuuuuuuuddd, vilka otroliga posters!",
+    "Herrrrrrrrrrrreguuuuuddd, vilka otroliga posters!",
     "Björn Ranelid"
   );
   let q4 = new quotes(
     "These posters are even better than my paintings!",
     "Banksy"
   );
-  let q5 = new quotes("", "");
+  let q5 = new quotes(
+    "I have a dream: to have all of these posters everywhere in  my house!",
+    "Martin Luther King"
+  );
 
   let quotesList = [];
   quotesList.push(q1, q2, q3, q4, q5);
 
-  let randomFirstQuote = quotesList[Math.floor(Math.random() * 5)];
+  let randomFirstQuote: quotes = quotesList[Math.floor(Math.random() * 5)];
 
-  let randomSecondQuote = quotesList[Math.floor(Math.random() * 5)];
+  let randomSecondQuote: quotes = quotesList[Math.floor(Math.random() * 5)];
 
   if (randomFirstQuote === randomSecondQuote) {
     randomSecondQuote = quotesList[Math.floor(Math.random() * 5)];
-    console.log(randomSecondQuote);
-    console.log(randomFirstQuote);
 
     createRandomQuotes();
   } else {
