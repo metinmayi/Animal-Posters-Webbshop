@@ -141,9 +141,23 @@ body {
       font-size: 20px;
       text-align: center;
     }
+    .form-check {
+      margin-top: 12px;
+      #checkbutton {
+        font-size: 11px;
+        font-family: $breadfont;
+      }
+    }
 
     #submit-button {
-      margin-top: 15px;
+      margin: 15px;
+      float: right;
+      font-size: 12px;
+      background-color: #4d5358;
+      color: $bgcolor;
+      border: 0px;
+      padding: 6px;
+      box-shadow: 2px 2px 4px rgba(150, 147, 147, 0.541);
     }
   }
 
@@ -157,7 +171,7 @@ body {
 
 .py-5 {
   padding-top: 20px !important;
-  padding-bottom: 10px !important;
+  padding-bottom: 5px !important;
 }
 
 // Media - query pad 768 px
