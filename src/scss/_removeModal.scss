@@ -9,8 +9,8 @@
     top: 0;
     left: 0;
     z-index: 20;
-    opacity: 1; // sätt till 0
-    pointer-events: all; // när jag är klar sätt till none
+    opacity: 0; // sätt till 0
+    pointer-events: none; // när jag är klar sätt till none
   }
   #remove-modal {
     width: 75%;
