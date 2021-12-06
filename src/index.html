@@ -4,19 +4,39 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link rel="stylesheet" href="./scss/main.scss" />
     <script
       src="https://kit.fontawesome.com/ff901abd43.js"
       crossorigin="anonymous"
     ></script>
 
-    <script src="./ts/main.ts" defer type="module"></script>
+    <script src="./ts/main.ts" type="module"></script>
     <title>No idea Shop</title>
   </head>
   <body>
-    <div id="hero">
-      <header>
-        <nav id="desktop">
+    <header>
+      <nav id="desktop">
+        <ul id="nav-list">
+          <li><a href="index.html">Hem</a></li>
+          <li><a href="products.html">Produkter</a></li>
+          <li><a href="#">Kontakt</a></li>
+        </ul>
+        <h1>Posters</h1>
+        <div id="icons">
+          <a href="#"><i class="far fa-heart"></i></a>
+          <a href="#"><i class="fas fa-shopping-cart"></i></a>
+        </div>
+      </nav>
+      <nav id="phone">
+        <i class="fas fa-bars" id="hamburger-icon"></i>
+        <h1>Posters</h1>
+        <div id="icons">
+          <a href="#"><i class="far fa-heart"></i></a>
+          <a href="#"><i class="fas fa-shopping-cart"></i></a>
+        </div>
+        <div id="hamburger">
+          <i class="fas fa-times" id="close"></i>
           <ul id="nav-list">
             <li><a href="index.html">Hem</a></li>
             <li><a href="products.html">Produkter</a></li>
@@ -58,13 +78,24 @@
                 ></path>
               </svg>
 
-              <svg width="101vw" height="20vh">
-                <rect width="100%" height="100%" fill="#945D5E" />
-              </svg>
-            </div>
+            <svg width="101vw" height="20vh">
+              <rect width="100%" height="100%" fill="#945D5E" />
+            </svg>
           </div>
-        </nav>
-      </header>
+        </div>
+      </nav>
+    </header>
+    <div id="hero">
+      <div id="square-container">
+        <div class="image-container" id="one"></div>
+        <div class="quote">
+          <div class="quote-text" id="first-quote"></div>
+        </div>
+        <div class="quote">
+          <div class="quote-text" id="second-quote"></div>
+        </div>
+        <div class="image-container" id="two"></div>
+      </div>
     </div>
     <div id="footer-container">
       <div id="border">
