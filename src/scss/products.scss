@@ -22,10 +22,40 @@ body {
 
   //Mediaquery, min-width: 1024px
   @include desktop;
+  #hero {
+    margin-top: 8vh;
+    width: 100%;
+    height: 60vh;
+    background-image: url("../assets/colors.jpeg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    #hero-text {
+      width: 80%;
+      height: 50%;
+      background-color: #fff;
+      text-align: center;
+      padding: 2% 5%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+
+      h1 {
+        margin: 0;
+        font-family: $headerfont;
+      }
+
+      p {
+        font-family: $breadfont;
+      }
+    }
+  }
   #mainProducts {
     margin: 0 auto;
-    margin-top: 10vh;
+    margin-top: 2vh;
     display: flex;
     // background-color: white;
     flex-wrap: wrap;
@@ -68,15 +98,18 @@ body {
       }
     }
   }
+
   #checkout-dropdown {
+    display: none;
     height: 100vh;
-    width: 40%;
+    width: 100%;
     position: fixed;
     top: 0;
     right: 0;
     background-color: #fff;
     z-index: 10;
-    border-left: 1px solid darkgrey;
+
+    //Styling av scrollbar
 
     /* width */
     ::-webkit-scrollbar {
@@ -99,6 +132,7 @@ body {
     ::-webkit-scrollbar-thumb:hover {
       background: #555;
     }
+
     #checkout-header {
       background-color: $footercolor;
       width: 100%;
@@ -184,6 +218,7 @@ body {
           padding: 10px;
           border: 1px solid $bgcolor;
           border-radius: 5px;
+          font-family: $headfont;
 
           label {
             display: inline !important;
@@ -249,6 +284,7 @@ body {
         text-transform: uppercase;
         border-radius: 5px;
         border: none;
+        color: #fff;
       }
     }
   }
@@ -270,6 +306,14 @@ body {
         }
       }
     }
+    #checkout-dropdown {
+      width: 60%;
+    }
+    #hero {
+      #hero-text {
+        width: 60%;
+      }
+    }
   }
 }
 
@@ -283,6 +327,15 @@ body {
       .product {
         width: 24%;
         height: 35vh;
+      }
+    }
+    #checkout-dropdown {
+      width: 50%;
+    }
+    #hero {
+      margin-top: 12vh;
+      #hero-text {
+        width: 40%;
       }
     }
   }
