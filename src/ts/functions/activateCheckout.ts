@@ -4,6 +4,7 @@ export function activateCheckout() {
     document.getElementById("mainProducts").style.opacity = "20%";
     document.getElementById("header-wrapper").style.opacity = "20%";
     document.getElementById("footer-container").style.opacity = "20%";
+    document.getElementById("hero").style.opacity = "20%";
   });
 
   document.getElementById("close-checkout").addEventListener("click", () => {
@@ -11,5 +12,6 @@ export function activateCheckout() {
     document.getElementById("mainProducts").style.opacity = "100%";
     document.getElementById("header-wrapper").style.opacity = "100%";
     document.getElementById("footer-container").style.opacity = "100%";
+    document.getElementById("hero").style.opacity = "100%";
   });
 }

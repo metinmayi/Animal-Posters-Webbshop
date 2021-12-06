@@ -22,6 +22,7 @@ body {
 
   //Mediaquery, min-width: 1024px
   @include desktop;
+
   #hero {
     margin-top: 8vh;
     width: 100%;
@@ -57,20 +58,23 @@ body {
     margin: 0 auto;
     margin-top: 2vh;
     display: flex;
-    // background-color: white;
     flex-wrap: wrap;
     width: 100%;
+    gap: 0.5%;
+    justify-content: space-evenly;
+
     .product {
       background-color: $bgbox;
       width: 48%;
-      height: 30vh;
-      margin: 0.5%; //remove later
+      height: 32vh;
+      //   margin: 0.5%; //remove later
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
       box-shadow: $boxshadow;
-      //   position: relative;
+      margin-top: 3%;
+
       .imgWrapper {
         width: 80%;
         height: 75%;
@@ -82,6 +86,7 @@ body {
           object-position: top;
         }
       }
+
       p {
         margin-block-end: 0;
         margin-block-start: 0;
@@ -89,6 +94,7 @@ body {
       }
       #productTitle {
         font-family: $headfont;
+        padding-top: 2%;
       }
       .emptyheart {
         position: absolute;
@@ -178,7 +184,7 @@ body {
         margin-bottom: 10px;
 
         .image-wrapper {
-          width: 18%;
+          width: 15%;
           position: relative;
           background-color: #000;
           background-image: url("../assets/6.jpg");
@@ -279,7 +285,7 @@ body {
       button {
         width: 80%;
         background-color: $footercolor;
-        height: 20%;
+        height: 25%;
         font-family: $breadfont;
         text-transform: uppercase;
         border-radius: 5px;
@@ -322,7 +328,7 @@ body {
   body {
     #mainProducts {
       width: 80%;
-      margin-top: 14vh;
+      margin-top: 2vh;
 
       .product {
         width: 24%;
