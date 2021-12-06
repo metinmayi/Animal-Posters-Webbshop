@@ -10,13 +10,12 @@
     left: 0;
     z-index: 20;
     opacity: 0; // sätt till 0
-    pointer-events: none; // när jag är klar sätt till none
+    pointer-events: all; // när jag är klar sätt till none
   }
   #remove-modal {
     width: 75%;
     border-radius: 5px;
     border: 1px solid grey;
-    // height: 52%;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -71,10 +70,10 @@
     }
   }
 
-  //   .show-container-motal {
-  //     opacity: 1 !important;
-  //     pointer-events: all !important;
-  //   }
+  .show-container-modal {
+    opacity: 1 !important;
+    pointer-events: all !important;
+  }
 }
 
 @mixin removeModal-pad {
