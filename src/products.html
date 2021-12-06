@@ -17,19 +17,22 @@
 			<div id="modalBody">
 				<button id="closeProductsModal">X</button>
 				<div class="modalWrapper">
-					<img src="assets/0.jpg" />
+					<img alt="IMG" src="./assets/0.jpg" />
 				</div>
 				<p id="modalTitle">Kisse Katt Bröd Hatt</p>
+				<label for="productModalSize" id="productModalSizeLabel"
+					>Storlek:</label
+				>
+				<label for="productModalAmount" id="productModalAmountLabel"
+					>Antal:</label
+				>
 
-				<label for="size" id="sizeLabel">Storlek:</label>
-				<select id="size">
+				<select id="productModalSize">
 					<option value="s">S</option>
 					<option value="m">M</option>
 					<option value="l">L</option>
 				</select>
-				<label for="amount" id="amountLabel">Antal:</label>
-				<input type="number" id="amount" />
-
+				<input type="number" id="productModalAmount" />
 				<p id="modalTotal">Totalbelopp: 1000kr</p>
 				<button id="addProduct">Lägg till</button>
 			</div>
