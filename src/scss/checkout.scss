@@ -1,5 +1,6 @@
 @import "styles";
 @import "mixins";
+@import "removeModal";
 
 @include menu;
 @include footer;
@@ -9,7 +10,9 @@
 
 //Mediaquery, min-width: 1024px
 @include desktop;
+
 body {
+  @include removeModal;
   background-color: $bgcolor;
   margin: 0px;
   padding: 0px;
@@ -17,7 +20,7 @@ body {
 
 #wrapper-checkout {
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 120px;
   width: 100%;
   height: 100%;
   background-color: $bgcolor;
@@ -38,7 +41,8 @@ body {
       text-align: center;
       padding: 15px;
     }
-    // FRÅN SHOPPINGCART SCSS
+
+    // Från shoppingcart scss
     #product {
       margin: 0 auto;
       display: flex;
@@ -176,9 +180,15 @@ body {
 
 // Media - query pad 768 px
 @media screen and (min-width: 768px) {
+  body {
+    @include removeModal-pad;
+  }
   #wrapper-checkout {
     width: 100%;
+    margin-top: 100px;
+
     #shopping-container {
+      // margin-top: 140px;
       width: 50%;
       h1 {
         font-size: 25px;
@@ -219,5 +229,16 @@ body {
   #remove:hover {
     cursor: pointer;
     text-decoration: underline;
+  }
+}
+
+// Media - query pad 768 px
+@media screen and (min-width: 1024px) {
+  #wrapper-checkout {
+    width: 100%;
+    margin-top: 140px;
+    #shopping-container {
+      width: 50%;
+    }
   }
 }
