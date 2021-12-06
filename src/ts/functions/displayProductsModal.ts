@@ -8,25 +8,32 @@ export function displayProductModals(Id: number) {
 	) as HTMLDivElement;
 	modalContainer.className = "showProductModal";
 
+	//Produces the modal product based on which product was clicked on the website.
 	let modalBody: HTMLDivElement = document.getElementById(
 		"modalBody"
 	) as HTMLDivElement;
-	// let modalWrapper: HTMLDivElement = document.getElementById(
-	// 	"modalWrapper"
-	// ) as HTMLDivElement;
-	// let label: HTMLLabelElement = document.getElementById(
-	// 	"sizeLabel"
-	// ) as HTMLLabelElement;
+	let modalImgWrapper: HTMLDivElement = document.getElementById(
+		"modalImgWrapper"
+	) as HTMLDivElement;
+	let modalImg: HTMLImageElement = document.getElementById(
+		"modalImg"
+	) as HTMLImageElement;
+	let modalTitle: HTMLParagraphElement = document.getElementById(
+		"modalTitle"
+	) as HTMLParagraphElement;
+	let modalTotalPrice: HTMLParagraphElement = document.getElementById(
+		"modalTotal"
+	) as HTMLParagraphElement;
+
 	// let newImg: HTMLImageElement = document.createElement("img");
-	// let newP: HTMLParagraphElement = document.createElement("p");
 
-	// newImg.src = products[Id].url;
-	// newP.innerText = products[Id].name;
-	// newP.id = "modalTitle";
+	modalImg.src = products[Id].url;
+	modalTitle.innerText = products[Id].name;
+	modalTotalPrice.innerText = `Totalbelopp: ${products[Id].price.s}kr`;
 
-	// modalWrapper.appendChild(newImg);
-	// modalBody.insertBefore(newP, label);
+	// modalImgWrapper.appendChild(newImg);
 
+	//Closes the Modal
 	let closeProductsModal: HTMLButtonElement = document.getElementById(
 		"closeProductsModal"
 	) as HTMLButtonElement;
