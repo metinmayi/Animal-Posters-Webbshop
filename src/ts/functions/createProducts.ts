@@ -1,10 +1,12 @@
 import { products } from "../models/products";
+import { displayProductModals } from "./displayProductsModal";
 
 export function createProducts() {
 	const mainProducts: HTMLDivElement = document.getElementById(
 		"mainProducts"
 	) as HTMLDivElement;
 	products.forEach((e, index) => {
+		//Creates all of the products by iterating the array of products.
 		let productsDiv: HTMLDivElement = document.createElement("div");
 		let imgWrapperDiv: HTMLDivElement = document.createElement("div");
 		let emptyHeartDiv: HTMLDivElement = document.createElement("div");
@@ -27,9 +29,12 @@ export function createProducts() {
 		productsDiv.appendChild(p1);
 		productsDiv.appendChild(p2);
 
+		//Takes the ID of the clicked product and calls a function that displays a modal with the product which index equals the retrieved ID.
 		imgWrapperDiv.addEventListener("click", (e) => {
 			let newE: HTMLElement = e.target as HTMLElement;
-			console.log(newE.id);
+			let id: number = parseInt(newE.id);
+			displayProductModals(id);
+			console.log(id);
 		});
 	});
 }
