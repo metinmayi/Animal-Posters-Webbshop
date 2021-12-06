@@ -2,149 +2,106 @@
 @import "productsModal";
 @import "mixins";
 * {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	background-color: $bgcolor;
-	margin: 0;
-	padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $bgcolor;
+  margin: 0;
+  padding: 0;
 
-	@include productModal;
-	@include menu;
-	@include footer;
+  @include productModal;
+  @include menu;
+  @include footer;
 
-	//Mediaquery, min-width: 768px
-	@include pad;
+  //Mediaquery, min-width: 768px
+  @include pad;
 
-	//Mediaquery, min-width: 1024px
-	@include desktop;
+  //Mediaquery, min-width: 1024px
+  @include desktop;
 
-	#mainProducts {
-		margin: 0 auto;
-		margin-top: 14vh;
-		display: flex;
-		// background-color: white;
-		flex-wrap: wrap;
-		width: 100%;
-		.product {
-			background-color: $bgbox;
-			width: 48%;
-			height: 30vh;
-			margin: 0.5%; //remove later
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			flex-direction: column;
-			box-shadow: $boxshadow;
-			//   position: relative;
-			.imgWrapper {
-				width: 80%;
-				height: 75%;
-				margin: 0;
-				img {
-					width: 100%;
-					height: 100%;
-					object-fit: contain;
-					object-position: top;
-				}
-			}
-			p {
-				margin-block-end: 0;
-				margin-block-start: 0;
-				font-family: $breadfont;
-			}
-			#productTitle {
-				font-family: $headfont;
-			}
-			//   .emptyheart {
-			//     position: absolute;
-			//     left: 2%;
-			//   }
-		}
-	}
+  #mainProducts {
+    margin: 0 auto;
+    margin-top: 10vh;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-evenly;
+
+    .product {
+      background-color: $bgbox;
+      width: 48%;
+      height: 30vh;
+      margin: 0.5%; //remove later
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      box-shadow: $boxshadow;
+      //   position: relative;
+      .imgWrapper {
+        width: 80%;
+        height: 75%;
+        margin: 0;
+        position: relative;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          object-position: top;
+        }
+      }
+      p {
+        margin-block-end: 0;
+        margin-block-start: 0;
+        font-family: $breadfont;
+      }
+      #productTitle {
+        font-family: $headfont;
+      }
+      .emptyheart {
+        position: absolute;
+        right: 0;
+        height: 30px;
+        width: 30px;
+      }
+    }
+  }
 }
 
 //Ipad Media Query
 @media (min-width: 768px) {
-	body {
-		display: flex;
-		justify-content: center;
-		background-color: $bgcolor;
-		margin: 0;
-		padding: 0;
-		#mainProducts {
-			display: flex;
-			flex-wrap: wrap;
-			width: 95%;
-			.product {
-				width: 32%;
-				height: 50vh;
-				margin: 0.5%; //remove later
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				flex-direction: column;
-				box-shadow: $boxshadow;
-				.imgWrapper {
-					width: 80%;
-					height: 75%;
-					margin: 0;
-				}
-				p {
-					margin-block-end: 0;
-					margin-block-start: 0;
-					font-family: $breadfont;
-				}
-				#productTitle {
-					font-family: $headfont;
-				}
-				.emptyheart {
-					left: 0;
-				}
-			}
-		}
-	}
+  body {
+    #mainProducts {
+      width: 95%;
+
+      .product {
+        width: 32%;
+        height: 50vh;
+
+        .emptyheart {
+          height: 40px;
+          width: 40px;
+        }
+      }
+    }
+  }
 }
 
 //Desktop Media Query
 @media (min-width: 1024px) {
-	body {
-		display: flex;
-		justify-content: center;
-		background-color: $bgcolor;
-		margin: 0;
-		padding: 0;
-		#mainProducts {
-			display: flex;
-			flex-wrap: wrap;
-			width: 80%;
-			.product {
-				width: 24%;
-				height: 35vh;
-				margin: 0.5%; //remove later
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				flex-direction: column;
-				box-shadow: $boxshadow;
-				.imgWrapper {
-					width: 80%;
-					height: 75%;
-					margin: 0;
-				}
-				p {
-					margin-block-end: 0;
-					margin-block-start: 0;
-					font-family: $breadfont;
-				}
-				#productTitle {
-					font-family: $headfont;
-				}
-			}
-		}
-	}
+  body {
+    #mainProducts {
+      width: 80%;
+      margin-top: 14vh;
+
+      .product {
+        width: 24%;
+        height: 35vh;
+      }
+    }
+  }
 }
