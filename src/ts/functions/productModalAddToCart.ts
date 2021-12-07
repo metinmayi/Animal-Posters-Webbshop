@@ -1,4 +1,4 @@
-import { products } from "../models/products";
+import { products, Iprice, Iproducts } from "../models/products";
 
 export function productModalAddToCart() {
   //#region Declarations
@@ -33,7 +33,7 @@ export function productModalAddToCart() {
     }
 
     let cartList: string = localStorage.getItem("cartList");
-    let cartListArray: string[] = JSON.parse(cartList);
+    let cartListArray: Iproducts[] = JSON.parse(cartList);
 
     if (size.value == "s") correctProduct.small = true;
     if (size.value == "m") correctProduct.medium = true;

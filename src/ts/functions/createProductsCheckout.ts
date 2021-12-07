@@ -1,10 +1,17 @@
+import { Iprice, Iproducts } from "../models/products";
+
 export function createProductsCheckout() {
-  let cartList = [];
+  let cartListen = localStorage.getItem("cartList");
 
-  let checkoutWrapper: HTMLDivElement = document.createElement("div");
-  checkoutWrapper.id = "checkout-products-container";
+  console.log("Lista: " + cartListen[0]);
 
-  for (let i = 0; i < cartList.length; i++) {
+  let listAsObject = JSON.parse(cartListen);
+
+  console.log(listAsObject);
+
+  let totalPrice: string = "";
+
+  for (let i = 0; i < listAsObject.length; i++) {
     let productWrapper: HTMLDivElement = document.createElement("div");
     productWrapper.className = "checkout-products";
 
@@ -16,15 +23,35 @@ export function createProductsCheckout() {
 
     let productName: HTMLHeadingElement = document.createElement("h1");
     productName.id = "name";
+    productName.innerHTML = listAsObject[i].name;
 
-    let productPrice: HTMLParagraphElement = document.createElement("h1");
+    let productSize: HTMLParagraphElement = document.createElement("p");
+    productSize.id = "size";
+
+    if (listAsObject[i].small === true) {
+      productSize.innerHTML = "Storlek: Small";
+    } else if (listAsObject[i].medium === true) {
+      productSize.innerHTML = "Storlek: Medium";
+    } else {
+      productSize.innerHTML = "Storlek: Large";
+    }
+
+    let productPrice: HTMLParagraphElement = document.createElement("p");
     productPrice.id = "price";
+    if (listAsObject[i].small === true) {
+      productPrice.innerHTML = listAsObject[i].price.s + " kr";
+    } else if (listAsObject[i].medium === true) {
+      productPrice.innerHTML = listAsObject[i].price.m + " kr";
+    } else {
+      productPrice.innerHTML = listAsObject[i].price.l + " kr";
+    }
 
     let inputContainer: HTMLDivElement = document.createElement("div");
-    inputContainer.className = "input-container";
+    inputContainer.id = "input-container";
 
     let label: HTMLLabelElement = document.createElement("label");
     label.setAttribute("for", "number-of-posters");
+    label.innerHTML = "Antal";
 
     let input: HTMLInputElement = document.createElement("input");
     input.setAttribute("type", "number");
@@ -34,5 +61,28 @@ export function createProductsCheckout() {
     let trash: HTMLElement = document.createElement("i");
     trash.className = "far fa-trash-alt";
     trash.id = "trash";
+
+    document
+      .getElementById("checkout-products-container")
+      .appendChild(productWrapper);
+    productWrapper.appendChild(imageWrapper);
+    productWrapper.appendChild(textWrapper);
+
+    textWrapper.appendChild(productName);
+    textWrapper.appendChild(productSize);
+    textWrapper.appendChild(productPrice);
+
+    productWrapper.appendChild(inputContainer);
+    inputContainer.appendChild(label);
+    inputContainer.appendChild(input);
+
+    productWrapper.appendChild(trash);
+
+    // totalPrice += productPrice.innerHTML;
+
+    // let total: HTMLParagraphElement = document.createElement("p");
+    // total.innerHTML = totalPrice;
+
+    // document.getElementById("total-price").appendChild(total);
   }
 }

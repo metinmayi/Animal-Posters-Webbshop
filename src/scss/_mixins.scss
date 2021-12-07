@@ -216,6 +216,10 @@ $footercolor: #945d5e;
             font-weight: 600;
             color: $footercolor;
           }
+          #size {
+            font-size: 0.8rem;
+            font-family: $headfont;
+          }
         }
         #input-container {
           display: inline-flex;

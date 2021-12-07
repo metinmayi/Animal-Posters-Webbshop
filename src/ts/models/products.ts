@@ -145,13 +145,13 @@ export let products: Iproducts[] = [
   },
 ];
 
-interface Iprice {
+export interface Iprice {
   s: number;
   m: number;
   l: number;
 }
 
-interface Iproducts {
+export interface Iproducts {
   name: string;
   url: string;
   small: boolean;

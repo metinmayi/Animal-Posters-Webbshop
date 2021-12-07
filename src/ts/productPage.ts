@@ -1,5 +1,6 @@
 import { activateCheckout } from "./functions/activateCheckout";
 import { activateHamburgerMenu } from "./functions/activateHamburgerMenu";
+import { createProductsCheckout } from "./functions/createProductsCheckout";
 import { productModalAddToCart } from "./functions/productModalAddToCart";
 import { createProducts } from "./functions/productsDisplay";
 window.onload = () => {
@@ -14,4 +15,6 @@ window.onload = () => {
 
   //Skapar en lista baserat på modalerna
   productModalAddToCart();
+
+  createProductsCheckout();
 };
