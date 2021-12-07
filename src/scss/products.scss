@@ -66,19 +66,20 @@ body {
     .product {
       background-color: $bgbox;
       width: 48%;
-      height: 32vh;
-      //   margin: 0.5%; //remove later
+      height: 34vh;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      box-shadow: $boxshadow;
+      //   box-shadow: $boxshadow;
       margin-top: 3%;
+      border-radius: 5px;
 
       .imgWrapper {
         width: 80%;
-        height: 75%;
+        height: 70%;
         margin: 0;
+        position: relative;
         img {
           width: 100%;
           height: 100%;
@@ -99,8 +100,8 @@ body {
       .emptyheart {
         position: absolute;
         right: 0;
-        height: 30px;
-        width: 30px;
+        height: 20px;
+        width: 20px;
       }
     }
   }
@@ -307,8 +308,8 @@ body {
         height: 50vh;
 
         .emptyheart {
-          height: 40px;
-          width: 40px;
+          height: 30px;
+          width: 30px;
         }
       }
     }
