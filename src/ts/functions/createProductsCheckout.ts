@@ -18,7 +18,7 @@ export function createProductsCheckout() {
     productName.id = "name";
 
     let productPrice: HTMLParagraphElement = document.createElement("h1");
-    productName.id = "price";
+    productPrice.id = "price";
 
     let inputContainer: HTMLDivElement = document.createElement("div");
     inputContainer.className = "input-container";
