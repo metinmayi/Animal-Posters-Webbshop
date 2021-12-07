@@ -105,6 +105,216 @@ $footercolor: #945d5e;
   }
 }
 
+@mixin dropdown-checkout {
+  #checkout-dropdown {
+    display: none;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #fff !important;
+    z-index: 10;
+
+    //Styling av scrollbar
+
+    /* width */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 5px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: lightgrey;
+      border-radius: 5px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    #checkout-header {
+      background-color: $footercolor;
+      width: 100%;
+      height: 8%;
+      margin: 0;
+      text-align: center;
+      font-family: $headfont;
+      position: relative;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      h1 {
+        margin: 0;
+        display: inline;
+      }
+
+      #close-checkout {
+        position: absolute;
+        left: 2%;
+        font-size: 1.2rem;
+      }
+    }
+
+    #checkout-products-container {
+      height: 70%;
+      width: 100%;
+      display: block;
+      margin-top: 10px;
+      overflow-y: scroll;
+
+      .checkout-products {
+        width: 90%;
+        height: 25%;
+        border: 1px solid $bgcolor;
+        border-radius: 10px 0 10px 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        margin: 0 auto;
+        margin-bottom: 10px;
+
+        .image-wrapper {
+          width: 15%;
+          position: relative;
+          background-color: #000;
+          background-image: url("../assets/6.jpg");
+          background-size: cover;
+          background-position: center;
+        }
+
+        .text-wrapper {
+          display: inline;
+          height: 60%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+
+          h1,
+          p {
+            margin: 0;
+            padding: 0;
+          }
+
+          #name {
+            font-size: 1rem;
+            font-family: $headfont;
+          }
+          #price {
+            font-size: 0.8rem;
+            font-family: $breadfont;
+            font-weight: 600;
+            color: $footercolor;
+          }
+        }
+        #input-container {
+          display: inline-flex;
+          flex-direction: column;
+          width: 15%;
+          overflow: hidden;
+          padding: 10px;
+          border: 1px solid $bgcolor;
+          border-radius: 5px;
+          font-family: $headfont;
+
+          label {
+            display: inline !important;
+            overflow: hidden;
+            font-family: $headfont;
+            font-size: 0.8rem;
+            text-align: center;
+          }
+
+          #number-of-posters {
+            width: 100%;
+          }
+        }
+        #trash {
+          font-size: 1.2rem;
+          padding: 10px;
+          background-color: $bgcolor;
+          border-radius: 5px;
+        }
+      }
+
+      .image-wrapper::after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+      }
+    }
+    #checkout-info {
+      width: 100%;
+      height: 20%;
+      background-color: $bgcolor;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: $breadfont;
+      position: absolute;
+      bottom: 0;
+
+      #price-info {
+        height: 70%;
+        width: 70%;
+
+        #moms-price,
+        #total-price {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+
+          p {
+            display: inline;
+          }
+        }
+
+        #moms-price {
+          color: #555;
+        }
+      }
+      form {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        button {
+          width: 80%;
+          background-color: $footercolor;
+          height: 4vh;
+          font-family: $breadfont;
+          text-transform: uppercase;
+          border-radius: 5px;
+          border: none;
+          color: #fff;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    #checkout-dropdown {
+      width: 60%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    #checkout-dropdown {
+      width: 50%;
+    }
+  }
+}
+
 @mixin footer {
   #border {
     margin-bottom: -10px;
