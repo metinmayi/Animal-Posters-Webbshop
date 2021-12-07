@@ -14,6 +14,9 @@ export function productModalAddToCart() {
   let modalContainer: HTMLDivElement = document.getElementById(
     "modalContainer"
   ) as HTMLDivElement;
+  let size: HTMLSelectElement = document.getElementById(
+    "productModalSize"
+  ) as HTMLSelectElement;
   //#endregion
   addButton.addEventListener("click", (e) => {
     console.log(titleIdentifier.innerHTML + "!");
@@ -31,6 +34,10 @@ export function productModalAddToCart() {
 
     let cartList: string = localStorage.getItem("cartList");
     let cartListArray: string[] = JSON.parse(cartList);
+
+    if (size.value == "s") correctProduct.small = true;
+    if (size.value == "m") correctProduct.medium = true;
+    if (size.value == "l") correctProduct.large = true;
     for (let x = 0; x < parseInt(amountOfProducts.value); x++) {
       cartListArray.push(correctProduct);
     }
