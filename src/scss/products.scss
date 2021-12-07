@@ -283,15 +283,21 @@ body {
           color: #555;
         }
       }
-      button {
-        width: 80%;
-        background-color: $footercolor;
-        height: 25%;
-        font-family: $breadfont;
-        text-transform: uppercase;
-        border-radius: 5px;
-        border: none;
-        color: #fff;
+      form {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        button {
+          width: 80%;
+          background-color: $footercolor;
+          height: 4vh;
+          font-family: $breadfont;
+          text-transform: uppercase;
+          border-radius: 5px;
+          border: none;
+          color: #fff;
+          margin: 0 auto;
+        }
       }
     }
   }
