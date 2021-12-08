@@ -10,22 +10,51 @@ body {
 
   @include footer;
   main {
-    height: 40vh;
+    height: 100%;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    #text-wrapper {
-      width: 50%;
-      height: 40vh;
+
+    #text-container {
+      width: 40%;
+      height: 50vh;
       margin: 0 auto;
       background-color: #fff;
+      border-radius: 10px;
+
+      #confetti {
+        font-size: 60pt;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        animation-name: beating-confetti;
+        animation-duration: 2s;
+      }
     }
   }
 }
 
-#footer-wrapper {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
+@keyframes beating-confetti {
+  0% {
+    font-size: 0;
+  }
+  25% {
+    font-size: 80pt;
+  }
+  50% {
+    font-size: 60pt;
+  }
+  75% {
+    font-size: 80pt;
+  }
+  100% {
+    font-size: 60pt;
+  }
 }
+
+// #footer-wrapper {
+//   width: 100%;
+//   position: absolute;
+//   bottom: 0;
+// }
