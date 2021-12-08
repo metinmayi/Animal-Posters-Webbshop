@@ -1,7 +1,6 @@
 import { products } from "../models/products";
 import { removeModal } from "../functions/removeModal";
 import { Iprice, Iproducts } from "../models/products";
-import { sum } from "cypress/types/lodash";
 
 export function displayCart() {
   let ul: HTMLUListElement = document.getElementById("ul") as HTMLUListElement;
@@ -68,7 +67,6 @@ export function displayCart() {
       reduceButton.id = "reduce-button";
       increaseButton.id = "increase-button";
       quantityBox.id = "quantity-box";
-      // quantitySpan.id = "quantity-span";
       sizeSpan.id = "size-span";
       flexBoxRight.id = "flex-box-right";
       removeButton.id = "remove";
@@ -76,10 +74,11 @@ export function displayCart() {
       //
       productImg.src = productCartListObj[i].url;
       productName.innerHTML = productCartListObj[i].name;
-      quantityInput.value = productCartListObj.length.toString();
       quantityInput.id = "quantity-input";
 
-      // innerHTML
+      quantityInput.value = productCartListObj.length.toString();
+      // console.log(productCartListObj.id)
+      //
       if (productCartListObj[i].small == true) {
         sizeSpan.innerHTML = "Storlek:" + " " + "small";
         productPrice.innerHTML = `Pris: ${productCartListObj[i].price.s} kr`;
@@ -100,7 +99,6 @@ export function displayCart() {
 
       reduceButton.innerHTML = "<i class='fas fa-angle-left'></i>";
       increaseButton.innerHTML = "<i class='fas fa-angle-right'></i>";
-      //   quantitySpan.innerHTML = "Antal: ";
       removeButton.innerHTML = "<i class='fas fa-trash-alt'></i>" + " Ta bort";
 
       ul.appendChild(li);
@@ -113,7 +111,6 @@ export function displayCart() {
       productFact.appendChild(productPrice);
       product.appendChild(productBoxRight);
       productBoxRight.appendChild(quantityBox);
-      // quantityBox.appendChild(quantitySpan);
       quantityBox.appendChild(reduceButton);
       quantityBox.appendChild(quantityInput);
       quantityBox.appendChild(increaseButton);
@@ -127,7 +124,7 @@ export function displayCart() {
     }
   }
 
-  //
+  // Totalsum
   let totalPrice: HTMLHeadingElement = document.getElementById(
     "total-price"
   ) as HTMLHeadingElement;
