@@ -130,7 +130,7 @@ $footercolor: #945d5e;
     }
 
     /* Handle */
-    ::-webkit-scrollbar-thumb {
+    s ::-webkit-scrollbar-thumb {
       background: lightgrey;
       border-radius: 5px;
     }
@@ -143,6 +143,7 @@ $footercolor: #945d5e;
     #empty-container {
       width: 80%;
       height: 30%;
+      margin: 0 auto;
 
       #empty-text {
         font-family: $breadfont;
