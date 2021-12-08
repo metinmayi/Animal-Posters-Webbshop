@@ -22,8 +22,8 @@ export function displayCart() {
     ) as HTMLDivElement;
     wrapper.insertBefore(noListSpan, x);
   } else {
-    let productCartList = localStorage.getItem("cartList");
-    let productCartListObj = JSON.parse(productCartList);
+    let productCartList: string = localStorage.getItem("cartList");
+    let productCartListObj: Iproducts[] = JSON.parse(productCartList);
 
     console.log(productCartListObj);
 
@@ -76,7 +76,7 @@ export function displayCart() {
       //
       productImg.src = productCartListObj[i].url;
       productName.innerHTML = productCartListObj[i].name;
-
+      quantityInput.value = productCartListObj.length.toString();
       quantityInput.id = "quantity-input";
 
       // innerHTML
