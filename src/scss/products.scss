@@ -65,6 +65,21 @@ body {
 		gap: 0.5%;
 		justify-content: space-evenly;
 
+		.heartContainer {
+			background-size: cover;
+			position: absolute;
+			right: 2%;
+			top: 2%;
+			height: 20px;
+			width: 20px;
+		}
+		.emptyHeart {
+			background-image: url("../assets/emptyheart.svg");
+		}
+		.filledHeart {
+			background-image: url("../assets/filledheart.svg");
+		}
+
 		.product {
 			background-color: $bgbox;
 			width: 48%;
@@ -76,6 +91,7 @@ body {
 			//   box-shadow: $boxshadow;
 			margin-top: 3%;
 			border-radius: 5px;
+			position: relative;
 
 			.imgWrapper {
 				width: 80%;
@@ -98,19 +114,6 @@ body {
 			#productTitle {
 				font-family: $headfont;
 				padding-top: 2%;
-			}
-			.heartContainer {
-				background-size: cover;
-				position: absolute;
-				right: 0;
-				height: 20px;
-				width: 20px;
-			}
-			.emptyHeart {
-				background-image: url("../assets/emptyheart.svg");
-			}
-			.filledHeart {
-				background-image: url("../assets/filledheart.svg");
 			}
 		}
 	}
