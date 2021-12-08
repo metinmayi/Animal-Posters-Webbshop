@@ -34,6 +34,11 @@ a {
     font-family: $headfont;
     text-align: center;
   }
+  #no-list-span {
+    text-align: center;
+    font-family: $breadfont;
+    font-size: 16px;
+  }
   #ul {
     list-style-type: none;
     margin: 0;
