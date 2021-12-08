@@ -1,7 +1,7 @@
 import { create } from "cypress/types/lodash";
 
 export function createProductsCheckout() {
-  if (typeof localStorage.getItem("cartList") == "undefined") {
+  if (typeof !localStorage.getItem("cartList")) {
     let emptyList: HTMLDivElement = document.createElement("div");
     emptyList.id = "empty-container";
 
@@ -64,17 +64,17 @@ function createHTML() {
       productPrice.innerHTML = listAsObject[i].price.l + " kr";
     }
 
-    let inputContainer: HTMLDivElement = document.createElement("div");
-    inputContainer.id = "input-container";
+    // let inputContainer: HTMLDivElement = document.createElement("div");
+    // inputContainer.id = "input-container";
 
-    let label: HTMLLabelElement = document.createElement("label");
-    label.setAttribute("for", "number-of-posters");
-    label.innerHTML = "Antal";
+    // let label: HTMLLabelElement = document.createElement("label");
+    // label.setAttribute("for", "number-of-posters");
+    // label.innerHTML = "Antal";
 
-    let input: HTMLInputElement = document.createElement("input");
-    input.setAttribute("type", "number");
-    input.setAttribute("min", "1");
-    input.id = "number-of-posters";
+    // let input: HTMLInputElement = document.createElement("input");
+    // input.setAttribute("type", "number");
+    // input.setAttribute("min", "1");
+    // input.id = "number-of-posters";
 
     let trash: HTMLElement = document.createElement("i");
     trash.className = "far fa-trash-alt";
@@ -90,9 +90,9 @@ function createHTML() {
     textWrapper.appendChild(productSize);
     textWrapper.appendChild(productPrice);
 
-    productWrapper.appendChild(inputContainer);
-    inputContainer.appendChild(label);
-    inputContainer.appendChild(input);
+    // productWrapper.appendChild(inputContainer);
+    // inputContainer.appendChild(label);
+    // inputContainer.appendChild(input);
 
     productWrapper.appendChild(trash);
 
@@ -101,12 +101,20 @@ function createHTML() {
 
   momsPrice = 0.12 * totalPrice;
 
+  let totalText: HTMLParagraphElement = document.createElement("p");
+  totalText.innerHTML = "Totalsumma:";
+
+  let momsText: HTMLParagraphElement = document.createElement("p");
+  momsText.innerHTML = "Varav moms:";
+
   let total: HTMLParagraphElement = document.createElement("p");
   total.innerHTML = totalPrice.toString() + " kr";
 
   let moms: HTMLParagraphElement = document.createElement("p");
   moms.innerHTML = momsPrice.toString() + " kr";
 
+  document.getElementById("total-price").appendChild(totalText);
   document.getElementById("total-price").appendChild(total);
+  document.getElementById("moms-price").appendChild(momsText);
   document.getElementById("moms-price").appendChild(moms);
 }
