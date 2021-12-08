@@ -1,4 +1,5 @@
 import { products } from "../models/products";
+import { removeModal } from "../functions/removeModal";
 
 export function displayCart() {
   //#region declarations
@@ -16,11 +17,20 @@ export function displayCart() {
   let productBoxRight: HTMLDivElement = document.createElement("div");
   let quantityBox: HTMLDivElement = document.createElement("div");
   let quantitySpan: HTMLSpanElement = document.createElement("span");
+  //PLUS OCH MINUS
+  let reduceButton: HTMLDivElement = document.createElement(
+    "div"
+  ) as HTMLDivElement;
+  let increaseButton: HTMLDivElement = document.createElement(
+    "div"
+  ) as HTMLDivElement;
+  //
   let quantityInput: HTMLInputElement = document.createElement("input");
   let flexBoxRight: HTMLDivElement = document.createElement("div");
   let removeButton: HTMLParagraphElement = document.createElement("p");
   //#endregion
 
+  // id and classnames
   li.id = "li";
   product.id = "product";
   productBoxLeft.id = "product-box-left";
@@ -32,6 +42,8 @@ export function displayCart() {
   sizeBox.id = "size-box";
   productPrice.className = "product-price";
   productBoxRight.id = "product-box-right";
+  reduceButton.id = "reduce-button";
+  increaseButton.id = "increase-button";
   quantityBox.id = "quantity-box";
   quantitySpan.id = "quantity-span";
   sizeSpan.id = "size-span";
@@ -39,8 +51,11 @@ export function displayCart() {
   flexBoxRight.id = "flex-box-right";
   removeButton.id = "remove";
 
+  // innerHTML
   sizeSpan.innerHTML = "Storlek: ";
-  quantitySpan.innerHTML = "Antal: ";
+  reduceButton.innerHTML = "<i class='fas fa-angle-left'></i>";
+  increaseButton.innerHTML = "<i class='fas fa-angle-right'></i>";
+  //   quantitySpan.innerHTML = "Antal: ";
   removeButton.innerHTML = "<i class='fas fa-trash-alt'></i>" + " Ta bort";
   productName.innerHTML = products[0].name;
   productPrice.innerHTML = "Pris: " + products[0].price.s.toString() + " sek";
@@ -56,12 +71,16 @@ export function displayCart() {
   product.appendChild(productBoxRight);
   productBoxRight.appendChild(quantityBox);
   quantityBox.appendChild(quantitySpan);
+  quantityBox.appendChild(reduceButton);
   quantityBox.appendChild(quantityInput);
+  quantityBox.appendChild(increaseButton);
   sizeBox.appendChild(sizeSpan);
   flexBoxRight.appendChild(sizeBox);
   flexBoxRight.appendChild(quantityBox);
   flexBoxRight.appendChild(removeButton);
   productBoxRight.appendChild(flexBoxRight);
+
+  removeButton.addEventListener("click", removeModal);
 
   // TOTALSUMMA
   let totalPrice: HTMLHeadingElement = document.getElementById(
