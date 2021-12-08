@@ -1,15 +1,33 @@
-import { Iprice, Iproducts } from "../models/products";
+import { create } from "cypress/types/lodash";
 
 export function createProductsCheckout() {
-  let cartListen = localStorage.getItem("cartList");
+  if (typeof localStorage.getItem("cartList") == "undefined") {
+    let emptyList: HTMLDivElement = document.createElement("div");
+    emptyList.id = "empty-container";
 
-  console.log("Lista: " + cartListen[0]);
+    let emptyText: HTMLParagraphElement = document.createElement("p");
+    emptyText.id = "empty-text";
+    emptyText.innerHTML =
+      "Din varukorg är tom, tryck på en vara och lägg till den i varukorgen för att fortsätta";
 
-  let listAsObject = JSON.parse(cartListen);
+    document
+      .getElementById("checkout-products-container")
+      .appendChild(emptyList);
+    emptyList.appendChild(emptyText);
+  } else {
+    createHTML();
+  }
+}
+
+function createHTML() {
+  let cartListLS = localStorage.getItem("cartList");
+
+  let listAsObject = JSON.parse(cartListLS);
 
   console.log(listAsObject);
 
-  let totalPrice: string = "";
+  let totalPrice: number = 0;
+  let momsPrice: number = 0;
 
   for (let i = 0; i < listAsObject.length; i++) {
     let productWrapper: HTMLDivElement = document.createElement("div");
@@ -78,11 +96,17 @@ export function createProductsCheckout() {
 
     productWrapper.appendChild(trash);
 
-    // totalPrice += productPrice.innerHTML;
-
-    // let total: HTMLParagraphElement = document.createElement("p");
-    // total.innerHTML = totalPrice;
-
-    // document.getElementById("total-price").appendChild(total);
+    totalPrice += parseInt(productPrice.innerHTML);
   }
+
+  momsPrice = 0.12 * totalPrice;
+
+  let total: HTMLParagraphElement = document.createElement("p");
+  total.innerHTML = totalPrice.toString() + " kr";
+
+  let moms: HTMLParagraphElement = document.createElement("p");
+  moms.innerHTML = momsPrice.toString() + " kr";
+
+  document.getElementById("total-price").appendChild(total);
+  document.getElementById("moms-price").appendChild(moms);
 }
