@@ -4,17 +4,15 @@ import { createProductsCheckout } from "./functions/createProductsCheckout";
 import { productModalAddToCart } from "./functions/productModalAddToCart";
 import { createProducts } from "./functions/productsDisplay";
 window.onload = () => {
-  //Funktionen aktiverar och avaktiverar hamburgarmenyn med hjälp av "click"
-  activateHamburgerMenu();
+	//Funktionen aktiverar och avaktiverar hamburgarmenyn med hjälp av "click"
+	activateHamburgerMenu();
 
-  //Visar alla prodoukter baserat på vår lista av produkter "products[]".
-  createProducts();
+	//Visar alla prodoukter baserat på vår lista av produkter "products[]".
+	createProducts();
 
-  //Aktiverar checkout-dropdownen vid klick
-  activateCheckout();
+	//Aktiverar checkout-dropdownen vid klick
+	activateCheckout();
 
-  //Skapar en lista baserat på modalerna
-  productModalAddToCart();
-
-  createProductsCheckout();
+	//Skapar en lista baserat på modalerna
+	productModalAddToCart();
 };
