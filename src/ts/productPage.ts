@@ -1,5 +1,6 @@
 import { activateCheckout } from "./functions/activateCheckout";
 import { activateHamburgerMenu } from "./functions/activateHamburgerMenu";
+import { addToWishlist } from "./functions/addToWishlist";
 import { createProductsCheckout } from "./functions/createProductsCheckout";
 import { productModalAddToCart } from "./functions/productModalAddToCart";
 import { createProducts } from "./functions/productsDisplay";
