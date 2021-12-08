@@ -140,6 +140,16 @@ $footercolor: #945d5e;
       background: #555;
     }
 
+    #empty-container {
+      width: 80%;
+      height: 30%;
+
+      #empty-text {
+        font-family: $breadfont;
+        color: grey;
+      }
+    }
+
     #checkout-header {
       background-color: $footercolor;
       width: 100%;
@@ -199,6 +209,7 @@ $footercolor: #945d5e;
           display: flex;
           flex-direction: column;
           justify-content: space-evenly;
+          width: 35%;
 
           h1,
           p {
