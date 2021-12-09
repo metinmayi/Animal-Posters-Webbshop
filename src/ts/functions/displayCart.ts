@@ -121,8 +121,22 @@ export function displayCart() {
       flexBoxRight.appendChild(removeButton);
       productBoxRight.appendChild(flexBoxRight);
 
+      increaseButton.addEventListener("click" , () => {
+      let currentValue:number = parseInt(quantityInput.value);
+      currentValue ++;
+      quantityInput.value = currentValue.toString();
+      });
+
+      reduceButton.addEventListener("click" , () => {
+        let currentValue:number = parseInt(quantityInput.value);
+        currentValue --;
+        quantityInput.value = currentValue.toString();
+        });
+
       removeButton.addEventListener("click", removeModal);
     }
+
+    
   }
 
   // Totalsum
