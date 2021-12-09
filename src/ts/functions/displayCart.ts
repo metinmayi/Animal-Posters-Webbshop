@@ -3,7 +3,6 @@ import { removeModal } from "../functions/removeModal";
 import { Iprice, Iproducts } from "../models/products";
 
 export function displayCart() {
-  console.log("Hey");
   let ul: HTMLUListElement = document.getElementById("ul") as HTMLUListElement;
 
   let totalSum = 0;
@@ -25,7 +24,6 @@ export function displayCart() {
     let productCartList: string = localStorage.getItem("cartList");
     let productCartListObj: Iproducts[] = JSON.parse(productCartList);
 
-    console.log(productCartListObj);
 
     for (let i = 0; i < productCartListObj.length; i++) {
       //#region declarations
@@ -123,20 +121,21 @@ export function displayCart() {
 
       increaseButton.addEventListener("click" , () => {
       let currentValue:number = parseInt(quantityInput.value);
-      currentValue ++;
+      if (currentValue < 15) currentValue ++;
       quantityInput.value = currentValue.toString();
       });
 
       reduceButton.addEventListener("click" , () => {
         let currentValue:number = parseInt(quantityInput.value);
-        currentValue --;
+        if (currentValue > 1) currentValue --;
         quantityInput.value = currentValue.toString();
         });
-
-      removeButton.addEventListener("click", removeModal);
+        let namn = productCartListObj[i].name;
+        let bild = productCartListObj[i].url
+      removeButton.addEventListener("click", () => {
+        removeModal(bild, namn)
+      });
     }
-
-    
   }
 
   // Totalsum
