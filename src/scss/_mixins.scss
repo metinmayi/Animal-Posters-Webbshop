@@ -130,7 +130,7 @@ $footercolor: #945d5e;
     }
 
     /* Handle */
-    ::-webkit-scrollbar-thumb {
+    s ::-webkit-scrollbar-thumb {
       background: lightgrey;
       border-radius: 5px;
     }
@@ -138,6 +138,17 @@ $footercolor: #945d5e;
     /* Handle on hover */
     ::-webkit-scrollbar-thumb:hover {
       background: #555;
+    }
+
+    #empty-container {
+      width: 80%;
+      height: 30%;
+      margin: 0 auto;
+
+      #empty-text {
+        font-family: $breadfont;
+        color: grey;
+      }
     }
 
     #checkout-header {
@@ -187,8 +198,7 @@ $footercolor: #945d5e;
         .image-wrapper {
           width: 15%;
           position: relative;
-          background-color: #000;
-          background-image: url("../assets/6.jpg");
+          // background-image: url("../assets/6.jpg");
           background-size: cover;
           background-position: center;
         }
@@ -199,6 +209,7 @@ $footercolor: #945d5e;
           display: flex;
           flex-direction: column;
           justify-content: space-evenly;
+          width: 35%;
 
           h1,
           p {
