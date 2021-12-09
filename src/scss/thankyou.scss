@@ -15,7 +15,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url("../assets/hero.jpeg");
+    background-image: url("../assets/pattern.jpeg");
+    background-size: cover;
+    opacity: 0.8;
 
     #text-container {
       width: 40%;
@@ -24,6 +26,7 @@ body {
       background-color: #fff;
       border-radius: 10px;
       position: relative;
+      z-index: 4;
 
       #confetti {
         font-size: 60pt;
