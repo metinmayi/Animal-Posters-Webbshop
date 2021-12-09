@@ -1,4 +1,5 @@
 import { products, Iprice, Iproducts } from "../models/products";
+import { createProductsCheckout } from "../functions/createProductsCheckout";
 
 export function productModalAddToCart() {
   //#region Declarations
@@ -46,5 +47,8 @@ export function productModalAddToCart() {
 
     //Closes modal
     modalContainer.className = "";
+
+    //Uppdaterar listan och startar om funktionen för att skapa nya HTML-element i dropdownen
+    createProductsCheckout();
   });
 }
