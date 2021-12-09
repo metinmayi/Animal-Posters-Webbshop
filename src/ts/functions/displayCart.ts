@@ -3,6 +3,7 @@ import { removeModal } from "../functions/removeModal";
 import { Iprice, Iproducts } from "../models/products";
 
 export function displayCart() {
+  console.log("Hey");
   let ul: HTMLUListElement = document.getElementById("ul") as HTMLUListElement;
 
   let totalSum = 0;
