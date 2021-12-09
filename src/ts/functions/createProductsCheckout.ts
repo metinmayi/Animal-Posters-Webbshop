@@ -1,7 +1,20 @@
 import { create } from "cypress/types/lodash";
 
 export function createProductsCheckout() {
-  if (window.localStorage.length == 0) {
+  document.getElementById("shopping-cart").addEventListener("click", () => {
+    document.getElementById("checkout-dropdown").style.display = "block";
+  });
+  document
+    .getElementById("shopping-cart-phone")
+    .addEventListener("click", () => {
+      document.getElementById("checkout-dropdown").style.display = "block";
+    });
+
+  document.getElementById("close-checkout").addEventListener("click", () => {
+    document.getElementById("checkout-dropdown").style.display = "none";
+  });
+
+  if (window.localStorage.length == 1) {
     console.log("fylld");
     let emptyList: HTMLDivElement = document.createElement("div");
     emptyList.id = "empty-container";
@@ -45,6 +58,7 @@ export function createProductsCheckout() {
     let totalPrice: number = 0;
     let momsPrice: number = 0;
 
+    //Skapar HTML efter listan som är lagrad i localStorage
     for (let i = 0; i < listAsObject.length; i++) {
       console.log(listAsObject[i].url);
 
@@ -53,6 +67,10 @@ export function createProductsCheckout() {
 
       let imageWrapper: HTMLDivElement = document.createElement("div");
       imageWrapper.className = "image-wrapper";
+      imageWrapper.setAttribute(
+        "background-image",
+        `url("${listAsObject[i].url}")`
+      );
 
       let textWrapper: HTMLDivElement = document.createElement("div");
       textWrapper.className = "text-wrapper";
@@ -82,18 +100,6 @@ export function createProductsCheckout() {
         productPrice.innerHTML = listAsObject[i].price.l + " kr";
       }
 
-      // let inputContainer: HTMLDivElement = document.createElement("div");
-      // inputContainer.id = "input-container";
-
-      // let label: HTMLLabelElement = document.createElement("label");
-      // label.setAttribute("for", "number-of-posters");
-      // label.innerHTML = "Antal";
-
-      // let input: HTMLInputElement = document.createElement("input");
-      // input.setAttribute("type", "number");
-      // input.setAttribute("min", "1");
-      // input.id = "number-of-posters";
-
       let trash: HTMLElement = document.createElement("i");
       trash.className = "far fa-trash-alt";
       trash.id = "trash";
@@ -108,12 +114,9 @@ export function createProductsCheckout() {
       textWrapper.appendChild(productSize);
       textWrapper.appendChild(productPrice);
 
-      // productWrapper.appendChild(inputContainer);
-      // inputContainer.appendChild(label);
-      // inputContainer.appendChild(input);
-
       productWrapper.appendChild(trash);
 
+      //Varje produkts pris adderas för aqtt sen kunna räkna ut totalsumman
       totalPrice += parseInt(productPrice.innerHTML);
     }
 
