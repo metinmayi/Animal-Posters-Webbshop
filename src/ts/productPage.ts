@@ -14,5 +14,5 @@ window.onload = () => {
   productModalAddToCart();
 
   //Aktiverar och skapar HTML i checkout-dropdownen
-  createProductsCheckout();
+  // createProductsCheckout();
 };
