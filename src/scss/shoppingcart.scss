@@ -48,15 +48,18 @@ a {
     flex-direction: column;
     #li {
       #product {
+        background-color: #fff;
         background-color: $bgbox;
         margin: 0 auto;
         display: flex;
         align-items: center;
         // justify-content: center;
         width: 90%;
-        box-shadow: 2px 2px 4px rgba(150, 147, 147, 0.541);
+        // box-shadow: 2px 2px 4px rgba(150, 147, 147, 0.541);
         padding: 15px;
         gap: 15px;
+        border-radius: 5px;
+
         #product-box-left {
           display: flex;
           justify-content: flex-start;
