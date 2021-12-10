@@ -134,7 +134,7 @@ export interface Iproducts {
   price: Iprice;
 }
 
-class StorageProduct {
+export class StorageProduct {
   Iproduct: Iproducts;
   size: string;
   amount: number;
