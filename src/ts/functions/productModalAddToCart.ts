@@ -67,7 +67,6 @@ export function productModalAddToCart() {
     } else {
       localStorageArray.push(newProduct);
     }
-
     let localStorageArrayStringify: string = JSON.stringify(localStorageArray);
     localStorage.setItem("cartList", localStorageArrayStringify);
 
