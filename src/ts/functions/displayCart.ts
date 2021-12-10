@@ -3,7 +3,6 @@ import { removeModal } from "../functions/removeModal";
 import { Iprice, Iproducts } from "../models/products";
 
 export function displayCart() {
-  console.log("Hey");
   let ul: HTMLUListElement = document.getElementById("ul") as HTMLUListElement;
 
   let totalSum = 0;
@@ -24,8 +23,6 @@ export function displayCart() {
   } else {
     let productCartList: string = localStorage.getItem("cartList");
     let productCartListObj: Iproducts[] = JSON.parse(productCartList);
-
-    console.log(productCartListObj);
 
     for (let i = 0; i < productCartListObj.length; i++) {
       //#region declarations
@@ -54,11 +51,11 @@ export function displayCart() {
       //#endregion
 
       // id and classnames
+
       li.id = "li";
       product.id = "product";
       productBoxLeft.id = "product-box-left";
       imgBox.id = "imgBox";
-
       productImg.id = "productImg";
       productFact.id = "product-fact";
       productName.className = "product-name";
@@ -70,6 +67,7 @@ export function displayCart() {
       quantityBox.id = "quantity-box";
       sizeSpan.id = "size-span";
       flexBoxRight.id = "flex-box-right";
+
       removeButton.id = "remove";
 
       //
@@ -78,7 +76,7 @@ export function displayCart() {
       quantityInput.id = "quantity-input";
 
       quantityInput.value = productCartListObj.length.toString();
-      // console.log(productCartListObj.id)
+
       //
       if (productCartListObj[i].small == true) {
         sizeSpan.innerHTML = "Storlek:" + " " + "small";
@@ -121,22 +119,24 @@ export function displayCart() {
       flexBoxRight.appendChild(removeButton);
       productBoxRight.appendChild(flexBoxRight);
 
-      increaseButton.addEventListener("click" , () => {
-      let currentValue:number = parseInt(quantityInput.value);
-      currentValue ++;
-      quantityInput.value = currentValue.toString();
+      increaseButton.addEventListener("click", () => {
+        let currentValue: number = parseInt(quantityInput.value);
+        if (currentValue < 15) currentValue++;
+        quantityInput.value = currentValue.toString();
       });
 
-      reduceButton.addEventListener("click" , () => {
-        let currentValue:number = parseInt(quantityInput.value);
-        currentValue --;
+      reduceButton.addEventListener("click", () => {
+        let currentValue: number = parseInt(quantityInput.value);
+        if (currentValue > 1) currentValue--;
         quantityInput.value = currentValue.toString();
-        });
+      });
+      let namn = productCartListObj[i].name;
+      let bild = productCartListObj[i].url;
 
-      removeButton.addEventListener("click", removeModal);
+      removeButton.addEventListener("click", () => {
+        removeModal(bild, namn, i);
+      });
     }
-
-    
   }
 
   // Totalsum
