@@ -35,14 +35,40 @@ export function productModalAddToCart() {
     products.forEach((product) => {
       productName == product.name ? (incomingProduct = product) : null;
     });
-    console.log(incomingProduct);
+
+    let newProduct = new StorageProduct(
+      incomingProduct,
+      size.value,
+      parseInt(amountOfProducts.value)
+    );
     //Sets the size that the user selected.
     //If there´s no list in LS, it creates one
     if (!localStorage.getItem("cartList")) {
       localStorage.setItem("cartList", "[]");
     }
     let cartList: string = localStorage.getItem("cartList");
-    let localStorageArray: Iproducts[] = JSON.parse(cartList);
+    let localStorageArray: StorageProduct[] = JSON.parse(cartList);
+
+    let matchIndex: number;
+
+    localStorageArray.forEach((storageItem, storageItemIndex) => {
+      if (
+        JSON.stringify(storageItem.Iproduct) ===
+          JSON.stringify(newProduct.Iproduct) &&
+        storageItem.size.toString() === newProduct.size.toString()
+      ) {
+        matchIndex = storageItemIndex;
+        console.log("Match found");
+        console.log(JSON.stringify(newProduct.Iproduct));
+        console.log(newProduct.size.toString());
+      }
+    });
+
+    if (matchIndex >= 0) {
+      localStorageArray[matchIndex].amount += parseInt(amountOfProducts.value);
+    } else {
+      localStorageArray.push(newProduct);
+    }
 
     let localStorageArrayStringify: string = JSON.stringify(localStorageArray);
     localStorage.setItem("cartList", localStorageArrayStringify);
@@ -50,7 +76,7 @@ export function productModalAddToCart() {
     //Closes modal
     modalContainer.className = "";
 
-    //Calls the function that updates the products in the Checkout dropdown.
-    createProductsCheckout();
+    //Uppdaterar listan och startar om funktionen för att skapa nya HTML-element i dropdownen
+    // createProductsCheckout();
   });
 }
