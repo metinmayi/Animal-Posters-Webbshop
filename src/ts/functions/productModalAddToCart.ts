@@ -23,10 +23,14 @@ export function productModalAddToCart() {
     let incomingProduct: Iproducts;
     let productName: string = titleIdentifier.innerHTML;
 <<<<<<< HEAD
+<<<<<<< HEAD
     let match: boolean = true;
 =======
     let match: boolean;
 >>>>>>> 22e9931 (Working on it)
+=======
+    let match: boolean = true;
+>>>>>>> c16a990 (Updates)
 
     //Finds the correct products by checking which one has the same name as the Modal title
     products.forEach((product) => {
@@ -58,53 +62,51 @@ export function productModalAddToCart() {
       incomingProduct.amount = parseInt(amountOfProducts.value);
       localStorageArray.push(incomingProduct);
       console.log("Length was 0, pushed item instantly");
+    } else {
+      let smallMatch: boolean;
+      let mediumMatch: boolean;
+      let largeMatch: boolean;
+      let noMatch: boolean;
+      for (let index = 0; index < localStorageArray.length; index++) {
+        if (
+          incomingProduct.name == localStorageArray[index].name &&
+          incomingProduct.small == true &&
+          localStorageArray[index].small == true
+        ) {
+          console.log(`Index ${index} matched small size!`);
+          localStorageArray[index].amount++;
+          break;
+          // smallMatch = true;
+        } else if (
+          incomingProduct.name == localStorageArray[index].name &&
+          incomingProduct.medium == true &&
+          localStorageArray[index].medium == true
+        ) {
+          console.log(`Index ${index} matched medium size!`);
+          localStorageArray[index].amount++;
+          break;
+          // mediumMatch = true;
+        } else if (
+          incomingProduct.name == localStorageArray[index].name &&
+          incomingProduct.large == true &&
+          localStorageArray[index].large == true
+        ) {
+          console.log(index + "Matched large!");
+          localStorageArray[index].amount++;
+          break;
+          // largeMatch = true;
+        } else {
+          match = false;
+          break;
+        }
+      }
     }
     // If there are items in the list. We want to check for matches. Upon matching, edit a products ".amount" and push, rather than pushing a new object.
-    else {
-      localStorageArray.forEach((localStorageItem) => {
-        if (localStorageItem.name == incomingProduct.name) {
-          // console.log("Got a namematch");
-          if (localStorageItem.small == true && incomingProduct.small == true) {
-            console.log("Got a name AND a small size match!");
-            // localStorageItem.amount += parseInt(amountOfProducts.value);
-            match = true;
-            console.log("Same name and same small size. Set match to true");
-          } else if (
-            localStorageItem.medium == true &&
-            incomingProduct.medium == true
-          ) {
-            console.log("Same name and same medium size, set match to true.");
-            // incomingProduct.amount++;
-            match = true;
-          } else if (
-            localStorageItem.large == true &&
-            incomingProduct.large == true
-          ) {
-            console.log("Same name and same medium size, set match to true.");
-            // incomingProduct.amount++;
-            match = true;
-          }
-          // else {
-          //   console.log("Not same name, not same size. Set match to false");
-          //   // incomingProduct.amount = parseInt(amountOfProducts.value);
-          //   // localStorageArray.push(incomingProduct);
-          //   match = false;
-          // }
-        }
-        if (localStorageItem.name != incomingProduct.name) {
-          console.log("Entirely new name, set match to false");
-          match = false;
-        }
-      });
-    }
-    if (match == true) {
-      incomingProduct.amount += parseInt(amountOfProducts.value);
-    }
     if (match == false) {
+      console.log("No matching item, creating new one");
       incomingProduct.amount = parseInt(amountOfProducts.value);
       localStorageArray.push(incomingProduct);
     }
-
     let localStorageArrayStringify: string = JSON.stringify(localStorageArray);
     localStorage.setItem("cartList", localStorageArrayStringify);
     incomingProduct.small = false;
