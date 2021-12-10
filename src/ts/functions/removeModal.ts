@@ -1,7 +1,8 @@
+import { identity, indexOf, remove } from "cypress/types/lodash";
 import { Iproducts } from "../models/products";
 import { displayCart } from "./displayCart";
 
-export function removeModal(bild:string, namn:string, currenItem:Iproducts) {
+export function removeModal(bild: string, namn: string, i: number) {
   //#region Declarations to "remove" modal
   let removeModalContainer: HTMLDivElement = document.getElementById(
     "container-modal"
@@ -41,11 +42,18 @@ export function removeModal(bild:string, namn:string, currenItem:Iproducts) {
   productTitle.innerHTML = correctTitle;
 
   //confirm button
-    confirmButton.addEventListener("click" ,() => {
-      localStorage.removeItem("cartList");
-      displayCart();
-      
-    });
+  confirmButton.addEventListener("click", () => {
+    let localString: string = localStorage.getItem("cartList");
+    let productCartListObj = JSON.parse(localString);
+
+    productCartListObj.splice(i, 1);
+    let productTostring = JSON.stringify(productCartListObj);
+    localStorage.setItem("cartList", productTostring);
+
+    document.location.reload();
+    // displayCart();
+    removeModalContainer.className = "";
+  });
 
   //Close the Modal
   cancelButton.addEventListener("click", () => {
