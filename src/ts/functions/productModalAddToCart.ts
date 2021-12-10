@@ -28,10 +28,8 @@ export function productModalAddToCart() {
     products.forEach((product) => {
       productName == product.name ? (incomingProduct = product) : null;
     });
+    console.log(incomingProduct);
     //Sets the size that the user selected.
-    if (size.value == "s") incomingProduct.small = true;
-    if (size.value == "m") incomingProduct.medium = true;
-    if (size.value == "l") incomingProduct.large = true;
     //If there´s no list in LS, it creates one
     if (!localStorage.getItem("cartList")) {
       localStorage.setItem("cartList", "[]");
@@ -40,61 +38,8 @@ export function productModalAddToCart() {
     let cartList: string = localStorage.getItem("cartList");
     let localStorageArray: Iproducts[] = JSON.parse(cartList);
 
-    //If theres no item in the LS list, it will only add a value and eventually get pushed.
-    if (localStorageArray.length == 0) {
-      incomingProduct.amount = parseInt(amountOfProducts.value);
-      localStorageArray.push(incomingProduct);
-      console.log("Length was 0, pushed item instantly");
-    } else {
-      let smallMatch: boolean;
-      let mediumMatch: boolean;
-      let largeMatch: boolean;
-      let noMatch: boolean;
-      for (let index = 0; index < localStorageArray.length; index++) {
-        if (
-          incomingProduct.name == localStorageArray[index].name &&
-          incomingProduct.small == true &&
-          localStorageArray[index].small == true
-        ) {
-          console.log(`Index ${index} matched small size!`);
-          localStorageArray[index].amount++;
-          break;
-          // smallMatch = true;
-        } else if (
-          incomingProduct.name == localStorageArray[index].name &&
-          incomingProduct.medium == true &&
-          localStorageArray[index].medium == true
-        ) {
-          console.log(`Index ${index} matched medium size!`);
-          localStorageArray[index].amount++;
-          break;
-          // mediumMatch = true;
-        } else if (
-          incomingProduct.name == localStorageArray[index].name &&
-          incomingProduct.large == true &&
-          localStorageArray[index].large == true
-        ) {
-          console.log(index + "Matched large!");
-          localStorageArray[index].amount++;
-          break;
-          // largeMatch = true;
-        } else {
-          match = false;
-          break;
-        }
-      }
-    }
-    // If there are items in the list. We want to check for matches. Upon matching, edit a products ".amount" and push, rather than pushing a new object.
-    if (match == false) {
-      console.log("No matching item, creating new one");
-      incomingProduct.amount = parseInt(amountOfProducts.value);
-      localStorageArray.push(incomingProduct);
-    }
     let localStorageArrayStringify: string = JSON.stringify(localStorageArray);
     localStorage.setItem("cartList", localStorageArrayStringify);
-    incomingProduct.small = false;
-    incomingProduct.medium = false;
-    incomingProduct.large = false;
 
     //Closes modal
     modalContainer.className = "";
