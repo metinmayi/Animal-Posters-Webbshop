@@ -1,5 +1,5 @@
 import { create } from "cypress/types/lodash";
-import { StorageProduct } from "../models/products";
+import { Iproducts } from "../models/products";
 let totalPrice: number = 0;
 let momsPrice: number = 0;
 
@@ -24,17 +24,14 @@ export function createProductsCheckout() {
   });
 
   let cartListLS: string = localStorage.getItem("cartList");
-  let listAsObject: StorageProduct[] = JSON.parse(cartListLS);
+  let listAsObject: Iproducts = JSON.parse(cartListLS);
 
   ifElse(listAsObject);
 }
 
-export function ifElse(listAsObject) {
-  if (listAsObject.length === 0) {
-    console.log("tom");
-    document.getElementById("empty-container").style.display = "block";
-  } else {
-    document.getElementById("empty-container").style.display = "none";
+export function ifElse(lista) {
+  if (localStorage.hasOwnProperty("cartList")) {
+    //Tar bort de gamla HTML-elementen fär att ge plats åt en uppdaterad lista
     let productsRemove = document.getElementById("checkout-products-container");
     while (productsRemove.firstChild) {
       productsRemove.removeChild(productsRemove.firstChild);
@@ -51,17 +48,30 @@ export function ifElse(listAsObject) {
       totalRemove.removeChild(totalRemove.firstChild);
     }
 
-    createHTML(listAsObject);
+    createHTML(lista);
+  } else {
+    console.log("tom");
+    let emptyList: HTMLDivElement = document.createElement("div");
+    emptyList.id = "empty-container";
+
+    let emptyText: HTMLParagraphElement = document.createElement("p");
+    emptyText.id = "empty-text";
+    emptyText.innerHTML =
+      "Din varukorg är tom, tryck på en vara och lägg till den i varukorgen för att fortsätta";
+
+    document
+      .getElementById("checkout-products-container")
+      .appendChild(emptyList);
+    emptyList.appendChild(emptyText);
   }
 }
 
 export function createHTML(listAsObject) {
   //Skapar HTML efter listan som är lagrad i localStorage
+
   totalPrice = 0;
 
   for (let i = 0; i < listAsObject.length; i++) {
-    console.log(listAsObject[i].amount);
-
     let productWrapper: HTMLDivElement = document.createElement("div");
     productWrapper.className = "checkout-products";
 
@@ -69,11 +79,7 @@ export function createHTML(listAsObject) {
     imageWrapper.className = "image-wrapper";
     imageWrapper.setAttribute(
       "style",
-      `background-image: url("${listAsObject[i].Iproduct.url}")`
-    );
-    imageWrapper.setAttribute(
-      "alt",
-      `The picture of a ${listAsObject[i].Iproduct.name}`
+      `background-image: url("${listAsObject[i].url}")`
     );
 
     let textWrapper: HTMLDivElement = document.createElement("div");
@@ -81,14 +87,14 @@ export function createHTML(listAsObject) {
 
     let productName: HTMLHeadingElement = document.createElement("h1");
     productName.id = "name";
-    productName.innerHTML = listAsObject[i].Iproduct.name;
+    productName.innerHTML = listAsObject[i].name;
 
     let productSize: HTMLParagraphElement = document.createElement("p");
     productSize.id = "size";
 
-    if (listAsObject[i].size === "s") {
+    if (listAsObject[i].small === true) {
       productSize.innerHTML = "Storlek: Small";
-    } else if (listAsObject[i].size === "m") {
+    } else if (listAsObject[i].medium === true) {
       productSize.innerHTML = "Storlek: Medium";
     } else {
       productSize.innerHTML = "Storlek: Large";
@@ -96,27 +102,13 @@ export function createHTML(listAsObject) {
 
     let productPrice: HTMLParagraphElement = document.createElement("p");
     productPrice.id = "price";
-    if (listAsObject[i].size === "s") {
-      productPrice.innerHTML =
-        listAsObject[i].Iproduct.price.s * listAsObject[i].amount + " kr";
-    } else if (listAsObject[i].size === "m") {
-      productPrice.innerHTML =
-        listAsObject[i].Iproduct.price.m * listAsObject[i].amount + " kr";
+    if (listAsObject[i].small === true) {
+      productPrice.innerHTML = listAsObject[i].price.s + " kr";
+    } else if (listAsObject[i].medium === true) {
+      productPrice.innerHTML = listAsObject[i].price.m + " kr";
     } else {
-      productPrice.innerHTML =
-        listAsObject[i].Iproduct.price.l * listAsObject[i].amount + " kr";
+      productPrice.innerHTML = listAsObject[i].price.l + " kr";
     }
-
-    let inputContainer: HTMLDivElement = document.createElement("div");
-    inputContainer.id = "input-container";
-
-    let label: HTMLParagraphElement = document.createElement("p");
-    label.innerHTML = "Antal:";
-    label.id = "label";
-
-    let amount: HTMLParagraphElement = document.createElement("p");
-    amount.innerHTML = listAsObject[i].amount + " st";
-
     let trashDiv: HTMLDivElement = document.createElement("div");
     trashDiv.id = "trash-div";
 
@@ -132,10 +124,6 @@ export function createHTML(listAsObject) {
     textWrapper.appendChild(productName);
     textWrapper.appendChild(productSize);
     textWrapper.appendChild(productPrice);
-
-    productWrapper.appendChild(inputContainer);
-    inputContainer.appendChild(label);
-    inputContainer.appendChild(amount);
 
     productWrapper.appendChild(trashDiv);
     trashDiv.appendChild(trash);
@@ -168,15 +156,11 @@ export function createHTML(listAsObject) {
         deletTotalList.removeChild(deletTotalList.firstChild);
       }
 
+      createHTML(listAsObject);
+
       let cartListString: string = JSON.stringify(listAsObject);
       console.log(cartListString);
       localStorage.setItem("cartList", cartListString);
-
-      if (listAsObject.length === 0) {
-        ifElse(listAsObject);
-      } else {
-        createHTML(listAsObject);
-      }
     });
   }
   createPrice(totalPrice);
