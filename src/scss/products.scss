@@ -1,6 +1,7 @@
 @import "styles";
 @import "productsModal";
 @import "mixins";
+@import "wishList";
 * {
 	box-sizing: border-box;
 }
@@ -12,7 +13,7 @@ body {
 	background-color: $bgcolor;
 	margin: 0;
 	padding: 0;
-
+	@include wishList;
 	@include productModal;
 	@include menu;
 	@include footer;
