@@ -209,7 +209,7 @@ $footercolor: #945d5e;
           display: flex;
           flex-direction: column;
           justify-content: space-evenly;
-          width: 35%;
+          width: 25%;
 
           h1,
           p {
@@ -237,21 +237,23 @@ $footercolor: #945d5e;
           flex-direction: column;
           width: 15%;
           overflow: hidden;
-          padding: 10px;
+          // padding: 5px;
           border: 1px solid $bgcolor;
           border-radius: 5px;
           font-family: $headfont;
 
-          label {
+          #label {
+            font-family: $breadfont;
+            font-weight: 600;
+          }
+
+          p {
             display: inline !important;
             overflow: hidden;
             font-family: $headfont;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             text-align: center;
-          }
-
-          #number-of-posters {
-            width: 100%;
+            margin: 5px;
           }
         }
         #trash-div {
