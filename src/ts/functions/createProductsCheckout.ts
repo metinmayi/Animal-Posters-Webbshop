@@ -53,40 +53,6 @@ export function ifElse(listAsObject) {
 
     createHTML(listAsObject);
   }
-  // if (listAsObject.length === 0) {
-  //   console.log("tom");
-
-  //   let emptyList: HTMLDivElement = document.createElement("div");
-  //   emptyList.id = "empty-container";
-
-  //   let emptyText: HTMLParagraphElement = document.createElement("p");
-  //   emptyText.id = "empty-text";
-  //   emptyText.innerHTML = "";
-
-  //   document
-  //     .getElementById("checkout-products-container")
-  //     .appendChild(emptyList);
-  //   emptyList.appendChild(emptyText);
-
-  //   let productsRemove = document.getElementById("checkout-products-container");
-  //   while (productsRemove.firstChild) {
-  //     productsRemove.removeChild(productsRemove.firstChild);
-  //   }
-  // } else {
-  //   //Tar bort de gamla HTML-elementen fär att ge plats åt en uppdaterad lista
-  //   let momsRemove = document.getElementById("moms-price");
-  //   while (momsRemove.firstChild) {
-  //     momsRemove.removeChild(momsRemove.firstChild);
-  //   }
-
-  //   //Tar bort de gamla HTML-elementen fär att ge plats åt en uppdaterad lista
-  //   let totalRemove = document.getElementById("total-price");
-  //   while (totalRemove.firstChild) {
-  //     totalRemove.removeChild(totalRemove.firstChild);
-  //   }
-
-  //   createHTML(listAsObject);
-  // }
 }
 
 export function createHTML(listAsObject) {
@@ -104,6 +70,10 @@ export function createHTML(listAsObject) {
     imageWrapper.setAttribute(
       "style",
       `background-image: url("${listAsObject[i].Iproduct.url}")`
+    );
+    imageWrapper.setAttribute(
+      "alt",
+      `The picture of a ${listAsObject[i].Iproduct.name}`
     );
 
     let textWrapper: HTMLDivElement = document.createElement("div");
