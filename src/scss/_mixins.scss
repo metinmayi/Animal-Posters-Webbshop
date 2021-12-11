@@ -478,6 +478,7 @@ $footercolor: #945d5e;
           flex-direction: row;
           gap: 60px;
           align-items: center;
+          cursor: pointer;
 
           a {
             color: #000;
@@ -485,7 +486,7 @@ $footercolor: #945d5e;
           }
         }
 
-        #icons a:hover {
+        #icons i:hover {
           transform: scale(1.2);
         }
       }

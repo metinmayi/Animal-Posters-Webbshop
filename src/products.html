@@ -15,7 +15,9 @@
   <body>
     <div id="modalContainer">
       <div id="modalBody">
-        <button id="closeProductsModal">X</button>
+        <!-- <button id="closeProductsModal">X</button> -->
+
+        <button id="closeProductsModal"><i class="fas fa-times"></i></button>
         <div id="modalImgWrapper">
           <img id="modalImg" />
         </div>
@@ -32,7 +34,7 @@
           <option value="m">M</option>
           <option value="l">L</option>
         </select>
-        <input value="1" type="number" id="productModalAmount" />
+        <input value="1" type="number" id="productModalAmount" min="1" />
         <p id="modalTotal"></p>
         <button id="addProduct">Lägg till</button>
       </div>
