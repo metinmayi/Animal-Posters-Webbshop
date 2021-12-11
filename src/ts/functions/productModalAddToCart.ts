@@ -1,7 +1,10 @@
-import { products, Iprice, Iproducts } from "../models/products";
+import {
+  products,
+  Iprice,
+  Iproducts,
+  StorageProduct,
+} from "../models/products";
 import { createProductsCheckout } from "../functions/createProductsCheckout";
-
-import { createHTML } from "../functions/createProductsCheckout";
 
 export function productModalAddToCart() {
   //#region Declarations
@@ -22,35 +25,54 @@ export function productModalAddToCart() {
   ) as HTMLSelectElement;
   //#endregion
   addButton.addEventListener("click", (e) => {
-    console.log(titleIdentifier.innerHTML + "!");
-    let regex: RegExp = new RegExp(titleIdentifier.innerHTML);
-    let correctProduct;
-
-    products.forEach((e) => {
-      regex.test(e.name) ? (correctProduct = e) : null;
+    //Takes the title of the Modal. Checks our list of products(products[]) and finds the one that has the same name as the Modal title. This it how we identify
+    //which product was clicked.
+    let incomingProduct: Iproducts;
+    let productName: string = titleIdentifier.innerHTML;
+    products.forEach((product) => {
+      productName == product.name ? (incomingProduct = product) : null;
     });
-    console.log(correctProduct);
+    //Creates a new product based on the incomingProdcut(Iproduct), the size and amount values that the user put in.
+    let newProduct = new StorageProduct(
+      incomingProduct,
+      size.value,
+      parseInt(amountOfProducts.value)
+    );
 
+    //All CODE BELOW IS MANIPULATING THE LOCALSTORAGE.
+    //Checks for an existing LocalStorage list. If there is none, it creates an empty array.
     if (!localStorage.getItem("cartList")) {
       localStorage.setItem("cartList", "[]");
     }
-
     let cartList: string = localStorage.getItem("cartList");
-    let cartListArray: Iproducts[] = JSON.parse(cartList);
+    let localStorageArray: StorageProduct[] = JSON.parse(cartList);
 
-    if (size.value == "s") correctProduct.small = true;
-    if (size.value == "m") correctProduct.medium = true;
-    if (size.value == "l") correctProduct.large = true;
-    for (let x = 0; x < parseInt(amountOfProducts.value); x++) {
-      cartListArray.push(correctProduct);
+    //Compares our newProduct with the ones that exist in the localStorage. If it finds a match, it sets the matchIndex to the index of the found match.
+    let matchIndex: number;
+    localStorageArray.forEach((storageItem, storageItemIndex) => {
+      if (
+        JSON.stringify(storageItem.Iproduct) ===
+          JSON.stringify(newProduct.Iproduct) &&
+        storageItem.size.toString() === newProduct.size.toString()
+      ) {
+        matchIndex = storageItemIndex;
+      }
+    });
+
+    //If a match was found previously, it only changes the amount of the already existing object. Else, it pushes a new object to the array.
+    if (matchIndex >= 0) {
+      localStorageArray[matchIndex].amount += parseInt(amountOfProducts.value);
+    } else {
+      localStorageArray.push(newProduct);
     }
-    let cartListArrayStringify: string = JSON.stringify(cartListArray);
-    localStorage.setItem("cartList", cartListArrayStringify);
+
+    let localStorageArrayStringify: string = JSON.stringify(localStorageArray);
+    localStorage.setItem("cartList", localStorageArrayStringify);
 
     //Closes modal
     modalContainer.className = "";
 
-    //Uppdaterar listan och startar om funktionen för att skapa nya HTML-element i dropdownen
+    //Calls the function that updates the products in the Checkout dropdown.
     createProductsCheckout();
   });
 }
