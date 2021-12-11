@@ -6,8 +6,6 @@ import {
 } from "../models/products";
 import { createProductsCheckout } from "../functions/createProductsCheckout";
 
-import { createHTML } from "../functions/createProductsCheckout";
-
 export function productModalAddToCart() {
   //#region Declarations
   let titleIdentifier: HTMLParagraphElement = document.getElementById(
