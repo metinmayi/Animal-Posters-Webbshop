@@ -62,21 +62,21 @@ body {
           padding: 15px;
           gap: 15px;
           border-bottom: 1px solid black;
-          // #product-box-left {
-          //   display: flex;
-          //   justify-content: flex-start;
-          //   align-items: center;
-          //   width: 200px;
+          #product-box-left {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 200px;
 
-          //   #img-container {
-          //     width: 100px;
-          //     height: 150px;
-          //     background-color: transparent;
-          //     #product-imgage {
-          //       height: 100px;
-          //     }
-          //   }
-          // }
+            #img-container {
+              width: 100px;
+              height: 150px;
+              background-color: transparent;
+              #product-image {
+                height: 100px;
+              }
+            }
+          }
           #product-box-right {
             height: 150px;
             width: 100%;
