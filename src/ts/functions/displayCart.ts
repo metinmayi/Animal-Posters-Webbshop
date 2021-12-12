@@ -4,8 +4,9 @@ import { Iprice, Iproducts } from "../models/products";
 
 export function displayCart() {
   let ul: HTMLUListElement = document.getElementById("ul") as HTMLUListElement;
-
   let totalSum = 0;
+
+  ul.innerHTML = "";
 
   if (!localStorage.getItem("cartList")) {
     let wrapper: HTMLDivElement = document.getElementById(
@@ -33,10 +34,10 @@ export function displayCart() {
       let productImg: HTMLImageElement = document.createElement("img");
       let productFact: HTMLDivElement = document.createElement("div");
       let productName: HTMLHeadingElement = document.createElement("h4");
-      let sizeBox: HTMLDivElement = document.createElement("div");
-      let sizeSpan: HTMLSpanElement = document.createElement("span");
       let productPrice: HTMLParagraphElement = document.createElement("p");
       let productBoxRight: HTMLDivElement = document.createElement("div");
+      let sizeBox: HTMLDivElement = document.createElement("div");
+      let sizeSpan: HTMLSpanElement = document.createElement("span");
       let quantityBox: HTMLDivElement = document.createElement("div");
       let reduceButton: HTMLDivElement = document.createElement(
         "div"
@@ -78,23 +79,23 @@ export function displayCart() {
       quantityInput.value = productCartListObj.length.toString();
 
       //
-      if (productCartListObj[i].small == true) {
-        sizeSpan.innerHTML = "Storlek:" + " " + "small";
-        productPrice.innerHTML = `Pris: ${productCartListObj[i].price.s} kr`;
-        totalSum += productCartListObj[i].price.s;
-      }
-      if (productCartListObj[i].medium == true) {
-        sizeSpan.innerHTML = `Storlek: medium`;
-        productPrice.innerHTML =
-          productPrice.innerHTML = `Pris: ${productCartListObj[i].price.m} kr`;
-        totalSum += productCartListObj[i].price.m;
-      }
-      if (productCartListObj[i].large == true) {
-        sizeSpan.innerHTML = `Storlek: large`;
-        productPrice.innerHTML =
-          productPrice.innerHTML = `Pris: ${productCartListObj[i].price.l} kr`;
-        totalSum += productCartListObj[i].price.l;
-      }
+      // if (productCartListObj[i].small == true) {
+      //   sizeSpan.innerHTML = "Storlek:" + " " + "small";
+      //   productPrice.innerHTML = `Pris: ${productCartListObj[i].price.s} kr`;
+      //   totalSum += productCartListObj[i].price.s;
+      // }
+      // if (productCartListObj[i].medium == true) {
+      //   sizeSpan.innerHTML = `Storlek: medium`;
+      //   productPrice.innerHTML =
+      //     productPrice.innerHTML = `Pris: ${productCartListObj[i].price.m} kr`;
+      //   totalSum += productCartListObj[i].price.m;
+      // }
+      // if (productCartListObj[i].large == true) {
+      //   sizeSpan.innerHTML = `Storlek: large`;
+      //   productPrice.innerHTML =
+      //     productPrice.innerHTML = `Pris: ${productCartListObj[i].price.l} kr`;
+      //   totalSum += productCartListObj[i].price.l;
+      // }
 
       reduceButton.innerHTML = "<i class='fas fa-angle-left'></i>";
       increaseButton.innerHTML = "<i class='fas fa-angle-right'></i>";
