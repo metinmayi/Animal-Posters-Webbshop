@@ -13,7 +13,7 @@ $footercolor: #945d5e;
     background-color: white;
     position: absolute;
     top: 0;
-    z-index: 10;
+    z-index: 4;
 
     #desktop {
       display: none;
@@ -106,15 +106,23 @@ $footercolor: #945d5e;
 }
 
 @mixin dropdown-checkout {
+  #dropdown-wrapper {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 100vh;
+    z-index: 9;
+    position: fixed;
+    top: 0;
+  }
   #checkout-dropdown {
-    display: none;
     height: 100vh;
     width: 100%;
-    position: fixed;
+    position: absolute;
     top: 0;
     right: 0;
     background-color: #fff !important;
-    z-index: 10;
+    z-index: 20;
 
     //Styling av scrollbar
 
