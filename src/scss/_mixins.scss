@@ -107,7 +107,7 @@ $footercolor: #945d5e;
 
 @mixin dropdown-checkout {
   #dropdown-wrapper {
-    display: block;
+    display: none;
     background-color: rgba(0, 0, 0, 0.8);
     width: 100%;
     height: 100vh;
