@@ -50,8 +50,7 @@ export function removeModal(bild: string, namn: string, i: number) {
     let productTostring = JSON.stringify(productCartListObj);
     localStorage.setItem("cartList", productTostring);
 
-    document.location.reload();
-    // displayCart();
+    displayCart();
     removeModalContainer.className = "";
   });
 
