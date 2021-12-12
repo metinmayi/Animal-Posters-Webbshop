@@ -1,5 +1,6 @@
 import { createProducts } from "../functions/productsDisplay";
 import { products, Iproducts } from "../models/products";
+import { refreshWishList, wishList } from "./wishListDisplays";
 
 export function addToWishlist(e, index) {
 	let wishListFromStorage: string = localStorage.getItem("wishList");
@@ -18,4 +19,5 @@ export function addToWishlist(e, index) {
 	let toStorage: string = JSON.stringify(wishListAsObject);
 	localStorage.setItem("wishList", toStorage);
 	createProducts();
+	refreshWishList();
 }
