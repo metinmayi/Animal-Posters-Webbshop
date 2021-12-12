@@ -1,7 +1,13 @@
 @mixin wishList {
+	.showDropDown {
+		opacity: 1 !important;
+		pointer-events: all !important;
+	}
 	.wishlist {
 		position: relative;
 		.wishlistDropDown {
+			opacity: 0;
+			pointer-events: none;
 			position: absolute;
 			transform: translate(-50%, 9.6%);
 			// top: calc(100% + 3.5rem);
@@ -45,10 +51,12 @@
 		}
 	}
 	.mobileWishlist {
-		display: auto;
+		display: block;
 		position: relative;
 		z-index: 95;
 		.wishlistDropDownMobile {
+			opacity: 0;
+			pointer-events: none;
 			position: absolute;
 			top: 8vh;
 			width: 100vw;
