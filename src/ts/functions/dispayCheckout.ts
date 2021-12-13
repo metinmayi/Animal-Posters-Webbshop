@@ -55,6 +55,7 @@ export function displayCheckout() {
       productPrice.className = "product-price";
       productContainerRight.id = "product-box-right";
       quantityBox.id = "quantity-box";
+      quantityInput.id = "quantity-input";
       reduceButton.id = "reduce-button";
       increaseButton.id = "increase-button";
       removeButton.id = "remove";
