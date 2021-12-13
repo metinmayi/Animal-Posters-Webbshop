@@ -19,7 +19,7 @@ body {
 	@include dropdown-checkout;
 
 	//Mixing för wishlist
-	@include wishlist;
+	@include wishList;
 	//Mediaquery, min-width: 768px
 	@include pad;
 
