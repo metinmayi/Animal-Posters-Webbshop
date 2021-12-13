@@ -8,8 +8,14 @@ body {
   font-size: 12pt;
   position: relative;
 
+  //Mixin för header
   @include menu;
+
+  //Mixin för footer
   @include footer;
+
+  //Mixin för dropdown-cart
+  @include dropdown-checkout;
 
   //Mediaquery, min-width: 768px
   @include pad;

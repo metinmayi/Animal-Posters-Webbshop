@@ -9,5 +9,5 @@ window.onload = () => {
   displayCart();
 
   //Aktiverar och skapar HTML i checkout-dropdownen
-  createProductsCheckout();
+  // createProductsCheckout();
 };

@@ -2,20 +2,35 @@
 @import "mixins";
 @import "removeModal";
 
-@include menu;
-@include footer;
+// @include menu;
+// @include footer;
 
-//Mediaquery, min-width: 768px
-@include pad;
+// //Mediaquery, min-width: 768px
+// @include pad;
 
-//Mediaquery, min-width: 1024px
-@include desktop;
+// //Mediaquery, min-width: 1024px
+// @include desktop;
 
 body {
   @include removeModal;
   background-color: $bgcolor;
   margin: 0px;
   padding: 0px;
+
+  //Mixin för header
+  @include menu;
+
+  //Mixin för footer
+  @include footer;
+
+  //Mixin för dropdown-cart
+  // @include dropdown-checkout;
+
+  //Mediaquery, min-width: 768px
+  @include pad;
+
+  //Mediaquery, min-width: 1024px
+  @include desktop;
 }
 
 #wrapper-checkout {
