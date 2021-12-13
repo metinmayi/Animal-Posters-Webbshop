@@ -4,6 +4,7 @@ let totalPrice: number = 0;
 let momsPrice: number = 0;
 
 export function createProductsCheckout() {
+  let cart = document.getElementsByClassName("shopping-cart");
   document.getElementById("shopping-cart").addEventListener("click", () => {
     document.getElementById("dropdown-wrapper").style.display = "block";
   });
