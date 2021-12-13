@@ -30,7 +30,7 @@ export function createProductsCheckout() {
 }
 
 export function ifElse(listAsObject) {
-  if (listAsObject.length === 0) {
+  if (listAsObject === null || listAsObject.length == 0) {
     console.log("tom");
     document.getElementById("empty-container").style.display = "block";
   } else {
