@@ -71,6 +71,7 @@ a {
             background-color: transparent;
             #productImg {
               height: 100%;
+              box-shadow: 2px 2px 4px rgba(150, 147, 147, 0.541);
             }
           }
         }
@@ -273,7 +274,7 @@ a {
                 #quantity-input {
                   width: 20px;
                   height: 14px;
-                  font-size: 10px;
+                  font-size: 12px;
                 }
               }
 

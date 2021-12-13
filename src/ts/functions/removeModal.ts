@@ -32,6 +32,7 @@ export function removeModal(bild: string, namn: string, i: number) {
   let confirmButton: HTMLButtonElement = document.getElementById(
     "confirm"
   ) as HTMLButtonElement;
+
   //#endregion
 
   //Opens Modal
@@ -46,11 +47,11 @@ export function removeModal(bild: string, namn: string, i: number) {
   confirmButton.addEventListener("click", () => {
     let localString: string = localStorage.getItem("cartList");
     let productCartListObj = JSON.parse(localString);
+    console.log(productCartListObj);
 
     productCartListObj.splice(i, 1);
     let productTostring = JSON.stringify(productCartListObj);
     localStorage.setItem("cartList", productTostring);
-
     // run this function from shoppingcart page
     if (document.URL.includes("shoppingcart.html")) {
       displayCart();
