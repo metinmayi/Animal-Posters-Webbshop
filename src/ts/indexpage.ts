@@ -5,6 +5,7 @@ import {
 	removeFromWishlist,
 	refreshWishList,
 } from "./functions/wishListDisplays";
+import { createProductsCheckout } from "./functions/createProductsCheckout";
 
 window.onload = function () {
 	//Funktionen aktiverar och avaktiverar hamburgarmenyn med hjälp av "click"
@@ -17,4 +18,6 @@ window.onload = function () {
 	wishList();
 	//Uppdaterar wishlist innehållet
 	refreshWishList();
+	//Aktiverar och skapar HTML i checkout-dropdownen
+	createProductsCheckout();
 };

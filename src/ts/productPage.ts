@@ -15,7 +15,7 @@ window.onload = () => {
 	productModalAddToCart();
 
 	//Aktiverar och skapar HTML i checkout-dropdownen
-	// createProductsCheckout();
+	createProductsCheckout();
 
 	//Skapar eventlisteners för att öppna/stänga wishlist
 	wishList();

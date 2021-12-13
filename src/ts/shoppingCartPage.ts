@@ -1,4 +1,5 @@
 import { activateHamburgerMenu } from "./functions/activateHamburgerMenu";
+import { createProductsCheckout } from "./functions/createProductsCheckout";
 import { displayCart } from "./functions/displayCart";
 import { wishList, refreshWishList } from "./functions/wishListDisplays";
 window.onload = () => {
@@ -11,4 +12,6 @@ window.onload = () => {
 	wishList();
 	//Uppdaterar wishlist innehållet
 	refreshWishList();
+	//Aktiverar och skapar HTML i checkout-dropdownen
+	createProductsCheckout();
 };
