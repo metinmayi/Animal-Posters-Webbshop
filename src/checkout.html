@@ -144,8 +144,8 @@
             <!-- Postnummer -->
             <div class="col-md-4">
               <label for="inputZip" class="form-label"></label>
-              <input type="number" class="form-control" id="inputZip" placeholder="Postnummer" pattern="[0-9]{5}" required/>
-              <div class="invalid-feedback">Skriv in ditt postnummer</div>
+              <input type="text" class="form-control" id="inputZip" placeholder="Postnummer" pattern="[0-9]{5}" required/>
+              <div class="invalid-feedback">Skriv in ditt postnummer (fem siffror)</div>
             </div>
 
             <!-- Ort -->
@@ -167,8 +167,8 @@
             <!-- Telefonnummer -->
           <div class="col-md-4">
             <label for="phonenumber"></label>
-            <input type="number" name="phonenumber" id="phonenumber" class="form-control"  placeholder="Mobilnummer " required>
-            <div class="invalid-feedback">Skriv in ditt telefonnummer</div>       
+            <input type="text" name="phonenumber" id="phonenumber" class="form-control" pattern="[0-9]{10}" placeholder="Mobilnummer " required>
+            <div class="invalid-feedback">Skriv in ditt telefonnummer (tio siffror)</div>       
           </div>
 
           <!-- HÄR BÖRJAR PAYMENT FORMULÄRET  -->
@@ -203,7 +203,7 @@
                                                 <div class="form-group"> <label><span class="hidden-xs">
                                                             <h6>Giltlighetstid</h6>
                                                         </span></label>
-                                                    <div class="input-group"> <input type="number" placeholder="MM" pattern="[0-9]{2}" name="" class="form-control" required> <input type="number" placeholder="YY" name="" pattern="[0-9]{2}" class="form-control" required> </div>
+                                                    <div class="input-group"> <input type="text" placeholder="MM" pattern="[0-9]{2}"required name="" class="form-control" > <input type="text" placeholder="YY" name="" pattern="[0-9]{2}"required class="form-control" > </div>
                                                 </div>
                                             </div>
                                             <div class="col-sm-4">

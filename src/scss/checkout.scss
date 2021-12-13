@@ -35,6 +35,7 @@ body {
     box-shadow: $boxshadow;
     background-color: $bgbox;
     padding: 15px;
+    border-radius: 5px;
     h1 {
       font-family: $headfont;
       font-size: 20px;
@@ -52,14 +53,12 @@ body {
       flex-direction: column;
       #id {
         #product {
-          // background-color: $bgbox;
           margin: 0 auto;
           display: flex;
           align-items: center;
-          // justify-content: center;
           width: 90%;
           // box-shadow: 2px 2px 4px rgba(150, 147, 147, 0.541);
-          padding: 5px;
+          padding-bottom: 5px;
           gap: 10px;
           border-bottom: 1px solid rgba(139, 139, 139, 0.616);
           #product-box-left {
@@ -191,7 +190,7 @@ body {
     box-shadow: $boxshadow;
     padding: 15px;
     background-color: $bgbox;
-
+    border-radius: 5px;
     h1 {
       font-family: $headfont;
       font-size: 20px;
