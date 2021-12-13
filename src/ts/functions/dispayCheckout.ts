@@ -151,8 +151,9 @@ export function displayCheckout() {
       let namn = productCartListObject[i].Iproduct.name;
       let bild = productCartListObject[i].Iproduct.url;
 
+      // call the removeModal function
       removeButton.addEventListener("click", () => {
-        removeModal(bild, namn, i);
+        removeModal(bild, namn, i, productCartListObject);
       });
     }
   }

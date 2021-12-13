@@ -1,4 +1,3 @@
-import { products } from "../models/products";
 import { removeModal } from "../functions/removeModal";
 import { Iprice, Iproducts, StorageProduct } from "../models/products";
 
@@ -8,6 +7,7 @@ export function displayCart() {
 
   ul.innerHTML = "";
 
+  // create/get cartList from localstorage
   if (!localStorage.getItem("cartList")) {
     let wrapper: HTMLDivElement = document.getElementById(
       "wrapper"
@@ -45,7 +45,6 @@ export function displayCart() {
       let increaseButton: HTMLDivElement = document.createElement(
         "div"
       ) as HTMLDivElement;
-
       let quantityInput: HTMLInputElement = document.createElement("input");
       let flexBoxRight: HTMLDivElement = document.createElement("div");
       let removeButton: HTMLParagraphElement = document.createElement("p");
@@ -79,7 +78,7 @@ export function displayCart() {
       removeButton.innerHTML = "<i class='fas fa-trash-alt'></i>" + " Ta bort";
       sizeSpan.innerHTML = "Storlek: " + productCartListObj[i].size;
 
-      // Rätt pris och storlek på produkten
+      // Display right size and price on product
       if (productCartListObj[i].size == "s") {
         productPrice.innerHTML = `Pris: ${
           productCartListObj[i].Iproduct.price.s * productCartListObj[i].amount
@@ -106,6 +105,7 @@ export function displayCart() {
           productCartListObj[i].Iproduct.price.l * productCartListObj[i].amount;
       }
 
+      // appendChild
       ul.appendChild(li);
       li.appendChild(product);
       product.appendChild(productBoxLeft);
@@ -125,6 +125,7 @@ export function displayCart() {
       flexBoxRight.appendChild(removeButton);
       productBoxRight.appendChild(flexBoxRight);
 
+      // increase quantity button
       increaseButton.addEventListener("click", () => {
         let currentValue: number = parseInt(quantityInput.value);
         if (currentValue < 15) currentValue++;
@@ -136,6 +137,7 @@ export function displayCart() {
         displayCart();
       });
 
+      // reduce quantity
       reduceButton.addEventListener("click", () => {
         let currentValue: number = parseInt(quantityInput.value);
         if (currentValue > 1) currentValue--;
@@ -146,11 +148,13 @@ export function displayCart() {
 
         displayCart();
       });
+
       let namn = productCartListObj[i].Iproduct.name;
       let bild = productCartListObj[i].Iproduct.url;
 
+      // call the removeModal function
       removeButton.addEventListener("click", () => {
-        removeModal(bild, namn, i);
+        removeModal(bild, namn, i, productCartListObj);
       });
     }
   }
