@@ -1,6 +1,7 @@
 import { identity, indexOf, remove } from "cypress/types/lodash";
 import { Iproducts } from "../models/products";
 import { displayCart } from "./displayCart";
+import { displayCheckout } from "./dispayCheckout";
 
 export function removeModal(bild: string, namn: string, i: number) {
   //#region Declarations to "remove" modal
@@ -50,7 +51,14 @@ export function removeModal(bild: string, namn: string, i: number) {
     let productTostring = JSON.stringify(productCartListObj);
     localStorage.setItem("cartList", productTostring);
 
-    displayCart();
+    // run this function from shoppingcart page
+    if (document.URL.includes("shoppingcart.html")) {
+      displayCart();
+      // run this function from checkout page
+    } else if (document.URL.includes("checkout.html")) {
+      displayCheckout();
+    }
+
     removeModalContainer.className = "";
   });
 

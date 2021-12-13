@@ -1,6 +1,6 @@
 import { products } from "../models/products";
 import { removeModal } from "../functions/removeModal";
-import { Iprice, Iproducts } from "../models/products";
+import { Iprice, Iproducts, StorageProduct } from "../models/products";
 
 export function displayCart() {
   let ul: HTMLUListElement = document.getElementById("ul") as HTMLUListElement;
@@ -23,7 +23,7 @@ export function displayCart() {
     wrapper.insertBefore(noListSpan, x);
   } else {
     let productCartList: string = localStorage.getItem("cartList");
-    let productCartListObj: Iproducts[] = JSON.parse(productCartList);
+    let productCartListObj: StorageProduct[] = JSON.parse(productCartList);
 
     for (let i = 0; i < productCartListObj.length; i++) {
       //#region declarations
@@ -51,8 +51,7 @@ export function displayCart() {
       let removeButton: HTMLParagraphElement = document.createElement("p");
       //#endregion
 
-      // id and classnames
-
+      // ID and classnames
       li.id = "li";
       product.id = "product";
       productBoxLeft.id = "product-box-left";
@@ -68,38 +67,44 @@ export function displayCart() {
       quantityBox.id = "quantity-box";
       sizeSpan.id = "size-span";
       flexBoxRight.id = "flex-box-right";
-
       removeButton.id = "remove";
-
-      //
-      productImg.src = productCartListObj[i].url;
-      productName.innerHTML = productCartListObj[i].name;
       quantityInput.id = "quantity-input";
 
-      quantityInput.value = productCartListObj.length.toString();
-
-      //
-      // if (productCartListObj[i].small == true) {
-      //   sizeSpan.innerHTML = "Storlek:" + " " + "small";
-      //   productPrice.innerHTML = `Pris: ${productCartListObj[i].price.s} kr`;
-      //   totalSum += productCartListObj[i].price.s;
-      // }
-      // if (productCartListObj[i].medium == true) {
-      //   sizeSpan.innerHTML = `Storlek: medium`;
-      //   productPrice.innerHTML =
-      //     productPrice.innerHTML = `Pris: ${productCartListObj[i].price.m} kr`;
-      //   totalSum += productCartListObj[i].price.m;
-      // }
-      // if (productCartListObj[i].large == true) {
-      //   sizeSpan.innerHTML = `Storlek: large`;
-      //   productPrice.innerHTML =
-      //     productPrice.innerHTML = `Pris: ${productCartListObj[i].price.l} kr`;
-      //   totalSum += productCartListObj[i].price.l;
-      // }
-
+      // innerHTML, value, src
+      productImg.src = productCartListObj[i].Iproduct.url;
+      productName.innerHTML = productCartListObj[i].Iproduct.name;
+      quantityInput.value = productCartListObj[i].amount.toString();
       reduceButton.innerHTML = "<i class='fas fa-angle-left'></i>";
       increaseButton.innerHTML = "<i class='fas fa-angle-right'></i>";
       removeButton.innerHTML = "<i class='fas fa-trash-alt'></i>" + " Ta bort";
+      sizeSpan.innerHTML = "Storlek: " + productCartListObj[i].size;
+
+      // Rätt pris och storlek på produkten
+      if (productCartListObj[i].size == "s") {
+        productPrice.innerHTML = `Pris: ${
+          productCartListObj[i].Iproduct.price.s * productCartListObj[i].amount
+        }kr (${productCartListObj[i].Iproduct.price.s}kr x ${
+          productCartListObj[i].amount
+        })`;
+        totalSum +=
+          productCartListObj[i].Iproduct.price.s * productCartListObj[i].amount;
+      } else if (productCartListObj[i].size == "m") {
+        productPrice.innerHTML = `Pris: ${
+          productCartListObj[i].Iproduct.price.m * productCartListObj[i].amount
+        }kr (${productCartListObj[i].Iproduct.price.m}kr x ${
+          productCartListObj[i].amount
+        }) `;
+        totalSum +=
+          productCartListObj[i].Iproduct.price.m * productCartListObj[i].amount;
+      } else {
+        productPrice.innerHTML = `Pris: ${
+          productCartListObj[i].Iproduct.price.l * productCartListObj[i].amount
+        }kr (${productCartListObj[i].Iproduct.price.l}kr x ${
+          productCartListObj[i].amount
+        })`;
+        totalSum +=
+          productCartListObj[i].Iproduct.price.l * productCartListObj[i].amount;
+      }
 
       ul.appendChild(li);
       li.appendChild(product);
@@ -124,15 +129,25 @@ export function displayCart() {
         let currentValue: number = parseInt(quantityInput.value);
         if (currentValue < 15) currentValue++;
         quantityInput.value = currentValue.toString();
+        productCartListObj[i].amount = currentValue;
+        let productTostring = JSON.stringify(productCartListObj);
+        localStorage.setItem("cartList", productTostring);
+
+        displayCart();
       });
 
       reduceButton.addEventListener("click", () => {
         let currentValue: number = parseInt(quantityInput.value);
         if (currentValue > 1) currentValue--;
         quantityInput.value = currentValue.toString();
+        productCartListObj[i].amount = currentValue;
+        let productTostring = JSON.stringify(productCartListObj);
+        localStorage.setItem("cartList", productTostring);
+
+        displayCart();
       });
-      let namn = productCartListObj[i].name;
-      let bild = productCartListObj[i].url;
+      let namn = productCartListObj[i].Iproduct.name;
+      let bild = productCartListObj[i].Iproduct.url;
 
       removeButton.addEventListener("click", () => {
         removeModal(bild, namn, i);

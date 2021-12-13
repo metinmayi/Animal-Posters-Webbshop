@@ -1,6 +1,6 @@
 import { products } from "../models/products";
 import { removeModal } from "../functions/removeModal";
-import { Iprice, Iproducts } from "../models/products";
+import { Iprice, Iproducts, StorageProduct } from "../models/products";
 import { isLength } from "cypress/types/lodash";
 
 export function displayCheckout() {
@@ -23,7 +23,7 @@ export function displayCheckout() {
     wrapper.insertBefore(noListSpan, x);
   } else {
     let productCartList: string = localStorage.getItem("cartList");
-    let productCartListObject: Iproducts[] = JSON.parse(productCartList);
+    let productCartListObject: StorageProduct[] = JSON.parse(productCartList);
 
     for (let i = 0; i < productCartListObject.length; i++) {
       let li: HTMLLIElement = document.createElement("li");
@@ -43,7 +43,8 @@ export function displayCheckout() {
       let removeButton: HTMLParagraphElement = document.createElement("p");
       let FactContainer: HTMLDivElement = document.createElement("div");
       let flexContainer: HTMLDivElement = document.createElement("div");
-      // ID
+
+      // ID and classnames
       li.id = "id";
       productContainer.id = "product";
       productContainerLeft.id = "product-box-left";
@@ -66,10 +67,67 @@ export function displayCheckout() {
       reduceButton.innerHTML = "<i class='fas fa-angle-left'></i>";
       increaseButton.innerHTML = "<i class='fas fa-angle-right'></i>";
       removeButton.innerHTML = "<i class='fas fa-trash-alt'></i>" + " Ta bort";
-      productTitle.innerHTML = productCartListObject[i].name;
-      quantityInput.value = productCartListObject.length.toString();
-      productImage.src = productCartListObject[i].url;
-      productSize.innerHTML = "Storlek: ";
+      productTitle.innerHTML = productCartListObject[i].Iproduct.name;
+      quantityInput.value = productCartListObject[i].amount.toString();
+      productImage.src = productCartListObject[i].Iproduct.url;
+      productSize.innerHTML = "Storlek: " + productCartListObject[i].size;
+
+      // Rätt pris och storlek på produkten
+      if (productCartListObject[i].size == "s") {
+        productPrice.innerHTML = `Pris: ${
+          productCartListObject[i].Iproduct.price.s *
+          productCartListObject[i].amount
+        }kr (${productCartListObject[i].Iproduct.price.s}kr x ${
+          productCartListObject[i].amount
+        })`;
+        totalSum +=
+          productCartListObject[i].Iproduct.price.s *
+          productCartListObject[i].amount;
+      } else if (productCartListObject[i].size == "m") {
+        productPrice.innerHTML = `Pris: ${
+          productCartListObject[i].Iproduct.price.m *
+          productCartListObject[i].amount
+        }kr (${productCartListObject[i].Iproduct.price.m}kr x ${
+          productCartListObject[i].amount
+        }) `;
+        totalSum +=
+          productCartListObject[i].Iproduct.price.m *
+          productCartListObject[i].amount;
+      } else {
+        productPrice.innerHTML = `Pris: ${
+          productCartListObject[i].Iproduct.price.l *
+          productCartListObject[i].amount
+        }kr (${productCartListObject[i].Iproduct.price.l}kr x ${
+          productCartListObject[i].amount
+        })`;
+        totalSum +=
+          productCartListObject[i].Iproduct.price.l *
+          productCartListObject[i].amount;
+      }
+
+      // Minska och öka antal
+      increaseButton.addEventListener("click", () => {
+        let currentValue: number = parseInt(quantityInput.value);
+        if (currentValue < 15) currentValue++;
+        quantityInput.value = currentValue.toString();
+        productCartListObject[i].amount = currentValue;
+
+        let productTostring = JSON.stringify(productCartListObject);
+        localStorage.setItem("cartList", productTostring);
+
+        displayCheckout();
+      });
+
+      reduceButton.addEventListener("click", () => {
+        let currentValue: number = parseInt(quantityInput.value);
+        if (currentValue > 1) currentValue--;
+        quantityInput.value = currentValue.toString();
+        productCartListObject[i].amount = currentValue;
+        let productTostring = JSON.stringify(productCartListObject);
+        localStorage.setItem("cartList", productTostring);
+
+        displayCheckout();
+      });
 
       //appendChild
       ul.appendChild(li);
@@ -89,6 +147,18 @@ export function displayCheckout() {
       quantityBox.appendChild(reduceButton);
       quantityBox.appendChild(quantityInput);
       quantityBox.appendChild(increaseButton);
+
+      let namn = productCartListObject[i].Iproduct.name;
+      let bild = productCartListObject[i].Iproduct.url;
+
+      removeButton.addEventListener("click", () => {
+        removeModal(bild, namn, i);
+      });
     }
   }
+  // Totalsum
+  let totalPrice: HTMLHeadingElement = document.getElementById(
+    "total-price"
+  ) as HTMLHeadingElement;
+  totalPrice.innerHTML = "Totalt: " + totalSum + " kr";
 }
