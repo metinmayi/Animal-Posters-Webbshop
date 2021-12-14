@@ -8,7 +8,9 @@ export function displayCart() {
   ul.innerHTML = "";
 
   // create/get cartList from localstorage
-  if (!localStorage.getItem("cartList")) {
+  if (!localStorage.getItem("cartList")) localStorage.setItem("cartList", "[]");
+
+  if (localStorage.getItem("cartList").length == 0) {
     let wrapper: HTMLDivElement = document.getElementById(
       "wrapper"
     ) as HTMLDivElement;
@@ -149,12 +151,12 @@ export function displayCart() {
         displayCart();
       });
 
-      let namn = productCartListObj[i].Iproduct.name;
-      let bild = productCartListObj[i].Iproduct.url;
+      let title = productCartListObj[i].Iproduct.name;
+      let image = productCartListObj[i].Iproduct.url;
 
       // call the removeModal function
       removeButton.addEventListener("click", () => {
-        removeModal(bild, namn, i, productCartListObj);
+        removeModal(image, title, i, productCartListObj);
       });
     }
   }
