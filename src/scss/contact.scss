@@ -1,0 +1,103 @@
+@import "styles";
+@import "wishList";
+
+@import "mixins";
+
+body {
+  margin: 0;
+  background-color: #e2e2e2;
+  font-size: 12pt;
+  position: relative;
+
+  //Mixin för header
+  @include menu;
+
+  //Mixin för footer
+  @include footer;
+
+  //Mixin för dropdown-cart
+  @include dropdown-checkout;
+
+  //Mixing för wishlist
+  @include wishList;
+  //Mediaquery, min-width: 768px
+  @include pad;
+
+  //Mediaquery, min-width: 1024px
+  @include desktop;
+
+  header {
+    position: relative !important;
+  }
+}
+#contact-wrapper {
+  position: relative;
+  top: 5vh;
+  width: 90%;
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 0 auto;
+  height: 70vh;
+  margin-bottom: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  h1 {
+    font-family: $headerfont;
+    font-size: 2rem;
+    margin: 0;
+  }
+
+  p {
+    width: 70%;
+    font-size: 1.2rem;
+    font-family: $breadfont;
+  }
+
+  #social-media-icons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: $bgcolor;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    a:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+#footer-container {
+  //   position: fixed;
+  //   bottom: 0;
+  //   width: 100%;
+
+  #border {
+    margin-bottom: -10px;
+    position: relative;
+
+    svg {
+      z-index: 0;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 1024px) {
+  #contact-wrapper {
+    width: 70%;
+  }
+}

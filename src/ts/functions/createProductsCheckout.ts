@@ -7,6 +7,7 @@ export function createProductsCheckout() {
   document.getElementById("shopping-cart").addEventListener("click", () => {
     document.getElementById("dropdown-wrapper").style.display = "block";
   });
+
   document
     .getElementById("shopping-cart-phone")
     .addEventListener("click", () => {

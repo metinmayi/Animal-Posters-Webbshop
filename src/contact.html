@@ -4,29 +4,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="/src/scss/shoppingcart.scss" rel="stylesheet" />
-    <script src="./ts/shoppingCartPage.ts" type="module"></script>
+    <link rel="stylesheet" href="scss/contact.scss" />
+    <script src="ts/contactPage.ts" type="module"></script>
     <script
-      src="https://kit.fontawesome.com/3d16140dea.js"
+      src="https://kit.fontawesome.com/ff901abd43.js"
       crossorigin="anonymous"
     ></script>
-
-    <title>Varukorg</title>
+    <title>Kontakt</title>
   </head>
   <body>
-    <div id="container-modal">
-      <div id="remove-modal">
-        <h2>Du håller på att ta bort en produkt från varukorgen</h2>
-        <div id="modal-img-container">
-          <img id="correctProduct" />
-        </div>
-        <p id="product-title"></p>
-        <div id="modal-button-container">
-          <button id="cancel">Avbryt</button>
-          <button type="button" id="confirm">Bekräfta</button>
-        </div>
-      </div>
-    </div>
     <div class="mobileWishlist">
       <div class="wishlistDropDownMobile">
         <div class="wishlistBody"></div>
@@ -49,7 +35,7 @@
               </div>
             </div>
           </div>
-          <!-- <i class="fas fa-shopping-cart" id="shopping-cart"></i> -->
+          <i class="fas fa-shopping-cart" id="shopping-cart"></i>
         </div>
       </nav>
       <nav id="phone">
@@ -89,23 +75,30 @@
         </div>
       </nav>
     </header>
-    <div id="wrapper">
-      <!-- Varukorg -->
-      <h1>Varukorg</h1>
-      <ul id="ul"></ul>
-      <!-- Total- container -->
-      <div id="total-container">
-        <div id="total-box">
-          <h3 id="total-price">Totalt 278 sek</h3>
-        </div>
-        <div id="button-box">
-          <button id="continue-shopping" type="button">
-            <a href="products.html">Fortsätt handla</a>
-          </button>
-          <button id="to-checkout" type="button">
-            <a href="checkout.html">Till kassan</a>
-          </button>
-        </div>
+    <div id="contact-wrapper">
+      <h1>Kontakt</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat
+        commodi quae eum minima? Nemo, vel molestiae? Distinctio saepe illo,
+        quaerat quae laboriosam vel maxime impedit, voluptate, repellendus nobis
+        esse maiores.
+      </p>
+      <div id="social-media-icons">
+        <a href="#">
+          <div class="icon-wrapper">
+            <i class="fab fa-facebook-f" id="icon"></i>
+          </div>
+        </a>
+        <a href="#">
+          <div class="icon-wrapper">
+            <i class="fab fa-instagram" id="icon"></i>
+          </div>
+        </a>
+        <a href="#">
+          <div class="icon-wrapper">
+            <i class="fab fa-twitter" id="icon"></i>
+          </div>
+        </a>
       </div>
     </div>
     <div id="footer-container">
@@ -155,6 +148,31 @@
           <p>&#169; 2021 Posters</p>
         </div>
       </footer>
+    </div>
+
+    <div id="dropdown-wrapper">
+      <div id="checkout-dropdown">
+        <div id="checkout-header">
+          <i class="fas fa-times" id="close-checkout"></i>
+          <h1><i class="fas fa-shopping-cart"></i>Din varukorg</h1>
+        </div>
+        <div id="empty-container">
+          <p id="empty-text">
+            Din varukorg är tom, tryck på en vara och lägg till den i varukorgen
+            för att fortsätta
+          </p>
+        </div>
+        <div id="checkout-products-container"></div>
+        <div id="checkout-info">
+          <div id="price-info">
+            <div id="moms-price"></div>
+            <div id="total-price"></div>
+          </div>
+          <form action="shoppingcart.html">
+            <button type="submit" id="add-button">Gå vidare</button>
+          </form>
+        </div>
+      </div>
     </div>
   </body>
 </html>
