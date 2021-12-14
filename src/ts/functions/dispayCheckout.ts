@@ -8,7 +8,9 @@ export function displayCheckout() {
   let totalSum = 0;
   ul.innerHTML = "";
 
-  if (!localStorage.getItem("cartList")) {
+  if (!localStorage.getItem("cartList")) localStorage.setItem("cartList", "[]");
+
+  if (localStorage.getItem("cartList").length == 0) {
     let wrapper: HTMLDivElement = document.getElementById(
       "wrapper"
     ) as HTMLDivElement;
@@ -148,12 +150,12 @@ export function displayCheckout() {
       quantityBox.appendChild(quantityInput);
       quantityBox.appendChild(increaseButton);
 
-      let namn = productCartListObject[i].Iproduct.name;
-      let bild = productCartListObject[i].Iproduct.url;
+      let title = productCartListObject[i].Iproduct.name;
+      let image = productCartListObject[i].Iproduct.url;
 
       // call the removeModal function
       removeButton.addEventListener("click", () => {
-        removeModal(bild, namn, i, productCartListObject);
+        removeModal(image, title, i, productCartListObject);
       });
     }
   }

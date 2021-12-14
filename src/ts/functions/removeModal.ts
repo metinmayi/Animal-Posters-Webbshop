@@ -1,10 +1,15 @@
 import { identity, indexOf, remove } from "cypress/types/lodash";
-import { Iproducts } from "../models/products";
+import { Iproducts, StorageProduct } from "../models/products";
 import { displayCart } from "./displayCart";
 import { displayCheckout } from "./dispayCheckout";
 import { updateLanguageServiceSourceFile } from "typescript";
 
-export function removeModal(bild: string, namn: string, i: number, lista) {
+export function removeModal(
+  image: string,
+  title: string,
+  i: number,
+  list: StorageProduct[]
+) {
   //#region Declarations to "remove" modal
   let removeModalContainer: HTMLDivElement = document.getElementById(
     "container-modal"
@@ -12,39 +17,42 @@ export function removeModal(bild: string, namn: string, i: number, lista) {
   let productImage: HTMLImageElement = document.getElementById(
     "correctProduct"
   ) as HTMLImageElement;
+  let buttonContainer: HTMLDivElement = document.getElementById(
+    "modal-button-container"
+  ) as HTMLDivElement;
   let productTitle: HTMLParagraphElement = document.getElementById(
     "product-title"
   ) as HTMLParagraphElement;
-  let cancelButton: HTMLButtonElement = document.getElementById(
-    "cancel"
-  ) as HTMLButtonElement;
-  let confirmButton: HTMLButtonElement = document.getElementById(
-    "confirm"
-  ) as HTMLButtonElement;
+  let cancelButton: HTMLButtonElement = document.createElement("button");
+  let confirmButton: HTMLButtonElement = document.createElement("button");
   //#endregion
 
   //Opens Modal
   removeModalContainer.className = "show-container-modal";
+  cancelButton.id = "cancel";
+  confirmButton.id = "confirm";
+  cancelButton.innerHTML = "Avbryt";
+  confirmButton.innerHTML = "Bekräfta";
+  buttonContainer.appendChild(cancelButton);
+  buttonContainer.appendChild(confirmButton);
 
-  let corretImage = bild;
-  let correctTitle = namn;
+  let corretImage = image;
+  let correctTitle = title;
   productImage.src = corretImage;
   productTitle.innerHTML = correctTitle;
 
   //confirm button - remove item from localstorage
   confirmButton.addEventListener("click", () => {
-    // let localString: string = localStorage.getItem("cartList");
-    // let productCartListObj = JSON.parse(localString);
+    list.splice(i, 1);
 
-    lista.splice(i, 1);
-
-    i--;
-
-    let productTostring = JSON.stringify(lista);
+    buttonContainer.innerHTML = "";
+    let productTostring = JSON.stringify(list);
     localStorage.setItem("cartList", productTostring);
+
     // run this function from shoppingcart page
     if (document.URL.includes("shoppingcart.html")) {
       displayCart();
+
       // run this function from checkout page
     } else if (document.URL.includes("checkout.html")) {
       displayCheckout();

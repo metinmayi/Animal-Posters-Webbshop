@@ -12,4 +12,6 @@ window.onload = () => {
   wishList();
   //Uppdaterar wishlist innehållet
   refreshWishList();
+  //Aktiverar och skapar HTML i checkout-dropdownen
+  createProductsCheckout();
 };
