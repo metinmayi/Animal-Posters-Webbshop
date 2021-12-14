@@ -27,6 +27,11 @@
         </div>
       </div>
     </div>
+    <div class="mobileWishlist">
+      <div class="wishlistDropDownMobile">
+        <div class="wishlistBody"></div>
+      </div>
+    </div>
     <header>
       <nav id="desktop">
         <ul id="nav-list">
@@ -36,23 +41,30 @@
         </ul>
         <h1>Posters</h1>
         <div id="icons">
-          <a href="#"><i class="far fa-heart"></i></a>
-          <a href="#"><i class="fas fa-shopping-cart"></i></a>
+          <div class="wishlist">
+            <a href="#"><i id="toggleWishlist" class="far fa-heart"></i></a>
+            <div class="wishlistDropDown">
+              <div class="wishlistBody">
+                <h3>Wishlist</h3>
+              </div>
+            </div>
+          </div>
+          <!-- <i class="fas fa-shopping-cart" id="shopping-cart"></i> -->
         </div>
       </nav>
       <nav id="phone">
         <i class="fas fa-bars" id="hamburger-icon"></i>
         <h1>Posters</h1>
         <div id="icons">
-          <a href="#"><i class="far fa-heart"></i></a>
-          <a href="shoppingcart.html"><i class="fas fa-shopping-cart"></i></a>
+          <a href="#"><i id="mobileToggleWishlist" class="far fa-heart"></i></a>
+          <i class="fas fa-shopping-cart" id="shopping-cart-phone"></i>
         </div>
         <div id="hamburger">
           <i class="fas fa-times" id="close"></i>
           <ul id="nav-list">
             <li id="heading">Posters</li>
-            <li><a href="#">Hem</a></li>
-            <li><a href="#">Produkter</a></li>
+            <li><a href="index.html">Hem</a></li>
+            <li><a href="products.html">Produkter</a></li>
             <li><a href="#">Kontakt</a></li>
           </ul>
           <div id="border">

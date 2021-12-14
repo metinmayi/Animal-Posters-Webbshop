@@ -1,6 +1,7 @@
 @import "styles";
 @import "mixins";
 @import "removeModal";
+@import "wishList";
 
 // @include menu;
 // @include footer;
@@ -22,6 +23,8 @@ body {
 
   //Mixin för footer
   @include footer;
+
+  @include wishList;
 
   //Mixin för dropdown-cart
   // @include dropdown-checkout;
