@@ -71,7 +71,7 @@ body {
   .quote {
     width: 100%;
     position: relative;
-    background-color: #b3dec1;
+    background-color: #fff;
 
     .quote-text {
       position: absolute;
@@ -144,6 +144,19 @@ body {
 
     .quote {
       width: 48%;
+    }
+  }
+}
+
+//Big screen
+@media screen and (min-width: 1500px) {
+  #square-container {
+    .quote {
+      .quote-text {
+        p {
+          font-size: 1.6rem;
+        }
+      }
     }
   }
 }

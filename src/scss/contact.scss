@@ -33,7 +33,7 @@ body {
 #contact-wrapper {
   position: relative;
   top: 5vh;
-  width: 70%;
+  width: 90%;
   background-color: #fff;
   border-radius: 5px;
   margin: 0 auto;
@@ -47,6 +47,7 @@ body {
   h1 {
     font-family: $headerfont;
     font-size: 2rem;
+    margin: 0;
   }
 
   p {
@@ -69,6 +70,7 @@ body {
       align-items: center;
       justify-content: center;
       color: #fff;
+      cursor: pointer;
     }
 
     a:hover {
@@ -88,5 +90,14 @@ body {
     svg {
       z-index: 0;
     }
+  }
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 1024px) {
+  #contact-wrapper {
+    width: 70%;
   }
 }
