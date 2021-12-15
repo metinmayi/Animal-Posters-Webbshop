@@ -63,5 +63,6 @@ export function removeModal(
   //Close the Modal
   cancelButton.addEventListener("click", () => {
     removeModalContainer.className = "";
+    buttonContainer.innerHTML = "";
   });
 }
