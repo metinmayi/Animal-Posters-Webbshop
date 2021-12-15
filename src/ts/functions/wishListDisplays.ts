@@ -1,4 +1,4 @@
-import { StorageProduct, Iproducts } from "../models/products";
+import { StorageProduct, Iproducts, products } from "../models/products";
 import { createProducts } from "./productsDisplay";
 export function wishList() {
 	//Toggles the window and changes the icon. One mobile and one desktop
@@ -43,7 +43,9 @@ export function wishList() {
 }
 
 export function refreshWishList() {
-	if (!localStorage.getItem("wishList")) localStorage.setItem("wishList", "[]");
+	if (!localStorage.getItem("wishList")) {
+		localStorage.setItem("wishList", JSON.stringify(products));
+	}
 	//Displays all products from the LocalStorage that have .wishlist set to true
 	//#region Declarations
 	const desktopBody: HTMLCollection = document.getElementsByClassName(
