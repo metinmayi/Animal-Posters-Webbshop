@@ -77,6 +77,7 @@ export function displayCart() {
       productImg.src = productCartListObj[i].Iproduct.url;
       productName.innerHTML = productCartListObj[i].Iproduct.name;
       quantityInput.value = productCartListObj[i].amount.toString();
+      quantityInput.setAttribute("readonly", "true");
       reduceButton.innerHTML = "<i class='fas fa-angle-left'></i>";
       increaseButton.innerHTML = "<i class='fas fa-angle-right'></i>";
       removeButton.innerHTML = "<i class='fas fa-trash-alt'></i>" + " Ta bort";

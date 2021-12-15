@@ -71,6 +71,7 @@ export function displayCheckout() {
       removeButton.innerHTML = "<i class='fas fa-trash-alt'></i>" + " Ta bort";
       productTitle.innerHTML = productCartListObject[i].Iproduct.name;
       quantityInput.value = productCartListObject[i].amount.toString();
+      quantityInput.setAttribute("readonly", "true");
       productImage.src = productCartListObject[i].Iproduct.url;
       productSize.innerHTML = "Storlek: " + productCartListObject[i].size;
 
