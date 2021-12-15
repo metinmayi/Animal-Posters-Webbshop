@@ -20,7 +20,6 @@ export function createProductsCheckout() {
 
   document.getElementById("add-button").addEventListener("click", () => {
     let cartListString: string = JSON.stringify(listAsObject);
-    console.log(cartListString);
     localStorage.setItem("cartList", cartListString);
   });
 
@@ -32,7 +31,6 @@ export function createProductsCheckout() {
 
 export function ifElse(listAsObject) {
   if (listAsObject === null || listAsObject.length == 0) {
-    console.log("tom");
     document.getElementById("empty-container").style.display = "block";
   } else {
     document.getElementById("empty-container").style.display = "none";
@@ -61,8 +59,6 @@ export function createHTML(listAsObject) {
   totalPrice = 0;
 
   for (let i = 0; i < listAsObject.length; i++) {
-    console.log(listAsObject[i].amount);
-
     let productWrapper: HTMLDivElement = document.createElement("div");
     productWrapper.className = "checkout-products";
 
@@ -146,11 +142,8 @@ export function createHTML(listAsObject) {
 
     trashDiv.addEventListener("click", () => {
       momsPrice = 0;
-      console.log(listAsObject[i]);
       // let indexRemove = listAsObject.indexOf(listAsObject[i]);
       listAsObject.splice(i, 1);
-
-      console.log(listAsObject);
 
       let deleteList = document.getElementById("checkout-products-container");
 
@@ -170,7 +163,7 @@ export function createHTML(listAsObject) {
       }
 
       let cartListString: string = JSON.stringify(listAsObject);
-      console.log(cartListString);
+
       localStorage.setItem("cartList", cartListString);
 
       if (listAsObject.length === 0) {

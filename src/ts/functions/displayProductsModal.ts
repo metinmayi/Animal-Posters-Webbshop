@@ -43,7 +43,6 @@ export function displayProductModals(Id: number) {
     if (sizeInput.value == "l")
       totalprice = parseInt(amountInput.value) * products[Id].price.l;
     modalTotalPrice.innerText = `Totalbelopp: ${totalprice}kr`;
-    console.log("Registered");
   });
   amountInput.addEventListener("input", (e) => {
     if (!amountInput.value) return;
@@ -54,10 +53,7 @@ export function displayProductModals(Id: number) {
     if (sizeInput.value == "l")
       totalprice = parseInt(amountInput.value) * products[Id].price.l;
     modalTotalPrice.innerText = `Totalbelopp: ${totalprice}kr`;
-    console.log("Registered");
   });
-
-  console.log(sizeInput.value, amountInput.value, totalprice);
 
   //Closes the Modal
 
