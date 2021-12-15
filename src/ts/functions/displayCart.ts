@@ -8,9 +8,11 @@ export function displayCart() {
   ul.innerHTML = "";
 
   // create/get cartList from localstorage
-  if (!localStorage.getItem("cartList")) localStorage.setItem("cartList", "[]");
+  if (!localStorage.getItem("cartList")) {
+    localStorage.setItem("cartList", "[]");
+  }
 
-  if (localStorage.getItem("cartList").length == 0) {
+  if (localStorage.getItem("cartList").length == 2) {
     let wrapper: HTMLDivElement = document.getElementById(
       "wrapper"
     ) as HTMLDivElement;

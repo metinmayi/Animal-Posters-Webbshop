@@ -49,7 +49,7 @@ body {
   #shopping-container {
     width: 90%;
     max-width: 1000px;
-    min-height: 300px;
+    // min-height: 300px;
     box-shadow: $boxshadow;
     background-color: $bgbox;
     padding: 15px;
@@ -59,6 +59,11 @@ body {
       font-size: 20px;
       text-align: center;
       padding: 15px;
+    }
+    #no-list-span {
+      display: block;
+      text-align: center;
+      font-family: $breadfont;
     }
 
     // Från shoppingcart scss
@@ -291,6 +296,9 @@ body {
             }
           }
         }
+      }
+      #total-price {
+        font-size: 16px;
       }
     }
 

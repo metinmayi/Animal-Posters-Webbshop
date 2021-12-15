@@ -10,17 +10,17 @@ export function displayCheckout() {
 
   if (!localStorage.getItem("cartList")) localStorage.setItem("cartList", "[]");
 
-  if (localStorage.getItem("cartList").length == 0) {
+  if (localStorage.getItem("cartList").length == 2) {
     let wrapper: HTMLDivElement = document.getElementById(
-      "wrapper"
+      "shopping-container"
     ) as HTMLDivElement;
     let noListSpan: HTMLSpanElement = document.createElement(
       "span"
     ) as HTMLSpanElement;
     noListSpan.id = "no-list-span";
     noListSpan.innerHTML = "Det finns inga produkter i varukorgen";
-    let x: HTMLDivElement = document.getElementById(
-      "total-container"
+    let x: HTMLHeadingElement = document.getElementById(
+      "total-price"
     ) as HTMLDivElement;
     wrapper.insertBefore(noListSpan, x);
   } else {
