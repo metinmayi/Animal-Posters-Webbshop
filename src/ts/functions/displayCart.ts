@@ -19,7 +19,7 @@ export function displayCart() {
     let noListSpan: HTMLSpanElement = document.createElement(
       "span"
     ) as HTMLSpanElement;
-    noListSpan.id = "no-list-span";
+    noListSpan.className = "no-list-span";
     noListSpan.innerHTML = "Det finns inga produkter i varukorgen";
     let x: HTMLDivElement = document.getElementById(
       "total-container"
@@ -55,28 +55,29 @@ export function displayCart() {
       //#endregion
 
       // ID and classnames
-      li.id = "li";
-      product.id = "product";
-      productBoxLeft.id = "product-box-left";
-      imgBox.id = "imgBox";
-      productImg.id = "productImg";
-      productFact.id = "product-fact";
+      li.className = "li-shopping-cart";
+      product.className = "product-shopping-cart";
+      productBoxLeft.className = "product-box-left";
+      imgBox.className = "imgBox";
+      productImg.className = "productImg";
+      productFact.className = "product-fact-shop-cart";
       productName.className = "product-name";
-      sizeBox.id = "size-box";
+      sizeBox.className = "size-box";
       productPrice.className = "product-price";
-      productBoxRight.id = "product-box-right";
-      reduceButton.id = "reduce-button";
-      increaseButton.id = "increase-button";
-      quantityBox.id = "quantity-box";
-      sizeSpan.id = "size-span";
-      flexBoxRight.id = "flex-box-right";
-      removeButton.id = "remove";
-      quantityInput.id = "quantity-input";
+      productBoxRight.className = "product-box-right";
+      reduceButton.className = "reduce-button";
+      increaseButton.className = "increase-button";
+      quantityBox.className = "quantity-box";
+      sizeSpan.className = "size-span";
+      flexBoxRight.className = "flex-box-right";
+      removeButton.className = "remove-button-shop-cart";
+      quantityInput.className = "quantity-input";
 
       // innerHTML, value, src
       productImg.src = productCartListObj[i].Iproduct.url;
       productName.innerHTML = productCartListObj[i].Iproduct.name;
       quantityInput.value = productCartListObj[i].amount.toString();
+      quantityInput.setAttribute("readonly", "true");
       reduceButton.innerHTML = "<i class='fas fa-angle-left'></i>";
       increaseButton.innerHTML = "<i class='fas fa-angle-right'></i>";
       removeButton.innerHTML = "<i class='fas fa-trash-alt'></i>" + " Ta bort";

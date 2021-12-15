@@ -29,8 +29,8 @@ export function removeModal(
 
   //Opens Modal
   removeModalContainer.className = "show-container-modal";
-  cancelButton.id = "cancel";
-  confirmButton.id = "confirm";
+  cancelButton.className = "cancel-button";
+  confirmButton.className = "confirm-button";
   cancelButton.innerHTML = "Avbryt";
   confirmButton.innerHTML = "Bekräfta";
   buttonContainer.appendChild(cancelButton);
@@ -63,5 +63,6 @@ export function removeModal(
   //Close the Modal
   cancelButton.addEventListener("click", () => {
     removeModalContainer.className = "";
+    buttonContainer.innerHTML = "";
   });
 }
