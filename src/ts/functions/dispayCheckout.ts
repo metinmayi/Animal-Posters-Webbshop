@@ -17,7 +17,7 @@ export function displayCheckout() {
     let noListSpan: HTMLSpanElement = document.createElement(
       "span"
     ) as HTMLSpanElement;
-    noListSpan.id = "no-list-span";
+    noListSpan.className = "no-list-span-checkout";
     noListSpan.innerHTML = "Det finns inga produkter i varukorgen";
     let x: HTMLHeadingElement = document.getElementById(
       "total-price"
@@ -43,27 +43,27 @@ export function displayCheckout() {
       let reduceButton: HTMLDivElement = document.createElement("div");
       let increaseButton: HTMLDivElement = document.createElement("div");
       let removeButton: HTMLParagraphElement = document.createElement("p");
-      let FactContainer: HTMLDivElement = document.createElement("div");
+      // let factContainer: HTMLDivElement = document.createElement("div");
       let flexContainer: HTMLDivElement = document.createElement("div");
 
       // ID and classnames
-      li.id = "id";
-      productContainer.id = "product";
-      productContainerLeft.id = "product-box-left";
-      imageContainer.id = "img";
-      productImage.id = "product-image";
-      productFactContainer.id = "product-fact";
-      productTitle.className = "product-name";
-      productSize.className = "product-size";
-      productPrice.className = "product-price";
-      productContainerRight.id = "product-box-right";
-      quantityBox.id = "quantity-box";
-      quantityInput.id = "quantity-input";
-      reduceButton.id = "reduce-button";
-      increaseButton.id = "increase-button";
-      removeButton.id = "remove";
-      flexContainer.id = "flex-container";
-      FactContainer.id = "fact-container";
+      li.className = "li-checkout";
+      productContainer.className = "product-checkout";
+      productContainerLeft.className = "product-box-left-checkout";
+      imageContainer.className = "img-container-checkout";
+      productImage.className = "product-image-checkout";
+      productFactContainer.className = "product-fact-container";
+      productTitle.className = "product-name-checkout";
+      productSize.className = "product-size-checkout";
+      productPrice.className = "product-price-checkout";
+      productContainerRight.className = "product-box-right";
+      quantityBox.className = "quantity-box-checkout";
+      quantityInput.className = "quantity-input-checkout";
+      reduceButton.className = "reduce-button-checkout";
+      increaseButton.className = "increase-button-checkout";
+      removeButton.className = "remove-button-checkout";
+      flexContainer.className = "flex-container-checkout";
+      // factContainer.className = "fact-container-checkout";
 
       //innerHTML , value, src
       reduceButton.innerHTML = "<i class='fas fa-angle-left'></i>";

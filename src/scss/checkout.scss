@@ -60,7 +60,7 @@ body {
       text-align: center;
       padding: 15px;
     }
-    #no-list-span {
+    .no-list-span-checkout {
       display: block;
       text-align: center;
       font-family: $breadfont;
@@ -74,8 +74,8 @@ body {
       display: flex;
       gap: 20px;
       flex-direction: column;
-      #id {
-        #product {
+      .li-checkout {
+        .product-checkout {
           margin: 0 auto;
           display: flex;
           align-items: center;
@@ -84,29 +84,29 @@ body {
           padding-bottom: 5px;
           gap: 10px;
           border-bottom: 1px solid rgba(139, 139, 139, 0.616);
-          #product-box-left {
+          .product-box-left-checkout {
             display: flex;
             justify-content: flex-start;
             align-items: center;
             // width: 200px;
 
-            #img {
+            .img-container-checkout {
               // width: 100px;
               height: 100px;
               background-color: transparent;
-              #product-image {
+              .product-image-checkout {
                 height: 100%;
                 box-shadow: 2px 2px 4px rgba(150, 147, 147, 0.541);
               }
             }
           }
-          #product-box-right {
+          .product-box-right {
             height: 100px;
             width: 100%;
             display: flex;
             align-items: flex-end;
             flex-direction: column;
-            #product-fact {
+            .product-fact-container {
               width: 100%;
               height: 100%;
               display: flex;
@@ -114,20 +114,20 @@ body {
               align-items: flex-start;
               justify-content: flex-end;
               gap: 0px;
-              .product-name {
+              .product-name-checkout {
                 font-family: $headfont;
                 font-size: 15px;
                 margin-top: 0px;
                 margin-bottom: 5px;
               }
-              .product-price {
+              .product-price-checkout {
                 font-family: $breadfont;
                 font-size: 13px;
                 margin: 0px;
               }
             }
 
-            #flex-container {
+            .flex-container-checkout {
               width: 100%;
               height: 100%;
               display: flex;
@@ -135,22 +135,22 @@ body {
               align-items: flex-end;
               justify-content: flex-end;
               gap: 15px;
-              .product-size {
+              .product-size-checkout {
                 font-family: $breadfont;
                 font-size: 10px;
                 margin: 0px;
               }
-              #quantity-box {
+              .quantity-box-checkout {
                 display: flex;
                 flex-direction: row;
                 gap: 5px;
-                #quantity-input {
+                .quantity-input-checkout {
                   width: 18px;
                   height: 14px;
                   font-size: 10px;
                   text-align: center;
                 }
-                #reduce-button {
+                .reduce-button-checkout {
                   border: 1px solid rgba(61, 60, 60, 0.658);
                   background-color: white;
                   width: 18px;
@@ -166,7 +166,7 @@ body {
                     background-color: rgba(185, 183, 159, 0.178);
                   }
                 }
-                #increase-button {
+                .increase-button-checkout {
                   border: 1px solid rgba(61, 60, 60, 0.658);
                   background-color: white;
                   width: 18px;
@@ -183,7 +183,7 @@ body {
                   }
                 }
               }
-              #remove {
+              .remove-button-checkout {
                 font-size: 12px;
                 font-family: $breadfont;
                 margin: -1px;
@@ -267,28 +267,28 @@ body {
         font-size: 25px;
       }
       #ul {
-        #id {
-          #product {
+        .li-checkout {
+          .product-checkout {
             max-width: 1300px;
-            #product-box-right {
-              #product-fact {
-                .product-name {
+            .product-box-right {
+              .product-fact-container {
+                .product-name-checkout {
                   font-size: 18px;
                 }
-                .product-price {
+                .product-price-checkout {
                   font-size: 12px;
                 }
               }
 
-              #flex-container {
-                .product-size {
+              .flex-container-checkout {
+                .product-size-checkout {
                   font-size: 12px;
                 }
-                #remove {
+                .remove-button-checkout {
                   font-size: 12px;
                 }
-                #quantity-box {
-                  #quantity-input {
+                .quantity-box-checkout {
+                  .quantity-input-checkout {
                     font-size: 10px;
                   }
                 }
@@ -310,7 +310,7 @@ body {
       }
     }
   }
-  #remove:hover {
+  .remove-button-checkout:hover {
     cursor: pointer;
     text-decoration: underline;
   }
