@@ -1,10 +1,10 @@
-import { StorageProduct, Iproducts } from "../models/products";
+import { StorageProduct, Iproducts, products } from "../models/products";
 import { createProducts } from "./productsDisplay";
 export function wishList() {
 	//Toggles the window and changes the icon. One mobile and one desktop
 	//#region Declarations
-	const wishListSwitch: HTMLDivElement = document.querySelector(
-		".wishlist"
+	const wishListSwitch: HTMLDivElement = document.getElementById(
+		"toggleWishlist"
 	) as HTMLDivElement;
 	const wishListDropDown: HTMLDivElement = document.querySelector(
 		".wishlistDropDown"
@@ -43,6 +43,9 @@ export function wishList() {
 }
 
 export function refreshWishList() {
+	if (!localStorage.getItem("wishList")) {
+		localStorage.setItem("wishList", JSON.stringify(products));
+	}
 	//Displays all products from the LocalStorage that have .wishlist set to true
 	//#region Declarations
 	const desktopBody: HTMLCollection = document.getElementsByClassName(
@@ -104,9 +107,11 @@ export function refreshWishList() {
 	});
 	if (trueCount == 0) {
 		const h5 = document.createElement("h5");
+		h5.id = "h5";
 		h5.innerHTML = "Du har tyvärr inga produkter i din önskelista!";
 		desktopBody[0].appendChild(h5);
 		const h5x2 = document.createElement("h5");
+		h5x2.id = "h5x2";
 		h5x2.innerHTML = "Du har tyvärr inga produkter i din önskelista!";
 		desktopBody[1].appendChild(h5x2);
 	}

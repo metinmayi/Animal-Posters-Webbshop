@@ -165,3 +165,15 @@ export function displayCheckout() {
   ) as HTMLHeadingElement;
   totalPrice.innerHTML = "Totalt: " + totalSum + " kr";
 }
+
+export function cantConfirmOrder() {
+  let submitButton: HTMLButtonElement = document.getElementById(
+    "submit-button"
+  ) as HTMLButtonElement;
+  if (localStorage.getItem("cartList").length == 2) {
+    submitButton.addEventListener("click", (e) => {
+      e.preventDefault();
+      alert("Du har inga varor i varukorgen");
+    });
+  }
+}
