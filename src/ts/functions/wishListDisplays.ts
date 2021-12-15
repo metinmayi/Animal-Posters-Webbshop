@@ -43,6 +43,7 @@ export function wishList() {
 }
 
 export function refreshWishList() {
+	if (!localStorage.getItem("wishList")) localStorage.setItem("wishList", "[]");
 	//Displays all products from the LocalStorage that have .wishlist set to true
 	//#region Declarations
 	const desktopBody: HTMLCollection = document.getElementsByClassName(
