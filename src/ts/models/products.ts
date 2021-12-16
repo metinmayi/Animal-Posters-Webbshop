@@ -1,6 +1,6 @@
 export let products: Iproducts[] = [
   {
-    name: "Cat Sandwich",
+    name: "Merge Conflicts",
     url: "https://i.ibb.co/1fKFDcB/image.jpg",
     wishList: false,
     price: {
@@ -10,7 +10,7 @@ export let products: Iproducts[] = [
     },
   },
   {
-    name: "Cat Tub",
+    name: "Parcel Error",
     url: "https://i.ibb.co/TBv3gf8/1.jpg",
     wishList: false,
     price: {
@@ -20,7 +20,7 @@ export let products: Iproducts[] = [
     },
   },
   {
-    name: "Generous Dog",
+    name: "Supportive Teammate",
     url: "https://i.ibb.co/B4BfBWD/2.jpg",
     wishList: false,
     price: {
@@ -30,7 +30,7 @@ export let products: Iproducts[] = [
     },
   },
   {
-    name: "Depressed Dog",
+    name: "Undefined",
     url: "https://i.ibb.co/pWVBqmn/3.jpg",
     wishList: false,
     price: {
@@ -40,7 +40,7 @@ export let products: Iproducts[] = [
     },
   },
   {
-    name: "Exotic Dog",
+    name: "Typescript",
     url: "https://i.ibb.co/vzgHDBr/4.jpg",
     wishList: false,
     price: {
@@ -50,7 +50,7 @@ export let products: Iproducts[] = [
     },
   },
   {
-    name: "Silent Dog",
+    name: "Skipped Feature-Branch",
     url: "https://i.ibb.co/fxJVc9v/5.jpg",
     wishList: false,
     price: {
@@ -60,8 +60,8 @@ export let products: Iproducts[] = [
     },
   },
   {
-    name: "Massage Dog",
-    url: "https://i.ibb.co/TYj56Fs/6.jpg",
+    name: "Type: any",
+    url: "https://i.ibb.co/cJ1pLF5/4pexels-anna-shvets-4588027.jpg",
     wishList: false,
     price: {
       s: 19,
@@ -70,7 +70,7 @@ export let products: Iproducts[] = [
     },
   },
   {
-    name: "Clean Dog",
+    name: "Structured Code",
     url: "https://i.ibb.co/WF264XK/7.jpg",
     wishList: false,
     price: {
@@ -80,8 +80,8 @@ export let products: Iproducts[] = [
     },
   },
   {
-    name: "Wrinkly Depressed Dog",
-    url: "https://i.ibb.co/N30FYMP/8.jpg",
+    name: "Cannot Read Properties Of Null",
+    url: "https://i.ibb.co/KNp2fFh/2pexels-anna-shvets-4588455.jpg",
     wishList: false,
     price: {
       s: 9,
@@ -90,8 +90,8 @@ export let products: Iproducts[] = [
     },
   },
   {
-    name: "Hipster Dog",
-    url: "https://i.ibb.co/mSsk0C1/9.jpg",
+    name: ".splice(i,1)",
+    url: "https://i.ibb.co/nfrLgqF/1pexels-anna-shvets-4588441.jpg",
     wishList: false,
     price: {
       s: 105,
@@ -100,7 +100,7 @@ export let products: Iproducts[] = [
     },
   },
   {
-    name: "Fast Rabbit",
+    name: "Scrum Master",
     url: "https://i.ibb.co/6tLQKsB/10.jpg",
     wishList: false,
     price: {
@@ -110,8 +110,8 @@ export let products: Iproducts[] = [
     },
   },
   {
-    name: "Dog Dealer",
-    url: "https://i.ibb.co/dJq0z70/11.jpg",
+    name: "Passed A Cypress Test",
+    url: "https://i.ibb.co/SvBnLFR/3pexels-anna-shvets-4580745.jpg",
     wishList: false,
     price: {
       s: 4,
