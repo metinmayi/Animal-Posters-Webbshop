@@ -61,7 +61,7 @@ export let products: Iproducts[] = [
   },
   {
     name: "Type: any",
-    url: "",
+    url: "https://i.ibb.co/cJ1pLF5/4pexels-anna-shvets-4588027.jpg",
     wishList: false,
     price: {
       s: 19,
@@ -81,7 +81,7 @@ export let products: Iproducts[] = [
   },
   {
     name: "Cannot Read Properties Of Null",
-    url: "",
+    url: "https://i.ibb.co/KNp2fFh/2pexels-anna-shvets-4588455.jpg",
     wishList: false,
     price: {
       s: 9,
@@ -91,7 +91,7 @@ export let products: Iproducts[] = [
   },
   {
     name: ".splice(i,1)",
-    url: "",
+    url: "https://i.ibb.co/nfrLgqF/1pexels-anna-shvets-4588441.jpg",
     wishList: false,
     price: {
       s: 105,
@@ -111,7 +111,7 @@ export let products: Iproducts[] = [
   },
   {
     name: "Passed A Cypress Test",
-    url: "",
+    url: "https://i.ibb.co/SvBnLFR/3pexels-anna-shvets-4580745.jpg",
     wishList: false,
     price: {
       s: 4,
