@@ -19,8 +19,11 @@ export function createProductsCheckout() {
   });
 
   document.getElementById("add-button").addEventListener("click", () => {
-    let cartListString: string = JSON.stringify(listAsObject);
-    localStorage.setItem("cartList", cartListString);
+    if (!localStorage.getItem("cartList")) {
+      localStorage.setItem("cartList", "[]");
+    } else {
+      localStorage.setItem("cartList", JSON.stringify(listAsObject));
+    }
   });
 
   let cartListLS: string = localStorage.getItem("cartList");
