@@ -24,7 +24,7 @@ describe("Product page tests", () => {
 
     cy.get("#modalContainer #modalBody #modalTitle").should(
       "have.text",
-      "Cat Sandwich"
+      "Merge Conflicts"
     );
 
     cy.get("#closeProductsModal").click();
@@ -51,7 +51,7 @@ describe("Product page tests", () => {
 
     cy.get("#shopping-cart").click();
 
-    cy.get("#name").should("have.text", "Cat Sandwich");
+    cy.get("#name").should("have.text", "Merge Conflicts");
 
     cy.get("#size").should("have.text", "Storlek: Medium");
 
@@ -148,7 +148,7 @@ describe("Product page tests", () => {
 
     cy.get("#shopping-cart").click();
 
-    cy.get("#name").should("have.text", "Cat Sandwich");
+    cy.get("#name").should("have.text", "Merge Conflicts");
 
     cy.get("#size").should("have.text", "Storlek: Medium");
 
