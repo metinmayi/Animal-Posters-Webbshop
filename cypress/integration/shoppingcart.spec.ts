@@ -11,10 +11,17 @@ describe("Testing shoppingcart page", () => {
     cy.visit("http://localhost:1234/shoppingcart.html");
     cy.get("#continue-shopping").click();
   });
+  it("Hamburgermeny should work", () => {
+    cy.visit("http://localhost:1234/shoppingcart.html");
+    cy.get("#hamburger-icon").click();
+    cy.get("#hamburger-icon").should("be.visible");
+    cy.get("#hamburger > #nav-list > > a").should("have.length", 3);
+  });
 
   it("should have a checkout button", () => {
     cy.visit("http://localhost:1234/shoppingcart.html");
     cy.get("#to-checkout").click();
+    cy.location("href").should("include", "/checkout.html");
   });
 
   it("products add to cart should be visible in shoppingcart", () => {
