@@ -1,0 +1,124 @@
+@import "styles";
+
+@mixin wishList {
+  .showDropDown {
+    opacity: 1 !important;
+    pointer-events: all !important;
+    min-height: 50vh !important;
+    overflow: visible;
+  }
+
+  .wishlist {
+    position: relative;
+    .wishlistDropDown {
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      transform: translate(-50%, 8%);
+      width: 40vw;
+      height: 0vh;
+      display: flex;
+      justify-content: center;
+      background-color: #fff;
+      border-top: none;
+      box-shadow: 1px 10px 10px rgb(150 147 147 / 54%);
+
+      .wishlistBody {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0, 25px;
+        column-gap: 4%;
+        height: 100%;
+        width: 80%;
+        padding: 10px;
+        h3 {
+          width: 100%;
+          text-align: center;
+          font-family: $breadfont;
+          margin-block-start: 0.5;
+          margin-block-end: 0;
+        }
+        .wishlistImageContainer {
+          background-image: url("https://i.ibb.co/TBv3gf8/1.jpg");
+          width: 11%;
+          height: 26%;
+          box-shadow: $boxshadow;
+          background-size: cover;
+          background-position-x: center;
+          background-position-y: 70%;
+          position: relative;
+          .wishlistHeartContainer {
+            position: absolute;
+          }
+        }
+      }
+    }
+  }
+
+  .mobileWishlist {
+    display: block;
+    position: relative;
+    z-index: 95;
+    .wishlistDropDownMobile {
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      top: 8vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      background-color: #fff;
+      border-top: none;
+      box-shadow: 1px 10px 10px rgb(150 147 147 / 54%);
+      .wishlistBody {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0, 25px;
+        column-gap: 4%;
+        height: 100%;
+        width: 80%;
+        row-gap: 1rem;
+        padding-bottom: 5%;
+
+        h3 {
+          width: 100%;
+          text-align: center;
+          font-family: $breadfont;
+          margin-block-start: 0.5;
+          margin-block-end: 0;
+        }
+        .wishlistImageContainer {
+          background-image: url("https://i.ibb.co/TBv3gf8/1.jpg");
+          width: 80px;
+          height: 120px;
+          box-shadow: $boxshadow;
+          background-size: cover;
+          background-position-x: center;
+          background-position-y: 70%;
+          position: relative;
+          .wishlistHeartContainer {
+            position: absolute;
+          }
+        }
+      }
+    }
+  }
+  .fa-2x {
+    font-size: 1em;
+  }
+  #h5 {
+    font-family: $breadfont;
+    font-weight: lighter;
+  }
+  #h5x2 {
+    font-family: $breadfont;
+    font-weight: lighter;
+  }
+  @media screen and (min-width: 1024px) {
+    .mobileWishlist {
+      display: none;
+    }
+  }
+}

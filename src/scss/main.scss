@@ -1,0 +1,162 @@
+@import "styles";
+@import "wishList";
+
+@import "mixins";
+
+body {
+  margin: 0;
+  background-color: #e2e2e2;
+  font-size: 12pt;
+  position: relative;
+
+  //Mixin för header
+  @include menu;
+
+  //Mixin för footer
+  @include footer;
+
+  //Mixin för dropdown-cart
+  @include dropdown-checkout;
+
+  //Mixing för wishlist
+  @include wishList;
+  //Mediaquery, min-width: 768px
+  @include pad;
+
+  //Mediaquery, min-width: 1024px
+  @include desktop;
+}
+#hero {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 15vh;
+}
+
+#border {
+  margin-bottom: -10px;
+  position: relative;
+
+  svg {
+    z-index: 0;
+  }
+}
+
+#footer-container {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+#square-container {
+  position: relative;
+  top: 10vh;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  .image-container {
+    background-size: cover;
+    width: 100%;
+    position: relative;
+    background-position: center;
+    justify-content: space-evenly;
+  }
+
+  .quote {
+    width: 100%;
+    position: relative;
+    background-color: #fff;
+
+    .quote-text {
+      position: absolute;
+      width: 86%;
+      height: 86%;
+      padding: 7%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      p {
+        display: inline;
+        padding: 0;
+        font-family: $breadfont;
+        margin: 10px;
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  #one {
+    background-image: url(../assets/7.jpg);
+  }
+
+  #two {
+    background-image: url(../assets/10.jpg);
+  }
+}
+
+.image-container::after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+.quote::after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+//Pad
+@media screen and (min-width: 768px) {
+  #square-container {
+    top: 10vh;
+    width: 90%;
+    flex-direction: row;
+
+    .image-container {
+      width: 48%;
+    }
+
+    .quote {
+      width: 48%;
+    }
+  }
+}
+
+//Desktop
+@media screen and (min-width: 1024px) {
+  #square-container {
+    top: 14vh;
+    width: 70%;
+    flex-direction: row;
+
+    .image-container {
+      width: 48%;
+    }
+
+    .quote {
+      width: 48%;
+    }
+  }
+}
+
+//Big screen
+@media screen and (min-width: 1500px) {
+  #square-container {
+    .quote {
+      .quote-text {
+        p {
+          font-size: 1.6rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,87 @@
+@import "styles";
+
+@mixin removeModal {
+  #container-modal {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    opacity: 0; // sätt till 0
+    pointer-events: none; // när jag är klar sätt till none
+  }
+  #remove-modal {
+    width: 75%;
+    border-radius: 5px;
+    border: 1px solid grey;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    z-index: 25;
+    background-color: white;
+    padding: 15px;
+  }
+  h2 {
+    font-family: $headfont;
+    font-size: 18px;
+    text-align: center;
+  }
+  #modal-img-container {
+    display: flex;
+    justify-content: center;
+    height: 200px;
+    img {
+      height: 100%;
+      box-shadow: $boxshadow;
+    }
+  }
+  p {
+    text-align: center;
+    font-family: $breadfont;
+  }
+  #modal-button-container {
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+    .cancel-button {
+      cursor: pointer;
+      padding: 1% 3%;
+      font-size: 0.8rem;
+      color: white;
+      background-color: #5e5b5b;
+      border: 0px;
+      border-radius: 5px;
+    }
+    .confirm-button {
+      cursor: pointer;
+      padding: 1% 3%;
+      font-size: 0.8rem;
+      color: white;
+      background-color: #945d5e;
+      border: 0px;
+      border-radius: 5px;
+    }
+  }
+
+  .show-container-modal {
+    opacity: 1 !important;
+    pointer-events: all !important;
+  }
+}
+
+@mixin removeModal-pad {
+  @media screen and (min-width: 768px) {
+    #container-modal {
+      #remove-modal {
+        width: auto;
+      }
+    }
+  }
+}

@@ -2,18 +2,21 @@
   "name": "animal-posters-webbshop",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "parcel": "parcel src/index.html",
+    "parcel": "parcel src/products.html src/index.html src/checkout.html src/shoppingcart.html src/thankyou.html --no-cache",
+    "parcelProducts": "parcel src/products.html",
     "cypress:open": "cypress open"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cypress": "^9.1.0",
     "parcel": "^2.0.1",
     "typescript": "^4.5.2"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.0.1",
+    "cypress": "^9.1.1"
   }
 }

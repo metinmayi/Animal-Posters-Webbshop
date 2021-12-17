@@ -1,0 +1,140 @@
+@import "styles";
+@mixin productModal {
+  #modalContainer {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 100;
+
+    #modalBody {
+      height: 80%;
+      padding: 3%;
+      width: 90%;
+      background-color: white;
+      font-family: $breadfont;
+      display: grid;
+      justify-content: center;
+      // align-items: center;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(16, 1fr);
+      // display: flex;
+      // flex-direction: column;
+      // justify-content: flex-start;
+      // align-items: center;
+      border-radius: 1%;
+      border: 1px solid grey;
+
+      #closeProductsModal {
+        justify-self: flex-end;
+        grid-column: 6;
+        background: none;
+        font-size: 1.6rem;
+        font-weight: bold;
+        color: black;
+        border: none;
+        cursor: pointer;
+      }
+      .modalProductLabels {
+        // width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+      }
+      #addProduct {
+        padding: 1% 5%;
+        background: $bgcolor;
+        border-radius: 5px;
+        // color: white;
+        border: 1px solid;
+      }
+
+      #modalTitle {
+        font-family: $headfont;
+        font-weight: bolder;
+        font-size: 1.8rem;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        grid-column: 2 / 6;
+        grid-row: 11 / 11;
+        text-align: center;
+        align-self: center;
+      }
+      #productModalSizeLabel,
+      #productModalAmountLabel {
+        grid-row: 12/13;
+        grid-column: 2/4;
+        justify-self: center;
+        align-self: flex-end;
+        font-size: 1rem;
+        font-weight: bold;
+      }
+      #productModalAmountLabel {
+        grid-column: 4/6;
+        // justify-self: start;
+      }
+      #productModalSize,
+      #productModalAmount {
+        width: 70%;
+        grid-row: 13/13;
+        grid-column: 2/4;
+        justify-self: center;
+        align-self: center;
+        font-family: $breadfont;
+      }
+      #productModalAmount {
+        grid-column: 4/6;
+        // justify-self: start;
+      }
+      #modalTotal,
+      #addProduct {
+        grid-column: 2 / 6;
+        justify-self: center;
+        align-self: center;
+        font-weight: bolder;
+        grid-row: 14;
+      }
+      #addProduct {
+        grid-row: 15 / 15;
+        padding: 3% 20%;
+        font-size: 1.1rem;
+        color: white;
+        background-color: #945d5e;
+        font-family: $headfont;
+        font-weight: 400 !important;
+        text-transform: uppercase;
+      }
+
+      #modalImgWrapper {
+        //Only contains the IMG
+        grid-column: 2 / 6;
+        grid-row: 2 / 10;
+        display: flex;
+        justify-content: center;
+
+        img {
+          //   width: 100%;
+          height: 100%;
+          border: 7px solid black;
+        }
+      }
+    }
+  }
+  .showProductModal {
+    opacity: 1 !important;
+    pointer-events: all !important;
+  }
+  @media screen and (min-width: 768px) {
+    #modalContainer {
+      #modalBody {
+        width: auto;
+      }
+    }
+  }
+}

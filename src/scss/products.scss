@@ -1,0 +1,166 @@
+@import "styles";
+@import "productsModal";
+@import "mixins";
+@import "wishList";
+* {
+	box-sizing: border-box;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: $bgcolor;
+	margin: 0;
+	padding: 0;
+	@include wishList;
+	@include productModal;
+	@include menu;
+	@include footer;
+
+	//Mediaquery, min-width: 768px
+	@include pad;
+
+	//Mediaquery, min-width: 1024px
+	@include desktop;
+
+	@include dropdown-checkout;
+
+	#hero {
+		margin-top: 8vh;
+		width: 100%;
+		height: 60vh;
+		background-image: url("../assets/colors.jpeg");
+		background-size: cover;
+		background-position: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		#hero-text {
+			width: 80%;
+			height: 50%;
+			background-color: #fff;
+			text-align: center;
+			padding: 2% 5%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly;
+
+			h1 {
+				margin: 0;
+				font-family: $headerfont;
+			}
+
+			p {
+				font-family: $breadfont;
+			}
+		}
+	}
+	#mainProducts {
+		margin: 0 auto;
+		margin-top: 2vh;
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+		gap: 0.5%;
+		justify-content: space-evenly;
+
+		.heartContainer {
+			background-size: cover;
+			position: absolute;
+			right: 2%;
+			top: 2%;
+			height: 20px;
+			width: 20px;
+		}
+		.emptyHeart {
+			background-image: url("../assets/emptyheart.svg");
+		}
+		.filledHeart {
+			background-image: url("../assets/filledheart.svg");
+		}
+
+		.product {
+			background-color: $bgbox;
+			width: 48%;
+			height: 34vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			//   box-shadow: $boxshadow;
+			margin-top: 3%;
+			border-radius: 5px;
+			position: relative;
+
+			.imgWrapper {
+				width: 80%;
+				height: 70%;
+				margin: 0;
+				position: relative;
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: contain;
+					object-position: top;
+				}
+			}
+
+			p {
+				margin-block-end: 0;
+				margin-block-start: 0;
+				font-family: $breadfont;
+			}
+			#productTitle {
+				font-family: $headfont;
+				padding-top: 2%;
+			}
+		}
+	}
+}
+
+//Ipad Media Query
+@media (min-width: 768px) {
+	body {
+		#mainProducts {
+			width: 95%;
+
+			.product {
+				width: 32%;
+				height: 50vh;
+
+				.heartContainer {
+					height: 30px;
+					width: 30px;
+				}
+			}
+		}
+		#hero {
+			#hero-text {
+				width: 60%;
+			}
+		}
+	}
+}
+
+//Desktop Media Query
+@media (min-width: 1024px) {
+	body {
+		#mainProducts {
+			width: 80%;
+			margin-top: 2vh;
+
+			.product {
+				width: 24%;
+				height: 35vh;
+			}
+		}
+		#hero {
+			margin-top: 12vh;
+			#hero-text {
+				width: 40%;
+			}
+		}
+	}
+}
