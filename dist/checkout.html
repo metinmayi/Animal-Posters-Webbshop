@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/3d16140dea.js" crossorigin="anonymous"></script>
+    <link href="/checkout.3336d8b8.css" rel="stylesheet">
+    <script src="/checkout.70624295.js" defer=""></script>
+
+    <title>Kassa</title>
+  </head>
+  <body>
+    <!-- Remove Modal  -->
+    <div id="container-modal">
+      <div id="remove-modal">
+        <h2>Du håller på att ta bort en produkt från varukorgen</h2>
+        <div id="modal-img-container">
+        <img id="correctProduct">
+        </div>
+        <p id="product-title"></p>
+        <div id="modal-button-container">
+        </div>
+
+      </div>
+    </div>
+    <div class="mobileWishlist">
+      <div class="wishlistDropDownMobile">
+        <div class="wishlistBody"></div>
+      </div>
+    </div>
+    <header>
+      <nav id="desktop">
+        <ul id="nav-list">
+          <li><a href="/index.html">Hem</a></li>
+          <li><a href="/products.html">Produkter</a></li>
+          <li><a href="/contact.html">Kontakt</a></li>
+        </ul>
+        <h1>Posters</h1>
+        <div id="icons">
+          <div class="wishlist">
+            <a href="#"><i id="toggleWishlist" class="far fa-heart"></i></a>
+            <div class="wishlistDropDown">
+              <div class="wishlistBody">
+                <h3>Wishlist</h3>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </nav>
+      <nav id="phone">
+        <i class="fas fa-bars" id="hamburger-icon"></i>
+        <h1>Posters</h1>
+        <div id="icons">
+          <a href="#"><i id="mobileToggleWishlist" class="far fa-heart"></i></a>
+          
+        </div>
+        <div id="hamburger">
+          <i class="fas fa-times" id="close"></i>
+          <ul id="nav-list">
+            <li id="heading">Posters</li>
+            <li><a href="/index.html">Hem</a></li>
+            <li><a href="/products.html">Produkter</a></li>
+            <li><a href="/contact.html">Kontakt</a></li>
+          </ul>
+          <div id="border">
+            <svg id="wave" style="transform: rotate(0deg); transition: 0.3s" viewbox="0 0 1440 150" version="1.1" xmlns="http://www.w3.org/2000/svg">
+              <path style="transform: translate(0, 0px); opacity: 1" fill="#945D5E" d="M0,0L18.5,7.5C36.9,15,74,30,111,30C147.7,30,185,15,222,27.5C258.5,40,295,80,332,82.5C369.2,85,406,50,443,30C480,10,517,5,554,10C590.8,15,628,30,665,40C701.5,50,738,55,775,47.5C812.3,40,849,20,886,30C923.1,40,960,80,997,90C1033.8,100,1071,80,1108,70C1144.6,60,1182,60,1218,72.5C1255.4,85,1292,110,1329,120C1366.2,130,1403,125,1440,115C1476.9,105,1514,90,1551,80C1587.7,70,1625,65,1662,65C1698.5,65,1735,70,1772,72.5C1809.2,75,1846,75,1883,82.5C1920,90,1957,105,1994,97.5C2030.8,90,2068,60,2105,57.5C2141.5,55,2178,80,2215,75C2252.3,70,2289,35,2326,17.5C2363.1,0,2400,0,2437,17.5C2473.8,35,2511,70,2548,80C2584.6,90,2622,75,2640,67.5L2658.5,60L2658.5,150L2640,150C2621.5,150,2585,150,2548,150C2510.8,150,2474,150,2437,150C2400,150,2363,150,2326,150C2289.2,150,2252,150,2215,150C2178.5,150,2142,150,2105,150C2067.7,150,2031,150,1994,150C1956.9,150,1920,150,1883,150C1846.2,150,1809,150,1772,150C1735.4,150,1698,150,1662,150C1624.6,150,1588,150,1551,150C1513.8,150,1477,150,1440,150C1403.1,150,1366,150,1329,150C1292.3,150,1255,150,1218,150C1181.5,150,1145,150,1108,150C1070.8,150,1034,150,997,150C960,150,923,150,886,150C849.2,150,812,150,775,150C738.5,150,702,150,665,150C627.7,150,591,150,554,150C516.9,150,480,150,443,150C406.2,150,369,150,332,150C295.4,150,258,150,222,150C184.6,150,148,150,111,150C73.8,150,37,150,18,150L0,150Z"></path>
+            </svg>
+
+            <svg width="101vw" height="20vh">
+              <rect width="100%" height="100%" fill="#945D5E"></rect>
+            </svg>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div id="wrapper-checkout">
+      
+      <!-- HÄR BÖRJAR SHOPPING-CONTAINER -->
+      <div id="shopping-container">
+        <h1>I din varukorg</h1>
+        <ul id="ul">
+        </ul>
+            <h3 id="total-price"></h3>       
+      </div>
+
+      <!-- HÄR BÖRJAR FORM - CONTAINER -->
+      <div id="form-container">
+        <h1>Kassa</h1>
+        <form class="main-form needs-validation" action="thankyou.html" novalidate="">
+          <div class="row">
+
+           <!-- Förnamn -->
+            <div class="col-6">
+              <label for="firstname" class="form-label"></label>
+              <input pattern="\w+" type="text" class="form-control" name="firstname" id="firstname" placeholder="Förnamn" aria-label="First name" required="">
+              <div class="invalid-feedback">Skriv in ditt förnamn</div>
+            </div>    
+  
+            <!-- Efternamn -->
+            <div class="col-6">
+              <label for="lastname" class="form-label"></label>
+              <input pattern="\w+" type="text" class="form-control" name="lastename" id="lastname" placeholder="Efternamn" aria-label="Last name" required="">
+              <div class="invalid-feedback">Skriv in ditt efternamn</div>
+            </div>
+
+            <!-- Adress -->
+            <div class="col-12">
+              <label for="inputAddress" class="form-label"></label>
+              <input type="text" class="form-control" name="inputAddress" id="inputAddress" placeholder="Adress" required="">
+              <div class="invalid-feedback">Skriv in din adress</div>
+            </div>
+
+            <!-- Postnummer -->
+            <div class="col-md-4">
+              <label for="inputZip" class="form-label"></label>
+              <input type="text" class="form-control" id="inputZip" placeholder="Postnummer" pattern="\d{5}" required="">
+              <div class="invalid-feedback">Skriv in ditt postnummer (fem siffror)</div>
+            </div>
+
+            <!-- Ort -->
+            <div class="col-md-8">
+              <label for="inputCity" class="form-label"></label>
+              <input type="text" pattern="\w+" name="inputZip" class="form-control" id="inputCity" placeholder="Ort" required="">
+              <div class="invalid-feedback">Skriv in din bostadsort</div>
+            </div>
+        
+            <!-- Email -->
+            <div class="col-md-8">
+                <label for="inputEmail" class="col-sm-2 col-form-label"></label>
+                <div class="col-md-12">
+                  <input type="email" name="inpurEmail" class="form-control" id="inputEmail3" placeholder="Mailadress" required="">
+                  <div class="invalid-feedback">Skriv in din mailadress</div>
+                </div>
+            </div>
+
+            <!-- Telefonnummer -->
+          <div class="col-md-4">
+            <label for="phonenumber"></label>
+            <input type="text" name="phonenumber" id="phonenumber" class="form-control" pattern="\d{10}" placeholder="Mobilnummer " required="">
+            <div class="invalid-feedback">Skriv in ditt telefonnummer (tio siffror)</div>       
+          </div>
+
+          <!-- HÄR BÖRJAR PAYMENT FORMULÄRET  -->
+          <div class="container py-5">
+            <div class="row mb-4">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-6">Kortbetalning</h1>
+                </div>
+            </div> 
+              <!-- End -->
+              <div class="row">
+                  <div class="col-lg-6 mx-auto">
+                    <div class="card ">
+                        <div class="card-header">                       
+                            <!-- Credit card form content -->
+                            <div class="tab-content">
+                                <!-- credit card info-->
+                                <div id="credit-card" class="tab-pane fade show active pt-3">
+                                    
+                                        <div class="form-group"> <label for="username">
+                                                <h6>Kortinnehavare</h6>
+                                            </label> <input type="text" name="username" placeholder="Namn på kortinnehavare" required="" class="form-control" pattern="\w+ \w+"> </div>
+                                        <div class="form-group"> <label for="cardNumber">
+                                                <h6>Kortnummer</h6>
+                                            </label>
+                                            <div class="input-group"> <input type="text" name="cardNumber" pattern="\d{4}-\d{4}-\d{4}-\d{4}" placeholder="xxxx-xxxx-xxxx-xxxx" class="form-control " required="">
+                                                <div class="input-group-append"> <span class="input-group-text text-muted"> <i class="fab fa-cc-visa mx-1"></i> <i class="fab fa-cc-mastercard mx-1"></i> <i class="fab fa-cc-amex mx-1"></i> </span> </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-8">
+                                                <div class="form-group"> <label><span class="hidden-xs">
+                                                            <h6>Giltlighetstid</h6>
+                                                        </span></label>
+                                                    <div class="input-group"> <input type="text" placeholder="MM" pattern="[0-9]{2}" required="" name="" class="form-control"> <input type="text" placeholder="YY" name="" pattern="[0-9]{2}" required="" class="form-control"> </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="form-group mb-4"> <label data-toggle="tooltip">
+                                                        <h6>CVV</h6>
+                                                    </label> <input type="text" pattern="[0-9]{3}" required="" class="form-control"> </div>
+                                            </div>
+                                        </div>
+                                </div>                           
+                            </div> <!-- End -->                                                                      
+                        </div>               
+                    </div>
+                </div>
+  
+            </div>
+            <!-- Bekräfta  - checkbox knapp -->
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required="">
+              <label class="form-check-label" for="flexCheckDefault">
+                <p id="checkbutton">Jag bekräftar att informationen jag angivit stämmer.</p>
+              </label>
+            </div>
+            <div class="col-auto">
+              <button type="submit" class="btn btn-primary" id="submit-button">Slutför köp</button>
+            </div>  
+           <!-- HÄR SLUTAR PAYMENT FORMULÄRET  -->
+        </div></div></form>
+      </div>
+    </div>
+    <div id="footer-container">
+      <div id="border">
+        <svg id="wave" style="transform: rotate(0deg); transition: 0.3s" viewbox="0 0 1440 150" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path style="transform: translate(0, 0px); opacity: 1" fill="#945D5E" d="M0,0L18.5,7.5C36.9,15,74,30,111,30C147.7,30,185,15,222,27.5C258.5,40,295,80,332,82.5C369.2,85,406,50,443,30C480,10,517,5,554,10C590.8,15,628,30,665,40C701.5,50,738,55,775,47.5C812.3,40,849,20,886,30C923.1,40,960,80,997,90C1033.8,100,1071,80,1108,70C1144.6,60,1182,60,1218,72.5C1255.4,85,1292,110,1329,120C1366.2,130,1403,125,1440,115C1476.9,105,1514,90,1551,80C1587.7,70,1625,65,1662,65C1698.5,65,1735,70,1772,72.5C1809.2,75,1846,75,1883,82.5C1920,90,1957,105,1994,97.5C2030.8,90,2068,60,2105,57.5C2141.5,55,2178,80,2215,75C2252.3,70,2289,35,2326,17.5C2363.1,0,2400,0,2437,17.5C2473.8,35,2511,70,2548,80C2584.6,90,2622,75,2640,67.5L2658.5,60L2658.5,150L2640,150C2621.5,150,2585,150,2548,150C2510.8,150,2474,150,2437,150C2400,150,2363,150,2326,150C2289.2,150,2252,150,2215,150C2178.5,150,2142,150,2105,150C2067.7,150,2031,150,1994,150C1956.9,150,1920,150,1883,150C1846.2,150,1809,150,1772,150C1735.4,150,1698,150,1662,150C1624.6,150,1588,150,1551,150C1513.8,150,1477,150,1440,150C1403.1,150,1366,150,1329,150C1292.3,150,1255,150,1218,150C1181.5,150,1145,150,1108,150C1070.8,150,1034,150,997,150C960,150,923,150,886,150C849.2,150,812,150,775,150C738.5,150,702,150,665,150C627.7,150,591,150,554,150C516.9,150,480,150,443,150C406.2,150,369,150,332,150C295.4,150,258,150,222,150C184.6,150,148,150,111,150C73.8,150,37,150,18,150L0,150Z"></path>
+        </svg>
+      </div>
+      <footer>
+        <div id="footer-option">
+          <div id="social-media">
+            <a href="https://www.facebook.com" target="_blank">
+              <div class="icon-wrapper">
+                <i class="fab fa-facebook-f" id="icon"></i>
+              </div>
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+              <div class="icon-wrapper">
+                <i class="fab fa-instagram" id="icon"></i>
+              </div>
+            </a>
+            <a href="https://twitter.com" target="_blank">
+              <div class="icon-wrapper">
+                <i class="fab fa-twitter" id="icon"></i>
+              </div>
+            </a>
+          </div>
+          <ul>
+            <li><a href="#">Kontakta oss</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Om oss</a></li>
+          </ul>
+          <ul>
+            <li><a href="#">Beställ</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+          <p>&#169; 2021 Posters</p>
+        </div>
+      </footer>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous" defer=""></script>
+
+    <script>// modules are defined as an array
+// [ module function, map of requires ]
+//
+// map of requires is short require name -> numeric require
+//
+// anything defined in a previous bundle is accessed via the
+// orig method which is the require for previous bundles
+
+(function (modules, entry, mainEntry, parcelRequireName, globalName) {
+  /* eslint-disable no-undef */
+  var globalObject =
+    typeof globalThis !== 'undefined'
+      ? globalThis
+      : typeof self !== 'undefined'
+      ? self
+      : typeof window !== 'undefined'
+      ? window
+      : typeof global !== 'undefined'
+      ? global
+      : {};
+  /* eslint-enable no-undef */
+
+  // Save the require from previous bundle to this closure if any
+  var previousRequire =
+    typeof globalObject[parcelRequireName] === 'function' &&
+    globalObject[parcelRequireName];
+
+  var cache = previousRequire.cache || {};
+  // Do not use `require` to prevent Webpack from trying to bundle this call
+  var nodeRequire =
+    typeof module !== 'undefined' &&
+    typeof module.require === 'function' &&
+    module.require.bind(module);
+
+  function newRequire(name, jumped) {
+    if (!cache[name]) {
+      if (!modules[name]) {
+        // if we cannot find the module within our internal map or
+        // cache jump to the current global require ie. the last bundle
+        // that was added to the page.
+        var currentRequire =
+          typeof globalObject[parcelRequireName] === 'function' &&
+          globalObject[parcelRequireName];
+        if (!jumped && currentRequire) {
+          return currentRequire(name, true);
+        }
+
+        // If there are other bundles on this page the require from the
+        // previous one is saved to 'previousRequire'. Repeat this as
+        // many times as there are bundles until the module is found or
+        // we exhaust the require chain.
+        if (previousRequire) {
+          return previousRequire(name, true);
+        }
+
+        // Try the node require function if it exists.
+        if (nodeRequire && typeof name === 'string') {
+          return nodeRequire(name);
+        }
+
+        var err = new Error("Cannot find module '" + name + "'");
+        err.code = 'MODULE_NOT_FOUND';
+        throw err;
+      }
+
+      localRequire.resolve = resolve;
+      localRequire.cache = {};
+
+      var module = (cache[name] = new newRequire.Module(name));
+
+      modules[name][0].call(
+        module.exports,
+        localRequire,
+        module,
+        module.exports,
+        this
+      );
+    }
+
+    return cache[name].exports;
+
+    function localRequire(x) {
+      return newRequire(localRequire.resolve(x));
+    }
+
+    function resolve(x) {
+      return modules[name][1][x] || x;
+    }
+  }
+
+  function Module(moduleName) {
+    this.id = moduleName;
+    this.bundle = newRequire;
+    this.exports = {};
+  }
+
+  newRequire.isParcelRequire = true;
+  newRequire.Module = Module;
+  newRequire.modules = modules;
+  newRequire.cache = cache;
+  newRequire.parent = previousRequire;
+  newRequire.register = function (id, exports) {
+    modules[id] = [
+      function (require, module) {
+        module.exports = exports;
+      },
+      {},
+    ];
+  };
+
+  Object.defineProperty(newRequire, 'root', {
+    get: function () {
+      return globalObject[parcelRequireName];
+    },
+  });
+
+  globalObject[parcelRequireName] = newRequire;
+
+  for (var i = 0; i < entry.length; i++) {
+    newRequire(entry[i]);
+  }
+
+  if (mainEntry) {
+    // Expose entry point to Node, AMD or browser globals
+    // Based on https://github.com/ForbesLindesay/umd/blob/master/template.js
+    var mainExports = newRequire(mainEntry);
+
+    // CommonJS
+    if (typeof exports === 'object' && typeof module !== 'undefined') {
+      module.exports = mainExports;
+
+      // RequireJS
+    } else if (typeof define === 'function' && define.amd) {
+      define(function () {
+        return mainExports;
+      });
+
+      // <script>
+    } else if (globalName) {
+      this[globalName] = mainExports;
+    }
+  }
+})({"1w6OR":[function(require,module,exports) {
+var HMR_HOST = null;
+var HMR_PORT = null;
+var HMR_SECURE = false;
+var HMR_ENV_HASH = "4a236f9275d0a351";
+module.bundle.HMR_BUNDLE_ID = "e5fda9a55f615427";
+"use strict";
+function _createForOfIteratorHelper(o, allowArrayLike) {
+    var it;
+    if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {
+        if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+            if (it) o = it;
+            var i = 0;
+            var F = function F() {
+            };
+            return {
+                s: F,
+                n: function n() {
+                    if (i >= o.length) return {
+                        done: true
+                    };
+                    return {
+                        done: false,
+                        value: o[i++]
+                    };
+                },
+                e: function e(_e) {
+                    throw _e;
+                },
+                f: F
+            };
+        }
+        throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+    }
+    var normalCompletion = true, didErr = false, err;
+    return {
+        s: function s() {
+            it = o[Symbol.iterator]();
+        },
+        n: function n() {
+            var step = it.next();
+            normalCompletion = step.done;
+            return step;
+        },
+        e: function e(_e2) {
+            didErr = true;
+            err = _e2;
+        },
+        f: function f() {
+            try {
+                if (!normalCompletion && it.return != null) it.return();
+            } finally{
+                if (didErr) throw err;
+            }
+        }
+    };
+}
+function _unsupportedIterableToArray(o, minLen) {
+    if (!o) return;
+    if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor) n = o.constructor.name;
+    if (n === "Map" || n === "Set") return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+function _arrayLikeToArray(arr, len) {
+    if (len == null || len > arr.length) len = arr.length;
+    for(var i = 0, arr2 = new Array(len); i < len; i++)arr2[i] = arr[i];
+    return arr2;
+}
+/* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE */ /*::
+import type {
+  HMRAsset,
+  HMRMessage,
+} from '@parcel/reporter-dev-server/src/HMRServer.js';
+interface ParcelRequire {
+  (string): mixed;
+  cache: {|[string]: ParcelModule|};
+  hotData: mixed;
+  Module: any;
+  parent: ?ParcelRequire;
+  isParcelRequire: true;
+  modules: {|[string]: [Function, {|[string]: string|}]|};
+  HMR_BUNDLE_ID: string;
+  root: ParcelRequire;
+}
+interface ParcelModule {
+  hot: {|
+    data: mixed,
+    accept(cb: (Function) => void): void,
+    dispose(cb: (mixed) => void): void,
+    // accept(deps: Array<string> | string, cb: (Function) => void): void,
+    // decline(): void,
+    _acceptCallbacks: Array<(Function) => void>,
+    _disposeCallbacks: Array<(mixed) => void>,
+  |};
+}
+declare var module: {bundle: ParcelRequire, ...};
+declare var HMR_HOST: string;
+declare var HMR_PORT: string;
+declare var HMR_ENV_HASH: string;
+declare var HMR_SECURE: boolean;
+*/ var OVERLAY_ID = '__parcel__error__overlay__';
+var OldModule = module.bundle.Module;
+function Module(moduleName) {
+    OldModule.call(this, moduleName);
+    this.hot = {
+        data: module.bundle.hotData,
+        _acceptCallbacks: [],
+        _disposeCallbacks: [],
+        accept: function accept(fn) {
+            this._acceptCallbacks.push(fn || function() {
+            });
+        },
+        dispose: function dispose(fn) {
+            this._disposeCallbacks.push(fn);
+        }
+    };
+    module.bundle.hotData = undefined;
+}
+module.bundle.Module = Module;
+var checkedAssets, acceptedAssets, assetsToAccept;
+function getHostname() {
+    return HMR_HOST || (location.protocol.indexOf('http') === 0 ? location.hostname : 'localhost');
+}
+function getPort() {
+    return HMR_PORT || location.port;
+} // eslint-disable-next-line no-redeclare
+var parent = module.bundle.parent;
+if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
+    var hostname = getHostname();
+    var port = getPort();
+    var protocol = HMR_SECURE || location.protocol == 'https:' && !/localhost|127.0.0.1|0.0.0.0/.test(hostname) ? 'wss' : 'ws';
+    var ws = new WebSocket(protocol + '://' + hostname + (port ? ':' + port : '') + '/'); // $FlowFixMe
+    ws.onmessage = function(event) {
+        checkedAssets = {
+        };
+        acceptedAssets = {
+        };
+        assetsToAccept = [];
+        var data = JSON.parse(event.data);
+        if (data.type === 'update') {
+            // Remove error overlay if there is one
+            if (typeof document !== 'undefined') removeErrorOverlay();
+            var assets = data.assets.filter(function(asset) {
+                return asset.envHash === HMR_ENV_HASH;
+            }); // Handle HMR Update
+            var handled = assets.every(function(asset) {
+                return asset.type === 'css' || asset.type === 'js' && hmrAcceptCheck(module.bundle.root, asset.id, asset.depsByBundle);
+            });
+            if (handled) {
+                console.clear();
+                assets.forEach(function(asset) {
+                    hmrApply(module.bundle.root, asset);
+                });
+                for(var i = 0; i < assetsToAccept.length; i++){
+                    var id = assetsToAccept[i][1];
+                    if (!acceptedAssets[id]) hmrAcceptRun(assetsToAccept[i][0], id);
+                }
+            } else window.location.reload();
+        }
+        if (data.type === 'error') {
+            // Log parcel errors to console
+            var _iterator = _createForOfIteratorHelper(data.diagnostics.ansi), _step;
+            try {
+                for(_iterator.s(); !(_step = _iterator.n()).done;){
+                    var ansiDiagnostic = _step.value;
+                    var stack = ansiDiagnostic.codeframe ? ansiDiagnostic.codeframe : ansiDiagnostic.stack;
+                    console.error('🚨 [parcel]: ' + ansiDiagnostic.message + '\n' + stack + '\n\n' + ansiDiagnostic.hints.join('\n'));
+                }
+            } catch (err) {
+                _iterator.e(err);
+            } finally{
+                _iterator.f();
+            }
+            if (typeof document !== 'undefined') {
+                // Render the fancy html overlay
+                removeErrorOverlay();
+                var overlay = createErrorOverlay(data.diagnostics.html); // $FlowFixMe
+                document.body.appendChild(overlay);
+            }
+        }
+    };
+    ws.onerror = function(e) {
+        console.error(e.message);
+    };
+    ws.onclose = function() {
+        console.warn('[parcel] 🚨 Connection to the HMR server was lost');
+    };
+}
+function removeErrorOverlay() {
+    var overlay = document.getElementById(OVERLAY_ID);
+    if (overlay) {
+        overlay.remove();
+        console.log('[parcel] ✨ Error resolved');
+    }
+}
+function createErrorOverlay(diagnostics) {
+    var overlay = document.createElement('div');
+    overlay.id = OVERLAY_ID;
+    var errorHTML = '<div style="background: black; opacity: 0.85; font-size: 16px; color: white; position: fixed; height: 100%; width: 100%; top: 0px; left: 0px; padding: 30px; font-family: Menlo, Consolas, monospace; z-index: 9999;">';
+    var _iterator2 = _createForOfIteratorHelper(diagnostics), _step2;
+    try {
+        for(_iterator2.s(); !(_step2 = _iterator2.n()).done;){
+            var diagnostic = _step2.value;
+            var stack = diagnostic.codeframe ? diagnostic.codeframe : diagnostic.stack;
+            errorHTML += "\n      <div>\n        <div style=\"font-size: 18px; font-weight: bold; margin-top: 20px;\">\n          \uD83D\uDEA8 ".concat(diagnostic.message, "\n        </div>\n        <pre>").concat(stack, "</pre>\n        <div>\n          ").concat(diagnostic.hints.map(function(hint) {
+                return '<div>💡 ' + hint + '</div>';
+            }).join(''), "\n        </div>\n        ").concat(diagnostic.documentation ? "<div>\uD83D\uDCDD <a style=\"color: violet\" href=\"".concat(diagnostic.documentation, "\" target=\"_blank\">Learn more</a></div>") : '', "\n      </div>\n    ");
+        }
+    } catch (err) {
+        _iterator2.e(err);
+    } finally{
+        _iterator2.f();
+    }
+    errorHTML += '</div>';
+    overlay.innerHTML = errorHTML;
+    return overlay;
+}
+function getParents(bundle, id) /*: Array<[ParcelRequire, string]> */ {
+    var modules = bundle.modules;
+    if (!modules) return [];
+    var parents = [];
+    var k, d, dep;
+    for(k in modules)for(d in modules[k][1]){
+        dep = modules[k][1][d];
+        if (dep === id || Array.isArray(dep) && dep[dep.length - 1] === id) parents.push([
+            bundle,
+            k
+        ]);
+    }
+    if (bundle.parent) parents = parents.concat(getParents(bundle.parent, id));
+    return parents;
+}
+function updateLink(link) {
+    var newLink = link.cloneNode();
+    newLink.onload = function() {
+        if (link.parentNode !== null) // $FlowFixMe
+        link.parentNode.removeChild(link);
+    };
+    newLink.setAttribute('href', link.getAttribute('href').split('?')[0] + '?' + Date.now()); // $FlowFixMe
+    link.parentNode.insertBefore(newLink, link.nextSibling);
+}
+var cssTimeout = null;
+function reloadCSS() {
+    if (cssTimeout) return;
+    cssTimeout = setTimeout(function() {
+        var links = document.querySelectorAll('link[rel="stylesheet"]');
+        for(var i = 0; i < links.length; i++){
+            // $FlowFixMe[incompatible-type]
+            var href = links[i].getAttribute('href');
+            var hostname = getHostname();
+            var servedFromHMRServer = hostname === 'localhost' ? new RegExp('^(https?:\\/\\/(0.0.0.0|127.0.0.1)|localhost):' + getPort()).test(href) : href.indexOf(hostname + ':' + getPort());
+            var absolute = /^https?:\/\//i.test(href) && href.indexOf(window.location.origin) !== 0 && !servedFromHMRServer;
+            if (!absolute) updateLink(links[i]);
+        }
+        cssTimeout = null;
+    }, 50);
+}
+function hmrApply(bundle, asset) {
+    var modules = bundle.modules;
+    if (!modules) return;
+    if (asset.type === 'css') reloadCSS();
+    else if (asset.type === 'js') {
+        var deps = asset.depsByBundle[bundle.HMR_BUNDLE_ID];
+        if (deps) {
+            var fn = new Function('require', 'module', 'exports', asset.output);
+            modules[asset.id] = [
+                fn,
+                deps
+            ];
+        } else if (bundle.parent) hmrApply(bundle.parent, asset);
+    }
+}
+function hmrAcceptCheck(bundle, id, depsByBundle) {
+    var modules = bundle.modules;
+    if (!modules) return;
+    if (depsByBundle && !depsByBundle[bundle.HMR_BUNDLE_ID]) {
+        // If we reached the root bundle without finding where the asset should go,
+        // there's nothing to do. Mark as "accepted" so we don't reload the page.
+        if (!bundle.parent) return true;
+        return hmrAcceptCheck(bundle.parent, id, depsByBundle);
+    }
+    if (checkedAssets[id]) return true;
+    checkedAssets[id] = true;
+    var cached = bundle.cache[id];
+    assetsToAccept.push([
+        bundle,
+        id
+    ]);
+    if (cached && cached.hot && cached.hot._acceptCallbacks.length) return true;
+    var parents = getParents(module.bundle.root, id); // If no parents, the asset is new. Prevent reloading the page.
+    if (!parents.length) return true;
+    return parents.some(function(v) {
+        return hmrAcceptCheck(v[0], v[1], null);
+    });
+}
+function hmrAcceptRun(bundle, id) {
+    var cached = bundle.cache[id];
+    bundle.hotData = {
+    };
+    if (cached && cached.hot) cached.hot.data = bundle.hotData;
+    if (cached && cached.hot && cached.hot._disposeCallbacks.length) cached.hot._disposeCallbacks.forEach(function(cb) {
+        cb(bundle.hotData);
+    });
+    delete bundle.cache[id];
+    bundle(id);
+    cached = bundle.cache[id];
+    if (cached && cached.hot && cached.hot._acceptCallbacks.length) cached.hot._acceptCallbacks.forEach(function(cb) {
+        var assetsToAlsoAccept = cb(function() {
+            return getParents(module.bundle.root, id);
+        });
+        if (assetsToAlsoAccept && assetsToAccept.length) // $FlowFixMe[method-unbinding]
+        assetsToAccept.push.apply(assetsToAccept, assetsToAlsoAccept);
+    });
+    acceptedAssets[id] = true;
+}
+
+},{}],"c2Fqk":[function(require,module,exports) {
+var form = document.querySelector(".needs-validation");
+form.addEventListener("submit", function(event) {
+    if (form.checkValidity() === false) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+    form.classList.add("was-validated");
+});
+
+},{}]},["1w6OR","c2Fqk"], "c2Fqk", "parcelRequire5db4")
+
+</script>
+  </body>
+</html>
